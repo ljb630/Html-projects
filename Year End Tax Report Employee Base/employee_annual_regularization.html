@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMPLOYEE ANNUAL REGULARIZATION</title>
+</head>
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+        font-family: Verdana, Arial, sans-serif;
+    }
+
+    /* Page */
+    page {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 0.5cm;
+        background: white;
+    }
+
+    page[size="A4"] {
+        width: 21cm;
+        height: 29.7cm;
+    }
+
+    page[size="A4"][layout="landscape"] {
+        width: 29.7cm;
+        height: 21cm;
+    }
+
+    page[size="A3"] {
+        width: 29.7cm;
+        height: 42cm;
+    }
+
+    page[size="A3"][layout="landscape"] {
+        width: 42cm;
+        height: 29.7cm;
+    }
+
+    page[size="A5"] {
+        width: 14.8cm;
+        height: 21cm;
+    }
+
+    page[size="A5"][layout="landscape"] {
+        width: 21cm;
+        height: 14.8cm;
+    }
+
+    #all-page {
+        margin: 15px;
+        padding: 15px;
+        font-size: 14px;
+        /* height: 950px; */
+    }
+
+    h2 {
+        text-align: center;
+        margin: 5px;
+        padding: 5px;
+    }
+
+    div {
+        margin: 5px;
+        padding: 5px;
+    }
+
+    #tab-1 {
+        border-collapse: collapse;
+        margin: 5px;
+        padding: 5px;
+    }
+
+    #tab-1 tr td {
+        padding: 1px;
+        margin: 2px;
+        border: 1px solid black;
+    }
+
+    .sub-tab-clor td {
+        background-color: rgba(156, 194, 229, 255);
+    }
+
+    .rt {
+        text-align: right;
+    }
+
+    /*footer*/
+
+    .document-footer {
+        margin-top: 10px;
+    }
+
+    .document-footer p {
+        font-size: 9px;
+        text-align: center;
+    }
+
+    .document-footer-ref {
+        font-size: 9px;
+        vertical-align: bottom;
+    }
+
+    .document-footer-copy {
+        font-size: 9px;
+        text-align: center;
+    }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+
+<body>
+    <th:block th:each="row:${report.rows}">
+        <page size="A4">
+            <div id="all-page">
+                <h2>
+                    EMPLOYEE ANNUAL REGULARIZATION
+                    <br> INCOME TAX YEAR 2022
+                </h2>
+                <div>
+                    <p><strong>EMPLOYEE NAME:</strong> <span th:text="${row['person_name']}"></span></p>
+                    <p><strong>EMPLOYEE NUMBER:</strong> <span th:text="${row['person_id']}"></span></p>
+                </div>
+                <table id="tab-1" width="100%">
+                    <tr class="sub-tab-clor" width="100%">
+                        <td width="60%"><strong>ANNUAL GROSS EARNINGS</strong></td>
+                        <td width="13%"></td>
+                        <td width="13%"></td>
+                        <td width="13%"></td>
+                    </tr>
+                    <tr class="sub-tab-1" width="100%">
+                        <td> <strong> Earnings Subject to: </strong> </td>
+                        <td> <strong> IRPP </strong> </td>
+                        <td> <strong> Labour <br> Protection/ <br> Training <br> Fund </strong> </td>
+                        <td> <strong> INSESO </strong></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td>Salary</td>
+                        <td class="rt" th:text="${#numberFormat.format(row['salary'], valueFormat)}"></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['salary'], valueFormat)}"></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['salary'], valueFormat)}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td>Allowances</td>
+                        <td class="rt" th:text="${#numberFormat.format(row['allow_sum'], valueFormat)}"></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['allow_sum'], valueFormat)}"></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['allow_sum'], valueFormat)}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td>National Independence &
+                            Christmas Bonuses</td>
+                        <td class="rt" th:text="${#numberFormat.format(row['nat_ind_chr_bon'], valueFormat)}"></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['nat_ind_chr_bon'], valueFormat)}"></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['nat_ind_chr_bon_ex'], valueFormat)}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td>Overtime & Offshore Pay</td>
+                        <td class="rt" th:text="${#numberFormat.format(row['ovr_off_pay'], valueFormat)}"></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['ovr_off_pay'], valueFormat)}"></td>
+                        <td></td>
+                    </tr>
+                    <!-- <tr class="sub-tab-1">
+                        <td>CIP Bonus </td>
+                        <td class="rt" th:text="${#numberFormat.format(row['sti_bon'], valueFormat)}"></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['sti_bon'], valueFormat)}"></td>
+                        <td class="rt"></td>
+                    </tr> -->
+                    <tr class="sub-tab-1">
+                        <td>&nbsp;</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td><strong>Total Earnings (A) </strong></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['total_ear'], valueFormat)}"></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['total_ear'], valueFormat)}"></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['toal_is'], valueFormat)}"></td>
+                    </tr>
+                </table>
+                <br>
+                <table id="tab-1" width="80%">
+                    <tr class="sub-tab-clor" width="100%">
+                        <td width="55%"><strong>TAX-DEDUCTIBLE DEDUCTIONS</strong></td>
+                        <td width="20%"></td>
+                        <td></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td>Labour Protection/Training Fund
+                            Contrib. </td>
+                        <td style="text-align: center;">0.5%</td>
+                        <td class="rt" th:text="${#numberFormat.format(row['labour_pro_tfc'], valueFormat)}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td>INSESO Contributions </td>
+                        <td style="text-align: center;">4.5%</td>
+                        <td class="rt" th:text="${#numberFormat.format(row['inseso_co'], valueFormat)}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td colspan="2"><strong>Total Deductions (B)</strong></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['total_de'], valueFormat)}"></td>
+                    </tr>
+                </table>
+                <br>
+                <table id="tab-1" width="80%">
+                    <tr class="sub-tab-1">
+                        <td width="75%"><strong>ANNUAL NET EARNINGS (A-B) </strong></td>
+                        <td  class="rt" th:text="${#numberFormat.format(row['ane_a-b'], valueFormat)}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td>Exempt allowance
+                            (Lower of XFA1,000,000 & 20% of Annual
+                            Net Earnings) </td>
+                        <td class="rt">1,000,000</td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td><strong>ANNUAL TAXABLE INCOME</strong></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['df-ane'], valueFormat)}"></td>
+                    </tr>
+                </table>
+                <br>
+                <table id="tab-1" width="100%">
+                    <tr class="sub-tab-clor" width="100%">
+                        <td width="20%"><strong>Income Band From</strong></td>
+                        <td width="20%"><strong>Income Band To</strong></td>
+                        <td width="20%"><strong>Rate of IRPP</strong></td>
+                        <td width="20%"><strong>Taxable Income</strong></td>
+                        <td width="20%"><strong>IRPP</strong></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td class="rt">&nbsp;0.00</td>
+                        <td class="rt">1,000,000.00</td>
+                        <td class="rt">0%</td>
+                        <td class="rt" th:text="${#numberFormat.format(row['r_1'], valueFormat)}"></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['rr_1'], valueFormat)}">0</td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td class="rt">&nbsp;1,000,000.00</td>
+                        <td class="rt">3,000,000.00</td>
+                        <td class="rt">10%</td>
+                        <td class="rt" th:text="${#numberFormat.format(row['r_2'], valueFormat)}"></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['rr_2'], valueFormat)}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td class="rt">&nbsp;3,000,000.00</td>
+                        <td class="rt">5,000,000.00</td>
+                        <td class="rt">15%</td>
+                        <td class="rt" th:text="${#numberFormat.format(row['r_3'], valueFormat)}"></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['rr_3'], valueFormat)}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td class="rt">&nbsp;5,000,000.00</td>
+                        <td class="rt">10,000,000.00</td>
+                        <td class="rt">20%</td>
+                        <td class="rt" th:text="${#numberFormat.format(row['r_4'], valueFormat)}"></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['rr_4'], valueFormat)}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td class="rt">&nbsp;10,000,000.00</td>
+                        <td class="rt">15,000,000.00</td>
+                        <td class="rt">25%</td>
+                        <td class="rt" th:text="${#numberFormat.format(row['r_5'], valueFormat)}"></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['rr_5'], valueFormat)}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td class="rt">&nbsp;15,000,000.00</td>
+                        <td class="rt">20,000,000.00</td>
+                        <td class="rt">30%</td>
+                        <td class="rt" th:text="${#numberFormat.format(row['r_6'], valueFormat)}"></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['rr_6'], valueFormat)}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td class="rt">&nbsp;20,000,000.00</td>
+                        <td class="rt">1,000,000,000.00</td>
+                        <td class="rt">35%</td>
+                        <td class="rt" th:text="${#numberFormat.format(row['r_7'], valueFormat)}"></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['rr_7'], valueFormat)}"></td>
+                    </tr>
+                </table>
+                <br>
+                <table id="tab-1" width="100%">
+                    <tr class="sub-tab-1" width="100%">
+                        <td width="30%"><strong>Total Annual Taxable Income</strong></td>
+                        <td class="rt" width="10%" th:text="${#numberFormat.format(row['n_ad'], valueFormat)}"></td>
+                        <td class="rt" width="10%"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td><strong>Total IRPP</strong></td>
+                        <td></td>
+                        <td class="rt" th:text="${#numberFormat.format(row['m_ad'], valueFormat)}"></td>
+                    </tr>
+                </table>
+
+
+
+                <!-- footer  -->
+                <br>
+                <br>
+                <table class="footer">
+                    <tr>
+                        <td width="25%" class="document-footer-ref" th:text="${#strings.toUpperCase(code)}"></td>
+                        <td colspan="3" class="document-footer-copy">
+                            This document has been generated by Mercans <br> <br> &copy; All rights reserved
+                        </td>
+                        <td width="25%"></td>
+                    </tr>
+                </table>
+            </div>
+        </page>
+
+
+    </th:block>
+</body>
+
+</html>
+
+
+
+
+
+

@@ -1,0 +1,486 @@
+<style type="text/css">
+    * {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 8px;
+    }
+
+    table {
+        margin-bottom: 10px;
+        page-break-inside: avoid;
+        page-break-after: auto;
+        border-collapse: collapse;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        text-align: left;
+    }
+
+    table:last-child {
+        margin-bottom: 0;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    th {
+        font-weight: normal;
+        padding: 1px 2px !important;
+    }
+
+    table tbody tr td:before,
+    table tbody tr td:after,
+    table tfoot tr th:before,
+    table tfoot tr th:after {
+        content: "";
+        height: 1px;
+        display: block;
+    }
+
+    .table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .table>thead>tr>th,
+    .table>tbody>tr>th,
+    .table>tfoot>tr>th {
+        text-align: left;
+    }
+
+    .table>tbody>tr>td,
+    .table>tbody>tr>th,
+    .table>tfoot>tr>th,
+    .table>thead>tr>th {
+        border: 1px solid black;
+        vertical-align: top;
+        border-bottom: 1px solid #000;
+        padding: 2px;
+    }
+
+
+    .table-left {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        margin-bottom: 5px;
+        width: 50%;
+        float: left;
+    }
+
+    .table-left>thead>tr>th,
+    .table-left>tbody>tr>th,
+    .table-left>tfoot>tr>th {
+        text-align: left;
+    }
+
+    .table-left>tbody>tr>td,
+    .table-left>tbody>tr>th,
+    .table-left>tfoot>tr>th,
+    .table-left>thead>tr>th {
+        border: 1px solid black;
+        vertical-align: top;
+        border-bottom: 1px solid #000;
+        padding: 2px;
+    }
+
+    .table-right {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        margin-bottom: 5px;
+        width: 50%;
+        float: right;
+    }
+
+    .table-right>thead>tr>th,
+    .table-right>tbody>tr>th,
+    .table-right>tfoot>tr>th {
+        text-align: left;
+    }
+
+    .table-right>tbody>tr>td,
+    .table-right>tbody>tr>th,
+    .table-right>tfoot>tr>th,
+    .table-right>thead>tr>th {
+        border: 1px solid black;
+        vertical-align: top;
+        border-bottom: 1px solid #000;
+        padding: 2px;
+    }
+
+    .header-td {
+        font-weight: bold;
+        text-transform: uppercase;
+        background-color: #DDDDDD;
+    }
+
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .text-center>th {
+        text-align: center !important;
+        font-weight: bold;
+        vertical-align: middle !important;
+    }
+
+    .text-right {
+        text-align: right !important;
+    }
+
+    .text-left {
+        text-align: left !important;
+    }
+
+    .text-bold {
+        font-weight: bold;
+    }
+
+    .document-footer {
+        margin-top: 20px;
+    }
+
+    .document-footer p {
+        font-size: 9px;
+        text-align: center;
+        margin: 5px;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .text-right {
+        text-align: right !important;
+    }
+
+    .text-left {
+        text-align: left !important;
+    }
+
+    .border-none>tr>th {
+        border: none !important;
+    }
+
+    .border-none>tr>td {
+        border: none !important;
+    }
+
+    .border-none>th {
+        border: none !important;
+    }
+
+    .border-none>td {
+        border: none !important;
+    }
+
+    .border-none {
+        border: none !important;
+    }
+
+    .border-right {
+        border-right: 1px solid black !important;
+    }
+
+    .valign-middle {
+        vertical-align: middle !important;
+    }
+
+    .valign-bottom {
+        vertical-align: bottom !important;
+    }
+
+    .border-top-bottom-none {
+        border-top: none !important;
+        border-bottom: none !important;
+    }
+
+    .border-top-none {
+        border-top: none !important;
+    }
+
+    .border-bottom-none {
+        border-bottom: none !important;
+    }
+
+    .border-left-none {
+        border-left: none !important;
+    }
+
+    .border-right-none {
+        border-right: none !important;
+    }
+
+    .border-bottom {
+        border-bottom: 1px solid black !important;
+    }
+
+    div.circle {
+        -moz-border-radius: 50px/50px;
+        -webkit-border-radius: 50px 50px;
+        border-radius: 50px/50px;
+        border: solid 1px #000;
+        width: 80px;
+        height: 80px;
+    }
+
+    div.square {
+        border: 1px solid black;
+        width: 250px;
+        height: 100px;
+        position: relative;
+    }
+
+    .square span {
+        position: absolute;
+        bottom: 0;
+        left: 33%;
+    }
+
+    .padding-none>td {
+        padding: 0px !important;
+    }
+
+    .hidden {
+        visibility: hidden !important;
+    }
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<div>
+    <div style="margin-bottom:5px;">
+        <table class="border-none table" style="margin-bottom: 5px;">
+            <tr class="border-none">
+                <td class="text-center text-bold" colspan="4" style="font-size: 11px;">ORDEN PARA PROCESAMIENTO DE PAGO
+                    FINANCERO</th>
+            </tr>
+        </table>
+        <table class="table table-left border-none">
+            <tr class="border-none">
+                <td rowspan="3">
+                    <img height="60px" class="valign-middle"
+                        th:src="@{https://i.ibb.co/r7LKK0x/DTflxg-Jt79j-Pi-Nfv-LYak-KZ-1-Ya-TYOYa-IQQ.png}"
+                        src="https://i.ibb.co/r7LKK0x/DTflxg-Jt79j-Pi-Nfv-LYak-KZ-1-Ya-TYOYa-IQQ.png" alt="Logo">
+                </td>
+            </tr>
+        </table>
+        <table class="table-right border-none">
+            <tr class="border-none">
+                <td>
+                    <br>
+                </td>
+            </tr>
+            <tr>
+                <td width="40%" class="header-td">CIUDAD</td>
+                <td width="50%" class="text-center">Medellin</td>
+                <td class="border-none"></td>
+            </tr>
+            <tr>
+                <td class="header-td">Fecha</td>
+                <td class="text-center" th:text="${#dates.format(#dates.createNow(), 'dd-MMM-yy')}">25-Nov-20</td></tr>
+        </table>
+        <table class="table">
+            <tr>
+                <td class="header-td" width="20%">Paguese a</td>
+                <!-- <td colspan="3" th:text="${report.rows[0]['paguese']}">ENTIDADES SEGÚN RELACION</td> -->
+            </tr>
+            <tr>
+                <td class="header-td" width="20%">Nit</td>
+                <td class="text-center text-bold" width="30%"></td>
+                <td class="header-td" width="20%">Vendor sap</td>
+                <!-- <td class="text-center text-bold" width="30%" th:text="${report.rows[0]['vendro_sap']}"></td> -->
+            </tr>
+            <tr>
+                <td class="header-td" width="20%">Valor</td>
+                <td class="text-center text-bold" width="30%"
+                    th:text="'$' + ${#numbers.formatDecimal(report.grand_total.credit_amount, 0, 'POINT', 0, 'COMMA')}">
+                    $179.168.906</td>
+                <td class="header-td" width="20%">Moneda</td>
+                <td class="text-center text-bold" width="30%"></td>
+            </tr>
+        </table>
+        <table class="table">
+            <tr>
+                <td colspan="8" class="header-td text-center">DETALLE DEL PAGO</td>
+            </tr>
+            <tr>
+                <td width="25%" colspan="2" class="header-td text-center">Factura número</td>
+                <td width="25%" colspan="2" class="header-td text-center">Fecha de recepción</td>
+                <td width="25%" colspan="2" class="header-td text-center">Fecha de vencimento</td>
+                <td colspan="2" class="header-td text-center">Valor</td>
+            </tr>
+            <tr>
+                <!-- <td colspan="2" class="valign-middle text-center border-top-bottom-none" height="20px"
+                    th:text="${report.rows[0]['report_name']}">AFC1764MES11</td> -->
+                <td colspan="2" class="valign-middle text-center border-top-bottom-none"></td>
+                <!-- <td colspan="2" class="valign-middle text-center border-top-bottom-none"
+                    th:text="${report.rows[0]['pay_date']}">9/12/2020</td> -->
+                <td colspan="2" class="valign-middle text-center border-top-bottom-none"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="border-top-none"></td>
+                <td colspan="2" class="border-top-none"></td>
+                <td colspan="2" class="border-top-none"></td>
+                <td width="8%" class="header-td">TOTAL</td>
+                <td width="17%" class="text-right"
+                    th:text="'$' + ${#numbers.formatDecimal(report.grand_total.credit_amount, 0, 'POINT', 0, 'COMMA')}">
+                    $179.168.906</td>
+            </tr>
+        </table>
+        <table class="table" style="margin-bottom: 2px;">
+            <tr>
+                <td colspan="4" class="header-td text-center">Datos para el registro</td>
+            </tr>
+            <tr>
+                <td class="header-td" width="20%">Concept</td>
+                <td class="text-center" width="30%">RETENCIONES Y APORTES NOMINA</td>
+                <td class="header-td" width="20%">centro de costos</td>
+                <td class="text-center" width="30%">1764782520</td>
+            </tr>
+            <tr>
+                <td class="header-td" width="20%">Cuenta mayor</td>
+                <td class="text-center text-bold" width="30%"></td>
+                <td class="header-td" width="20%">Elemento pep</td>
+                <td class="text-center text-bold" width="30%"></td>
+            </tr>
+            <tr>
+                <td class="header-td valign-middle" width="20%">Otro/descriptión</td>
+                <td class="text-center text-bold" width="30%"></td>
+                <td class="header-td valign-middle" width="20%">Cuenta mayor otro</td>
+                <td class="text-center text-bold" width="30%"></td>
+            </tr>
+        </table>
+        <table class="table border-none" style="margin-bottom: 2px;">
+            <tr class="border-none">
+                <!-- <td class="text-center text-bold" colspan="4" style="font-size: 10px;">
+                    <span style="font-size: 10px; text-transform: uppercase;"
+                        th:text="${report.rows[0]['period_description']} + ' ' + ${report.rows[0]['month']} + ${' ' + #dates.format(#dates.createNow(), 'yyyy')}"></span>
+                </td> -->
+            </tr>
+        </table>
+        <table class="table" style="margin-bottom: 2px">
+            <thead>
+                <tr>
+                    <td class="header-td text-center">Cuenta contable</td>
+                    <td class="header-td text-center">Co</td>
+                    <td class="header-td text-center">Code</td>
+                    <td width="35%" class="header-td text-center">Nombre</td>
+                    <td class="header-td text-center">Codigo sap</td>
+                    <td class="header-td text-center">Cuotas</td>
+                    <td class="header-td text-center">GASTOS <br> MEDICOS</td>
+                    <td class="header-td text-center">GASTOS <br> FUNCIONAMIENTO</td>
+                    <td class="header-td text-center">Valor</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="row : ${report.rows}">
+                    <td class="text-center" th:text="${row['gl_code']}">22110112</td>
+                    <td class="text-center" th:text="${row['co']}">CO15</td>
+                    <td class="text-center" th:text="${row['account']}">CO15</td>
+                    <td th:text="${row['entry_name']}">AFC BANCOLOMBIA</td>
+                    <td class="text-center" th:text="${row['sap_code']}">1040177</td>
+                    <td class="text-center" th:text="${row['credit_amount']}">$10.102.177.086</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center"
+                        th:text="${#numbers.formatDecimal(row['credit_amount'], 0, 'POINT', 0, 'COMMA')}">
+                        $10.102.177.086</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="header-td text-center" colspan="6">TOTAL</td>
+                    <td class="header-td text-right text-bold" colspan="3"
+                        th:text="'$' + ${#numbers.formatDecimal(report.grand_total.credit_amount, 0, 'POINT', 0, 'COMMA')}">
+                        $ 179.168.906</td>
+                </tr>
+                <tr>
+                    <td colspan="9" class="border-top-bottom-none"><br></td>
+                </tr>
+                <tr>
+                    <td colspan="9" class="border-top-bottom-none">
+                        <table class="table border-none">
+                            <tr>
+                                <td width="48%" colspan="5" rowspan="3" class="border-none"></td>
+                                <td width="22%">PERSONAL ACTIVO</td>
+                                <td width="14%" class="text-right"
+                                    th:text="'$' + ${#numbers.formatDecimal(report.grand_total.credit_amount, 0, 'POINT', 0, 'COMMA')}">
+                                    $476.220.324</td>
+                                <td width="14%" class="text-right"></td>
+                            </tr>
+                            <tr>
+                                <td>PERSONAL JUBILADO</td>
+                                <td class="text-right"></td>
+                                <td class="text-right"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-bold">TOTAL APORTES</td>
+                                <td class="text-bold text-right"
+                                    th:text="'$' + ${#numbers.formatDecimal(report.grand_total.credit_amount, 0, 'POINT', 0, 'COMMA')}">
+                                    $476.220.324</td>
+                                <td class="text-bold text-right"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="9" class="header-td text-center">Espacio para autorizaciones</td>
+                </tr>
+            </tfoot>
+        </table>
+        <table class="table border-none" style="margin-bottom: 1px">
+            <tr>
+                <td width="40%" class="border-none border-bottom" style="font-size: 12px;">HR Controlling SSC</td>
+                <td class="border-none"></td>
+            </tr>
+            <tr>
+                <td class="border-none text-bold">Nombre Solicitante</td>
+            </tr>
+        </table>
+        <table class="table border-none" style="margin-bottom: 1px">
+            <tr>
+                <td width="40%" class="border-none border-bottom" style="font-size: 16px;">WF SAP</td>
+                <td class="border-none"></td>
+            </tr>
+            <tr>
+                <td class="border-none text-bold">Firma del Solicitante</td>
+            </tr>
+        </table>
+        <table class="table border-none" style="margin-bottom: 0px">
+            <tr>
+                <td width="50%" colspan="2" class="header-td text-center">Espacio para ap</td>
+                <td class="border-none"></td>
+            </tr>
+            <tr>
+                <td width="25%" class="header-td">Num de Documento</td>
+                <td width="25%"></td>
+            </tr>
+            <tr>
+                <td class="header-td">Fecha de registro</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="header-td">Fecha recepcion ap</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>

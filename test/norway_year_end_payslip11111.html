@@ -1,0 +1,571 @@
+<style type="text/css" xmlns:th="http://www.w3.org/1999/xhtml" th:fragment="payslip_styles">
+    * {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 9px;
+        background-color: #fff;
+        color: #000;
+    }
+
+    small {
+        font-size: 8px;
+    }
+
+    body, html {
+        margin: 0 !important;
+        padding: 1px !important;
+
+    }
+
+    hr {
+        height: 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    table {
+        margin-bottom: 20px;
+        page-break-after: auto;
+    }
+
+    table:last-child {
+        margin-bottom: 0;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr.title > td,
+    tr.title > td > div,
+    tr.title > td > div > span {
+        font-size: 11px;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    table tbody tr td:before,
+    table tbody tr td:after,
+    table tfoot tr th:before,
+    table tfoot tr th:after {
+        content: "";
+        height: 1px;
+        display: block;
+    }
+
+    table > thead > tr.caption > td {
+        background: #aaa;
+        border-bottom: 1px solid #000;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 3px;
+        text-align: center;
+    }
+
+    .table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .table > thead > tr > th,
+    .table > tfoot > tr > th {
+        background: #ddd;
+        text-align: left;
+    }
+
+    .table > tbody > tr > td,
+    .table > tfoot > tr > th,
+    .table > thead > tr > th {
+        vertical-align: top;
+        border-bottom: 1px solid #000;
+        padding: 4px;
+    }
+
+    .table > tbody > tr > td,
+    .table > tfoot > tr > th {
+        border: 1px solid black;
+    }
+
+    .table > thead > tr > th {
+        font-weight: bold;
+    }
+
+    .table > tbody > tr.important > td {
+        background-color: #f8f8f8;
+        font-weight: bold;
+    }
+
+    .infobox {
+        border: 1px solid #ccc;
+    }
+
+    .table-2col > tbody > tr > td {
+        width: 50%;
+    }
+
+    .table-3col > tbody > tr > td {
+        width: 33%;
+    }
+
+    .table-4col > tbody > tr > td {
+        width: 25%;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .text-right {
+        text-align: right !important;
+    }
+
+    .text-left {
+        text-align: left !important;
+    }
+
+    .text-bold {
+        font-weight: bold;
+    }
+
+    .bg-attention {
+        background-color: #f2dede;
+    }
+
+    .document-footer {
+        margin-top: 10px;
+    }
+
+    .document-footer p {
+        font-size: 9px;
+        text-align: center;
+    }
+
+    .document-footer-ref {
+        font-size: 9px;
+        vertical-align: bottom;
+    }
+
+    .document-footer-copy {
+        font-size: 9px;
+        text-align: center;
+    }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .panel {
+        border: 1px solid #000;
+    }
+
+    .panel > .panel-heading {
+        background: #aaa;
+        border-bottom: 1px solid #000;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 6px;
+        text-align: center;
+    }
+
+    .panel > .panel-body {
+        padding: 10px;
+    }
+
+    table {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .table-height {
+        height: 200px !important;
+    }
+
+    .table-left {
+        width: 50%;
+        float: left;
+    }
+
+    .table-right {
+        width: 50%;
+        float: right;
+    }
+
+    .key {
+        width: 100px !important;
+    }
+
+    .infobox {
+        border: 1px solid #000;
+    }
+
+    .header-table {
+        font-weight: bold;
+        text-align: right;
+    }
+
+    .header-table td:first-child {
+        text-align: left;
+    }
+
+    img.logo {
+        max-height: 90px;
+        max-width: 300px;
+    }
+
+    .details-table {
+        border: 1px solid #000;
+        border-spacing: 0;
+        padding: 0;
+    }
+
+    .info-table {
+        border: 1px solid #000;
+        border-spacing: 0;
+
+    }
+
+    .main-header {
+        background: #aaa;
+    }
+
+    .vertical-align-middle {
+        vertical-align: middle !important;
+    }
+
+    .info-table > tbody > tr > td {
+        border-right: 1px solid #000;
+        border-left: 1px solid #000;
+        padding: 4px;
+        vertical-align: top;
+    }
+
+    .info-table > tbody > tr > td:first-child {
+        border-left: 0;
+    }
+
+    .info-table > tbody > tr > td:last-child {
+        border-right: 0;
+    }
+
+    .details-table > tbody > tr > td {
+        border-right: 1px solid #000;
+        border-left: 1px solid #000;
+        padding: 0;
+        vertical-align: top;
+    }
+
+    .details-table > tbody > tr > td:first-child {
+        border-left: 0;
+    }
+
+    .details-table > tbody > tr > td:last-child {
+        border-right: 0;
+    }
+
+    .row-header {
+        background: #ddd;
+        font-weight: bold;
+    }
+
+    .details-row-key {
+        background: #ddd;
+        font-weight: bold;
+    }
+
+    .details-row-key > tbody > tr > td {
+        padding: 4px;
+        border-spacing: 0;
+        border-top: none;
+        border-bottom: none;
+    }
+
+    .details-row-key-arabic {
+        width: 20% !important;
+        background: #ddd;
+        border-left: 1px solid #000;
+        border-right: 1px solid #000;
+        font-weight: bold;
+    }
+
+    .details-row-table {
+        border-spacing: 0;
+        border: 1px solid #000;
+        padding: 0;
+    }
+
+    .details-row-table > tbody > tr > td {
+        padding: 4px;
+        border-spacing: 0;
+        width: 50%;
+    }
+
+    .details-row-table > tbody > tr > td:first-child {
+        background: #ddd;
+        width: 50%;
+        border-right: 1px solid #000;
+        font-weight: bold;
+    }
+
+    .detail-row-table > tbody > tr > td:last-child {
+        text-align: left;
+    }
+
+    .general-ledger-table,
+    .general-ledger-table > caption,
+    .general-ledger-table > tbody > tr > td {
+        border: 0;
+    }
+
+    .leave-balance {
+        margin-top: -10px;
+        margin-bottom: 20px;
+        float: left;
+        list-style: none;
+        width: 100%;
+    }
+
+    .leave-balance li {
+        margin-left: -35px;
+    }
+
+    .border-right {
+        border-right: 1px solid black !important;
+    }
+
+    .border-none {
+        border: none !important;
+    }
+
+    .border-rgiht-none {
+        border-right: none !important;
+    }
+
+    .border-left-none {
+        border-left: none !important;
+    }
+
+    .margin-bottom-0 {
+        margin-bottom: 0 !important;
+    }
+
+    .margin-top-0 {
+        margin-top: 0 !important;
+    }
+
+    .solid-border {
+        border: 1px solid #000000 !important;
+    }
+
+
+    .infobox-3-row {
+        float: right;
+        width: 32%;
+        padding: 22px 10px 23px 10px;
+    }
+
+    .infobox-4-row {
+        float: right;
+        width: 25%;
+        padding: 32px 10px 33px 10px;
+    }
+
+    .infobox-5-row {
+        float: right;
+        width: 32%;
+        padding: 42px 10px 43px 10px;
+    }
+
+    .page-break-inside-avoid {
+        page-break-inside: avoid;
+    }
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<th:block th:with="reportRow = ${report['row_section']['rows'][0]}">
+<table class="table-3col header-table">
+    <tr class="title">
+        <td th:if="${logo_uri == null}">
+            <div th:text="${legalEntity.getLegalName()}"></div>
+        </td>
+        <td th:if="${logo_uri != null}">
+            <img th:src="${logo_uri}" th:alt="${legalEntity.getLegalName()}" class="logo" /><br><br>
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+<table class="table-col details-row-table table-left">
+    <tr valign="top">
+        <td>Avsender</td>
+        <td th:text="${legalEntity.getLegalName()}"></td>
+    </tr>
+    <tr valign="top">
+        <td>Avsenderadresse</td>
+        <td th:text="${employerAddressString}"></td>
+    </tr>
+    <tr valign="top">
+        <td>Land</td>
+        <td>Norge</td>
+    </tr>
+    <tr valign="top">
+        <td>Melding</td>
+        <td th:text="${'Lønn ' + period.getName() + ' ' +legalEntity.getLegalName()}"></td>
+    </tr>
+</table>
+
+<table class="table details-row-key">
+    <tr valign="top">
+        <td width="25%" class="row-header">Lønnsmottaker</td>
+        <td width="25%" th:text="${employeeDisplayName}"></td>
+        <td width="25%" class="row-header">Organisasjonsnr.</td>
+        <td width="25%" ></td>
+    </tr>
+    <tr valign="top">
+        <td class="row-header">Arbeidstaker nr</td>
+        <td th:text="${employee.getReferenceCode()}"></td>
+        <td class="row-header">Fødselsnummer</td>
+        <td ></td>
+    </tr>
+    <tr valign="top">
+        <td class="row-header">Ansattes adresse</td>
+        <td></td>
+        <td class="row-header">Skattekort / skatt %</td>
+        <td th:text="${reportRow['Test']}"></td>
+    </tr>
+</table>
+
+<table class="table page-break-inside-avoid" th:if="${show_bank_account_info}">
+    <thead>
+    <tr class="caption">
+        <td colspan="5">Bankopplysninger</td>
+    </tr>
+    </thead>
+    <thead>
+    <tr>
+        <th class="text-center">Bank navn</th>
+        <th class="text-center">SWIFT</th>
+        <th class="text-center">Navn på mottaker</th>
+        <th class="text-center">Lønnskonto</th>
+        <th class="text-center">Kontovaluta</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="bank_account : ${bank_accounts}">
+        <td class="text-center" th:text="${reportRow.bank_name}"></td>
+        <td class="text-center" th:text="${reportRow.bank_swift}"></td>
+        <td class="text-center" th:text="${bank_account.getBeneficiaryName()}"></td>
+        <td class="text-center" th:text="${reportRow.bank_account}"></td>
+        <td class="text-center" th:text="${bank_account.getAccountCurrency()}"></td>
+    </tr>
+    </tbody>
+</table>
+<table class="table">
+    <thead>
+    <tr>
+        <th colspan="3" rowspan="2" class="text-center border-right">Lønn/trekk</th>
+        <th colspan="2" class="text-center border-right">Grunnlag</th>
+        <th colspan="2" class="text-center border-right">Hittiliår</th>
+    </tr>
+    <tr>
+        <th class="text-center border-right">Fer.p.</th>
+        <th class="text-center border-right">Skatt</th>
+        <th class="text-center border-right">Antall</th>
+        <th class="text-center border-right">Beløp</th>
+    </tr>
+    <tr class="caption">
+        <td colspan="7" class="solid-border">Lønn</td>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:if="${report['row_section']['rows_by_identifier']['EARNINGS'] != null}">
+        <tr th:each="row : ${report['row_section']['rows_by_identifier']['EARNINGS'][0]}">
+            <td colspan="3" class="text-right vertical-align-middle" th:text="${row.value['Account']}"></td>
+            <td class="text-right vertical-align-middle" th:text="${row.value['HolidayAccount']}"></td>
+            <td class="text-right vertical-align-middle" th:text="${row.value['TaxOrPercent']}"></td>
+            <td class="text-right vertical-align-middle" th:text="${row.value['Unit']}"></td>
+            <td class="text-right vertical-align-middle" th:text="${row.value['Amount']}"></td>
+        </tr>
+    </th:block>
+    </tbody>
+    <thead>
+    <tr class="caption">
+        <td colspan="7" class="solid-border">Trekk</td>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:if="${report['row_section']['rows_by_identifier']['DEDUCTION'] != null}">
+        <tr th:each="row : ${report['row_section']['rows_by_identifier']['DEDUCTION'][0]}">
+            <td colspan="3" class="text-right vertical-align-middle" th:text="${row.value['Account']}"></td>
+            <td class="text-right vertical-align-middle" th:text="${row.value['HolidayAccount']}"></td>
+            <td class="text-right vertical-align-middle" th:text="${row.value['TaxOrPercent']}"></td>
+            <td class="text-right vertical-align-middle" th:text="${row.value['Unit']}"></td>
+            <td class="text-right vertical-align-middle" th:text="${row.value['Amount']}"></td>
+        </tr>
+    </th:block>
+    </tbody>
+    <thead th:if="${employer_contributions != null}">
+    <tr class="caption">
+        <td colspan="7" class="solid-border">Ytelser</td>
+    </tr>
+    </thead>
+    <tbody th:if="${employer_contributions != null}">
+        <tr>
+            <td colspan="3"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+    <thead>
+    <tr class="caption">
+        <td colspan="7" class="solid-border">Annet</td>
+    </tr>
+    </thead>
+    <tbody>
+   <!-- <tr>
+        <td colspan="3">Refusjon sykepenger mm</td>
+        <td class="text-center vertical-align-middle"></td>
+        <td class="text-center vertical-align-middle"></td>
+        <td class="text-right vertical-align-middle"></td>
+        <td class="text-right vertical-align-middle"></td>
+        <td class="text-right vertical-align-middle" th:text="${#numberFormat.format(reportRow.reimbursement_of_sickness_benefits, valueFormat)}"></td>
+        <td class="text-right vertical-align-middle"></td>
+        <td class="text-right vertical-align-middle"></td>
+    </tr>-->
+    <tr>
+        <td colspan="3">Feriepenger over 60 år</td>
+        <td class="text-center vertical-align-middle"></td>
+        <td class="text-center vertical-align-middle"></td>
+        <td class="text-right vertical-align-middle"></td>
+        <td class="text-right vertical-align-middle"></td>
+    </tr>
+    <tr>
+        <td colspan="3">Feriepenger til utbetaling</td>
+        <td class="text-center vertical-align-middle"></td>
+        <td class="text-center vertical-align-middle"></td>
+        <td class="text-right vertical-align-middle"></td>
+        <td class="text-right vertical-align-middle"></td>
+    </tr>
+    <tr>
+        <td colspan="3">Feriepengegrunnlag</td>
+        <td class="text-center vertical-align-middle"></td>
+        <td class="text-center vertical-align-middle"></td>
+        <td class="text-right vertical-align-middle"></td>
+        <td class="text-right vertical-align-middle"></td>
+    </tr>
+    <tr>
+        <td colspan="3">Forskuddstrekk</td>
+        <td class="text-center vertical-align-middle"></td>
+        <td class="text-center vertical-align-middle"></td>
+        <td class="text-right vertical-align-middle"></td>
+        <td class="text-right vertical-align-middle"></td>
+    </tr>
+    </tbody>
+</table>
+</th:block>

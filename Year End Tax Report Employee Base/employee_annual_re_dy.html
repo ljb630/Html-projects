@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMPLOYEE ANNUAL REGULARIZATION</title>
+</head>
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+        font-family: Verdana, Arial, sans-serif;
+    }
+
+    /* Page */
+    page {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 0.5cm;
+        background: white;
+    }
+
+    page[size="A4"] {
+        width: 21cm;
+        height: 29.7cm;
+    }
+
+    page[size="A4"][layout="landscape"] {
+        width: 29.7cm;
+        height: 21cm;
+    }
+
+    page[size="A3"] {
+        width: 29.7cm;
+        height: 42cm;
+    }
+
+    page[size="A3"][layout="landscape"] {
+        width: 42cm;
+        height: 29.7cm;
+    }
+
+    page[size="A5"] {
+        width: 14.8cm;
+        height: 21cm;
+    }
+
+    page[size="A5"][layout="landscape"] {
+        width: 21cm;
+        height: 14.8cm;
+    }
+
+    #all-page {
+        margin: 15px;
+        padding: 15px;
+        font-size: 14px;
+        /* height: 950px; */
+    }
+
+    h2 {
+        text-align: center;
+        margin: 5px;
+        padding: 5px;
+    }
+
+    div {
+        margin: 5px;
+        padding: 5px;
+    }
+
+    #tab-1 {
+        border-collapse: collapse;
+        margin: 5px;
+        padding: 5px;
+    }
+
+    #tab-1 tr td {
+        padding: 1px;
+        margin: 2px;
+        border: 1px solid black;
+    }
+
+    .sub-tab-clor td {
+        background-color: rgba(156, 194, 229, 255);
+    }
+
+    .rt {
+        text-align: right;
+    }
+
+    /*footer*/
+
+    .document-footer {
+        margin-top: 10px;
+    }
+
+    .document-footer p {
+        font-size: 9px;
+        text-align: center;
+    }
+
+    .document-footer-ref {
+        font-size: 9px;
+        vertical-align: bottom;
+    }
+
+    .document-footer-copy {
+        font-size: 9px;
+        text-align: center;
+    }
+
+    .footer {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        margin-top: 200px;
+    }
+</style>
+
+<body>
+    <th:block th:with="reportRow = ${report['row_section']['rows'][0]}">
+        <page size="A4">
+            <div id="all-page">
+                <h2>
+                    EMPLOYEE ANNUAL REGULARIZATION
+                    <br> INCOME TAX YEAR 2022
+                </h2>
+
+                <div>
+                    <p><strong>EMPLOYEE NAME:</strong> <span th:text="${reportRow['person_name']}"></span></p>
+                    <p><strong>EMPLOYEE NUMBER:</strong> <span th:text="${reportRow['person_id']}"></span></p>
+                </div>
+
+                <table id="tab-1" width="100%">
+                    <tr class="sub-tab-clor">
+                        <td width="60%"><strong>ANNUAL GROSS EARNINGS</strong></td>
+                        <td width="15%"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="sub-tab-1" width="100%">
+                        <td> <strong> Earnings Subject to: </strong> </td>
+                        <td> <strong> IRPP </strong> </td>
+                        <td> <strong> Labour <br> Protection/ <br> Training <br> Fund </strong> </td>
+                        <td> <strong> INSESO </strong> </td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td>Salary</td>
+                        <td class="rt" th:text="${reportRow['salary']}"></td>
+                        <td class="rt" th:text="${reportRow['salary']}"></td>
+                        <td class="rt" th:text="${reportRow['salary']}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td>Allowances</td>
+                        <td class="rt" th:text="${reportRow['allow_sum']}"></td>
+                        <td class="rt" th:text="${reportRow['allow_sum']}"></td>
+                        <td class="rt" th:text="${reportRow['allow_sum']}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td>National Independence &
+                            Christmas Bonuses</td>
+                        <td class="rt" th:text="${reportRow['nat_ind_chr_bon']}"></td>
+                        <td class="rt" th:text="${reportRow['nat_ind_chr_bon']}"></td>
+                        <td class="rt" th:text="${reportRow['nat_ind_chr_bon']}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td>Overtime & Offshore Pay</td>
+                        <td class="rt" th:text="${reportRow['ovr_off_pay']}"></td>
+                        <td class="rt" th:text="${reportRow['ovr_off_pay']}"></td>
+                        <td></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td>STIP Bonus </td>
+                        <td class="rt" th:text="${reportRow['sti_bon']}"></td>
+                        <td class="rt" th:text="${reportRow['sti_bon']}"></td>
+                        <td class="rt"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td>&nbsp;</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td><strong>Total Earnings (A) </strong></td>
+                        <td class="rt" th:text="${reportRow['total_ear']}"></td>
+                        <td class="rt" th:text="${reportRow['total_ear']}"></td>
+                        <td class="rt" th:text="${reportRow['toal_is']}"></td>
+                    </tr>
+                </table>
+                <br>
+                <table id="tab-1" width="85%">
+                    <tr class="sub-tab-clor" width="100%">
+                        <td width="60%"><strong>TAX-DEDUCTIBLE DEDUCTIONS</strong></td>
+                        <td width="20%"></td>
+                        <td></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td>Labour Protection/Training Fund
+                            Contrib. </td>
+                        <td style="text-align: center;">0.5%</td>
+                        <td class="rt" th:text="${reportRow['labour_pro_tfc']}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td>INSESO Contributions </td>
+                        <td style="text-align: center;">4.5%</td>
+                        <td class="rt" th:text="${reportRow['inseso_co']}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td colspan="2"><strong>Total Deductions (B)</strong></td>
+                        <td class="rt" th:text="${reportRow['total_de']}"></td>
+                    </tr>
+                </table>
+                <br>
+                <table id="tab-1" width="85%">
+                    <tr class="sub-tab-1">
+                        <td width="80%"><strong>ANNUAL NET EARNINGS (A-B) </strong></td>
+                        <td class="rt" th:text="${reportRow['ane_a-b']}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td>Exempt allowance
+                            (Lower of XFA1,000,000 & 20% of Annual
+                            Net Earnings) </td>
+                        <td class="rt">1,000,000</td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td><strong>ANNUAL TAXABLE INCOME</strong></td>
+                        <td class="rt" th:text="${reportRow['df-ane']}"></td>
+                    </tr>
+                </table>
+                <br>
+                <table id="tab-1" width="100%">
+                    <tr class="sub-tab-clor" width="100%">
+                        <td width="20%"><strong>Income Band From</strong></td>
+                        <td><strong>Income Band To</strong></td>
+                        <td width="15%"><strong>Rate of IRPP</strong></td>
+                        <td width="17%"><strong>Taxable Income</strong></td>
+                        <td width="15%"><strong>IRPP</strong></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td class="rt">&nbsp;0.00</td>
+                        <td class="rt">1,000,000.00</td>
+                        <td class="rt">0%</td>
+                        <td class="rt" th:text="${reportRow['r_1']}"></td>
+                        <td class="rt" th:text="${reportRow['rr_1']}">0</td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td class="rt">&nbsp;1,000,000.00</td>
+                        <td class="rt">3,000,000.00</td>
+                        <td class="rt">10%</td>
+                        <td class="rt" th:text="${reportRow['r_2']}"></td>
+                        <td class="rt" th:text="${reportRow['rr_2']}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td class="rt">&nbsp;3,000,000.00</td>
+                        <td class="rt">5,000,000.00</td>
+                        <td class="rt">15%</td>
+                        <td class="rt" th:text="${reportRow['r_3']}"></td>
+                        <td class="rt" th:text="${reportRow['rr_3']}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td class="rt">&nbsp;5,000,000.00</td>
+                        <td class="rt">10,000,000.00</td>
+                        <td class="rt">20%</td>
+                        <td class="rt" th:text="${reportRow['r_4']}"></td>
+                        <td class="rt" th:text="${reportRow['rr_4']}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td class="rt">&nbsp;10,000,000.00</td>
+                        <td class="rt">15,000,000.00</td>
+                        <td class="rt">25%</td>
+                        <td class="rt" th:text="${reportRow['r_5']}"></td>
+                        <td class="rt" th:text="${reportRow['rr_5']}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td class="rt">&nbsp;15,000,000.00</td>
+                        <td class="rt">20,000,000.00</td>
+                        <td class="rt">30%</td>
+                        <td class="rt" th:text="${reportRow['r_6']}"></td>
+                        <td class="rt" th:text="${reportRow['rr_6']}"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td class="rt">&nbsp;20,000,000.00</td>
+                        <td class="rt">1,000,000,000.00</td>
+                        <td class="rt">35%</td>
+                        <td class="rt" th:text="${reportRow['r_7']}"></td>
+                        <td class="rt" th:text="${reportRow['rr_7']}"></td>
+                    </tr>
+                </table>
+                <br>
+                <table id="tab-1" width="100%">
+                    <tr class="sub-tab-1">
+                        <td width="51%"><strong>Total Annual Taxable Income</strong></td>
+                        <td class="rt" width="13%" th:text="${reportRow['n_ad']}"></td>
+                        <td class="rt" width="11%"></td>
+                    </tr>
+                    <tr class="sub-tab-1">
+                        <td><strong>Total IRPP</strong></td>
+                        <td></td>
+                        <td class="rt" th:text="${reportRow['m_ad']}"></td>
+                    </tr>
+                </table>
+
+                <!-- footer  -->
+                <br>
+                <br>
+                <table class="footer">
+                    <tr>
+                        <td width="25%" class="document-footer-ref" th:text="${#strings.toUpperCase(code)}"></td>
+                        <td colspan="3" class="document-footer-copy">
+                            This document has been generated by Mercans <br> <br> &copy; All rights reserved
+                        </td>
+                        <td width="25%"></td>
+                    </tr>
+                </table>
+            </div>
+        </page>
+
+
+    </th:block>
+</body>
+
+</html>

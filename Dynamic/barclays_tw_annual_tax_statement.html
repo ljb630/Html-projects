@@ -1,0 +1,493 @@
+<style type="text/css" lang="zh-Hans">
+    * {
+        font-size: 10px;
+        background-color: #fff;
+        line-height: 1;
+        text-align: center;
+    }
+  
+    th {
+        font-size: 9px !important;
+        font-weight: normal;
+    }
+  
+    div {
+        font-size: 9px !important;
+        font-weight: normal;
+    }
+  
+    small {
+        font-size: 10px;
+    }
+  
+    hr {
+        height: 0;
+        border-bottom: 1px solid #ccc;
+    }
+  
+    h3 {
+        font-size: 8px;
+    }
+  
+    h2 {
+        font-size: 16px;
+    }
+    table {
+        page-break-inside: avoid;
+        page-break-after: auto;
+        border-collapse: collapse;
+    }
+  
+    th, td {
+        border: 1px solid black;
+        text-align: right;
+    }
+  
+    table:last-child {
+        margin-bottom: 0;
+    }
+  
+    thead {
+        display: table-header-group;
+    }
+  
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+  
+    table tbody tr td:before,
+    table tbody tr td:after,
+    table tfoot tr th:before,
+    table tfoot tr th:after {
+        content: "";
+        height: 1px;
+        display: block;
+    }
+  
+    table > thead > tr.caption > td {
+        border-bottom: 1px solid #000;
+        font-size: 9px;
+        text-align: center;
+    }
+  
+    .margin-top {
+        margin-top: 50px;
+    }
+  
+    .table {
+        width: 100%;
+        border: 1px solid black;
+    }
+  
+    .table-header {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+  
+    .table > thead > tr > th,
+    .table > tbody > tr > th,
+    .table > tfoot > tr > th {
+        text-align: center;
+    }
+  
+    .table-header > thead > tr > th,
+    .table-header > tbody > tr > th,
+    .table-header > tfoot > tr > th {
+        text-align: center;
+    }
+  
+    .table > tbody > tr > td,
+    .table > tbody > tr > th,
+    .table > tfoot > tr > th,
+    .table > thead > tr > th {
+  
+        vertical-align: middle;
+        border: 1px solid black;
+        padding: 2px;
+        padding-left: 4px;
+        padding-right: 6px;
+        text-align: center;
+        height: 20px
+    }
+  
+    .text-center {
+        text-align: center !important;
+    }
+  
+    .text-right {
+        text-align: right !important;
+    }
+  
+    .text-left {
+        text-align: left !important;
+    }
+  
+    .text-bold {
+        font-weight: bold;
+    }
+  
+    .bg-attention {
+        background-color: #f2dede;
+    }
+  
+    .document-footer {
+        margin-top: 20px;
+    }
+  
+    .document-footer p {
+        font-size: 9px;
+        text-align: center;
+    }
+  
+    thead {
+        display: table-header-group;
+    }
+  
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+        max-height: 50px !important;
+    }
+  
+    thead > tr > th,
+    tbody > tr > th,
+    tfoot > tr > th {
+        font-size: 9px;
+        height: 20px;
+    }
+  
+    .footer-total,
+    .footer-total > strong {
+        font-size: 15px;
+    }
+  
+    .table-left {
+        width: 49%;
+        float: left;
+    }
+  
+    .table-right {
+        width: 49%;
+        float: right;
+    }
+  
+    .text-center {
+        text-align: center !important;
+    }
+  
+    .text-right {
+        text-align: right !important;
+    }
+  
+    .text-left {
+        text-align: left !important;
+    }
+  
+    .border-none > th {
+        border: none !important;
+    }
+  
+    .border-none-right > th{
+        border: none !important;
+        text-align: right !important;
+        font-weight: normal !important;
+        line-height: 1;
+    }
+  
+  
+    .border-none {
+        border: none !important;
+    }
+  
+    .border-right-none {
+        border-right: none !important;
+    }
+  
+    .border-top-none {
+        border-top: none !important;
+    }
+  
+    .border-left-none {
+        border-left: none !important;
+    }
+  
+    .border-bottom-none {
+        border-bottom: none !important;
+    }
+
+    .border-right {
+        border-right: 1px solid black !important;
+    }
+  
+    span {
+        font-size: 10px;
+        margin-right: 2px;
+    }
+  
+    .last {
+        margin-right: 3px;
+    }
+  
+    .valign-middle {
+        vertical-align: middle !important;
+        line-height: normal;
+    }
+  
+    .valign-top {
+        vertical-align: top !important;
+        line-height: normal;
+    }
+  
+    .hidden {
+        visibility: hidden;
+    }
+  
+    .page-break {
+        page-break-after: always;
+        word-wrap: break-word;
+    }
+  
+    .width-15 {
+        min-width: 15px !important;
+    }
+  
+    .font-14 {
+        font-size: 11px !important;
+        font-weight:normal;
+    }
+    .font-12 {
+        font-size: 10px !important;
+        font-weight:normal;
+        vertical-align: middle;
+    }
+  
+    h2{
+        display: inline;
+    }
+  
+    .bold-header {
+        font-size: 11px !important;
+        font-weight: bold !important;
+        line-height: 1;
+    }
+  
+    .small-header {
+        font-size: 9px !important;
+        font-weight: normal !important;
+        line-height: 1;
+    }
+
+  
+  .blank_row
+  {
+      height: 15px !important; /* overwrites any other rules */
+      background-color: #FFFFFF;
+  }
+
+  .thead_font
+  {
+    line-height: 17px;
+    font-size: 12px !important;
+    text-align: center !important;
+  }
+
+  .small-row
+    {
+        height: 5% !important;
+    }
+
+.bold-top-line
+    {
+        border-top: 2px solid #000 !important; 
+    }
+
+.bold-left-line
+    {
+        border-left: 2px solid #000 !important; 
+    }
+
+.bold-right-line
+    {
+        border-right: 2px solid #000 !important; 
+    }
+
+.bold-bottom-line
+    {
+        border-bottom: 2px solid #000 !important; 
+    }
+    .bottom {
+    position: fixed;
+    bottom: 0;
+    }
+    
+
+  </style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<table class="table border-none">
+<tr th:each="row : ${report.rows}">
+<table class="table border-none">
+<tr>
+<td class="text-right border-none">
+附件 20
+</td>
+</tr>
+</table>
+<table class="table border-none margin-top">
+<table class="table border-none">
+<tr>
+<th rowspan="2" colspan="2" width="50%" class="thead_font border-top-none border-left-none bold">
+各類所得扣繳暨免扣繳憑單 <br>
+Withholding & Non-Withholding Tax Statement <br>
+（電子申報專用)
+</th>
+<th colspan="2" width="50%" class="valign-middle text-left bold-top-line bold-left-line bold-right-line">
+租賃房屋之房屋稅籍編號：<span th:text="${row['employees_rental_id']}"></span>
+</th> 
+</tr>
+<tr>
+<th width="50%" colspan="2" class="valign-middle text-left border-bottom-none bold-left-line bold-right-line">
+租賃房屋 坐落 地址 或 租賃土地 地段號：<span th:text="${row['address_for_rental_house']}"></span>
+</th> 
+</tr>
+</table>
+<table class="table border-none">
+<tr>
+<td width="25%" class="bold-left-line">扣繳單位統一編號</td>
+<td width="15%">稽徵機關</td> 
+<td width="30%">製 單 編 號</td> 
+<td width="30%" class="bold-right-line">格式代號及所得類別 Category of Income</td>
+</tr>
+<tr>
+<td class="border-bottom-none bold-left-line" th:text="${row['company_id']}"></td>
+<td class="border-bottom-none" th:text="${row['tax_bureau_id']}"></td>
+<td class="border-bottom-none" th:text="${row['application_no']}"></td>
+<td class="border-bottom-none bold-right-line"></td>
+</tr>
+</table>
+<table class="table border-none">
+<tr>
+<td width="20%" class="bold-left-line">所得人統一編（證）號 <br> Taxpayer's ID No.</td>
+<td width="15%">國內有無住所 <br> Residency</td>
+<td width="35%">所得人、執行業別代號、其他所得給付項目或外僑護 <br> 照號碼 Passport No</td>
+<td width="12.5%" colspan="2">國家代碼 <br> Country Code</td>
+<td width="12.5%" colspan="2" class="bold-right-line">適用租稅協定 <br> Tax Agreement</td>
+</tr>
+<tr>
+<td class="border-bottom-none bold-left-line" th:text="${row['taxpayer_id']}"></td>
+<td class="border-bottom-none">
+有(
+<span th:if="${residency == 'Yes'}"> X </span>
+<span th:unless="${residency == 'Yes'}">&nbsp&nbsp&nbsp</span>
+) 無(
+<span th:if="${residency == 'No'}"> X </span>
+<span th:unless="${residency == 'No'}">&nbsp&nbsp&nbsp</span>
+)
+</td>
+<td class="border-bottom-none" th:text="${row['other_income']}"></td>
+<td class="border-bottom-none"></td>
+<td class="border-bottom-none"></td>
+<td class="border-bottom-none"></td>
+<td class="border-bottom-none bold-right-line"></td>
+</tr>
+</table>
+<table class="table border-none">
+<tr>
+<td width="20%" class="bold-left-line">所得人姓名 <br> Name of Taxpayer</td>
+<td width="20%" th:text="${row['name_of_taxpayer']}"></td>
+<td width="20%">居住地國或地區代碼 <br>Tax Jurisdiction Code</td>
+<td width="3%"></td>
+<td width="3%"></td>
+<td width="34%" class="bold-right-line">本給付年度內按所得人護照入出境章戳日 <br>
+期累計在華是否已滿 183 天 ? □是 □否</td>
+</tr>
+<tr>
+<td class="border-bottom-none bold-left-line">所得人地址 <br> Present Address</td>
+<td class="border-bottom-none" th:text="${row['present_address']}">
+</td>
+<td class="border-bottom-none">稅務識別碼 <br> Tax Identification Number <br> (TIN)</td>
+<td class="border-bottom-none bold-right-line" colspan="3" th:text="${row['other_income']}">
+</td>
+</tr>
+</table>
+<table class="table border-none">
+<tr>
+<td colspan="2" width="60%" class="bold-left-line">所 得 所 屬 年 月 Period of income</td>
+<td width="20%">所得給付年度 <br> Year of Payment</td> 
+<td width="20%" class="text-left bold-right-line">依勞退 條例 或 教 職 <br>
+員退撫條例 自願 <br>
+提繳之 金額 (E)</td>
+</tr>
+<tr>
+<td colspan="2" class="bold-left-line">
+自 &nbsp&nbsp&nbsp&nbsp 年 &nbsp&nbsp&nbsp&nbsp 月 至 &nbsp&nbsp&nbsp&nbsp 年 &nbsp&nbsp&nbsp&nbsp 月 <br>
+From Year Month To Year Month</td>
+<td th:text="${row['year_of_payment']}"></td>
+<td class="bold-right-line" th:text="${row['withhold_amount_for_pension_insurance']}"></td>
+</tr>
+<tr>
+<td class="bold-left-line">給付總額（Ａ）Total Amount Paid(結算申報時應按本欄數額填報)
+<br>
+The amount should be reported in the Individual Income Tax Return
+</td>
+<td>扣 繳 率（ B )<br>Withholding Rate
+</td>
+<td>扣繳稅額 (C=A×B)<br>Withholding Tax
+</td>
+<td class="bold-right-line">給付淨額 (D=A-C) <br>Net Payment</td>
+</tr>
+<tr height="50px">
+<td class="border-bottom-none bold-left-line"></td>
+<td class="text-right border-bottom-none" style="font-size: 16px;">%</td>
+<td class="border-bottom-none"></td>
+<td class="border-bottom-none bold-right-line" th:text="${row['net_payment']}"></td>
+</tr>
+<tr>
+<td class="small-row border-bottom-none bold-left-line bold-top-line bold-right-line bold-bottom-line" colspan="4"></td>
+</tr>
+</table>
+<table class="table border-none">
+<tr>
+<td width="50%" colspan="2" class="bold-left-line border-top-none">扣 &nbsp&nbsp&nbsp&nbsp 繳 &nbsp&nbsp&nbsp&nbsp 單 &nbsp&nbsp&nbsp&nbsp 位</td>
+<td width="50%" class="bold-right-line border-top-none">格式代號說明 Category of Income</td>
+</tr>
+<tr>
+<td width="10%" class="bold-left-line border-bottom-none">名 &nbsp&nbsp&nbsp&nbsp 稱</td>
+<td width="40%" class="border-bottom-none"></td>
+<td width="50%" rowspan="3" class="bold-bottom-line bold-right-line"></td>
+</tr>
+<tr>
+<td class="bold-left-line border-top-none border-bottom-none">地 &nbsp&nbsp&nbsp&nbsp 址</td>
+<td class="border-top-none border-bottom-none"></td>
+</tr>
+<tr>
+<td class="bold-left-line bold-bottom-line border-top-none">扣繳義務人</td>
+<td class="bold-bottom-line border-top-none"></td>
+</tr>
+</table>
+<table class="table border-none">
+<tr>
+<td class="text-left border-none">
+※依勞工退休金條例規定自願提繳之退休金或年金保險費，合計在每月工資6﹪範圍內，或依學校法人及其所屬私立學校教職員退休撫卹離職資
+遣條例規定撥繳之款項，免計入薪資給付總額，其金額應另行填寫於 ( 欄，該欄納稅義務人結算申 報時無需填寫。
+</td>
+</tr>
+<tr>
+<td class="text-left border-none">
+第1 聯：存根聯 扣繳義務人存查。如需辦理扣繳更正事宜，本聯應由扣繳義務人併更正申請案送交稽徵機關。
+</td>
+</tr>
+<tr>
+<td class="text-left border-none">
+第2 聯：備查 聯 交所得人保存備查 Copy For the taxpayer's reference.
+</td>
+</tr>
+</table>
+</table>
+<table class="table border-none">
+<tr height="420px">
+<td class="border-none"></td>
+</tr>
+</table>
+</tr>
+</table>

@@ -1,0 +1,367 @@
+<style type="text/css">
+  * {
+    font-size: 10px;
+    background-color: #fff;
+    line-height: 1;
+    color: #000;
+    font-family: Verdana, Arial, sans-serif;
+    margin-top: 20px;
+  }
+
+  th {
+    font-size: 9px !important;
+    font-weight: normal;
+  }
+
+  div {
+    font-size: 12px !important;
+    font-weight: normal;
+  }
+
+  table {
+    page-break-after: auto;
+    border-collapse: collapse;
+    margin-bottom: 30px !important;
+  }
+
+  table tr th,
+  table tr td {
+    padding: 3px;
+  }
+
+  table tr th:first-child,
+  table tr td:first-child {
+    border-left: 1px solid black;
+  }
+
+  table tbody tr td:before,
+  table tbody tr td:after,
+  table tfoot tr th:before,
+  table tfoot tr th:after {
+    content: "";
+    height: 1px;
+    display: block;
+  }
+
+  table>thead>tr.caption>td {
+    border-bottom: 1px solid #000;
+    font-size: 9px;
+    text-align: center;
+  }
+
+  .table {
+    width: 100%;
+    border: solid rgb(0, 0, 0) 2.5px;
+  }
+
+  .table-header {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .table>thead>tr>th,
+  .table>tbody>tr>th,
+  .table>tfoot>tr>th {
+    text-align: left;
+    font-size: 9px !important;
+    font-weight: bold;
+  }
+
+  .table-header>thead>tr>th,
+  .table-header>tbody>tr>th,
+  .table-header>tfoot>tr>th {
+    text-align: left;
+  }
+
+  .text-center {
+    text-align: center !important;
+  }
+
+  .text-right {
+    text-align: right !important;
+  }
+
+  .text-left {
+    text-align: left !important;
+  }
+
+  .border-left-none {
+    border-left: none !important;
+  }
+
+  .border-left {
+    border-left: 1px solid !important;
+  }
+
+  .border-right-none {
+    border-right: none !important;
+  }
+
+  .border-none>th {
+    border: none !important;
+  }
+
+  .border-none {
+    border: none !important;
+  }
+
+  .border-bottom-none {
+    border-bottom: none !important;
+  }
+
+  .border-top-none {
+    border-top: none !important;
+  }
+
+  .valign-middle {
+    vertical-align: middle !important;
+    line-height: normal;
+  }
+
+  .main-header {
+    font-size: 14px !important;
+    font-weight: bold;
+  }
+
+  span {
+    font-size: 10px;
+  }
+
+  .small-header {
+    font-size: 12px !important;
+    font-weight: bold;
+  }
+
+  .yellow-bg {
+    background-color: #FFC000;
+  }
+
+  .margin-top {
+    margin-top: 40px;
+  }
+
+  .bold-text {
+    font-weight: bolder !important;
+  }
+
+  .border-bottom {
+    border-bottom: 1px solid black !important;
+  }
+
+  table tr:nth-child(odd) td {
+    background: rgb(255, 255, 255);
+    border-top: 1px solid #88A1D1;
+    border-bottom: 1px solid #88A1D1;
+  }
+
+  table tr:nth-child(even) td {
+    background-color: rgb(217, 225, 242);
+    border-top: 1px solid #88A1D1;
+    border-bottom: 1px solid #88A1D1;
+  }
+
+  .bg-white {
+    background-color: white !important;
+  }
+
+  .bg-white-border {
+    background-color: white !important;
+    border-top: 1px solid #88A1D1;
+    border-bottom: 1px solid #88A1D1;
+  }
+
+  .bg-light-blue {
+    background-color: rgb(217, 225, 242) !important;
+  }
+
+  .bg-light-blue-border {
+    background-color: rgb(217, 225, 242) !important;
+    border-top: 1px solid #88A1D1;
+    border-bottom: 1px solid #88A1D1;
+  }
+
+  .bg-dark-blue {
+    background-color: rgb(68, 114, 196) !important;
+    color: white;
+  }
+
+  .text-bold {
+    font-weight: bold;
+  }
+
+  .border-heder-none tr td {
+    border: none !important;
+  }
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<th:block th:with="reportRow = ${report['row_section']['rows'][0]}">
+  <table class="table border-bottom-none">
+    <tr>
+      <th style="font-size:12px !important ; vertical-align: top;">LEGO MANUFACTURING VIETNAM COMPANY LIMITED</th>
+      <th></th>
+      <th></th>
+      <th class="text-right" style="height:100px;"><img style="margin-top:-10px ; margin-right:10px ; height:90px ;"
+          src="https://logos-download.com/wp-content/uploads/2016/03/LEGO_logo.png" alt=""></th>
+    </tr>
+  </table>
+
+  <table class="table border-top-none border-bottom-none border-heder-none" style="margin-top:-40px ;">
+    <tr>
+      <th width="25%" class="bg-dark-blue border-none">EMPLOYEE INFORMATION</th>
+      <th width="25%" class="bg-dark-blue border-none"></th>
+      <th width="25%" class="bg-dark-blue border-none"></th>
+      <th width="25%" class="bg-dark-blue text-center border-none">Month</th>
+    </tr>
+    <tr>
+      <td class="bg-light-blue">Full Name</td>
+      <td class="bg-light-blue" th:text="${employeeDisplayName}"></td>
+      <td class="bg-white"></td>
+      <td class="bg-white text-center" th:text="${reportRow['period']}">Jan-31</td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <br>
+      </td>
+    </tr>
+    <tr>
+      <td class="bg-light-blue">Employee ID</td>
+      <td class="bg-light-blue" th:text="${employee.getReferenceCode()}"></td>
+      <td class="bg-white"></td>
+      <td class="bg-white"></td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <br>
+      </td>
+    </tr>
+    <tr>
+      <td class="bg-light-blue">Basic salary: <span class="bg-light-blue"
+          th:text="${reportRow['BASIC_SALARY']}">55</span></td>
+      <td class="bg-light-blue"></td>
+      <td class="bg-white"></td>
+      <td class="bg-white"></td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <br>
+      </td>
+    </tr>
+    <tr>
+      <td class="bg-light-blue"></td>
+      <td class="bg-light-blue"></td>
+      <td class="bg-light-blue text-bold" style="font-style: italic;">DETAILS</td>
+      <td class="bg-light-blue"></td>
+    </tr>
+  </table>
+
+  <table class="table border-top-none" style="margin-top:-30px; border-top:1px solid #88A1D1 !important">
+    <tr>
+      <th width="40%" class="bg-dark-blue">EARNINGS</th>
+      <th width="17%" class="bg-dark-blue text-center">Rate</th>
+      <th width="17%" class="bg-dark-blue text-center">Amount</th>
+      <th width="17%" class="bg-dark-blue text-center">YTD</th>
+    </tr>
+    <tbody th:if="${report['row_section']['rows_by_identifier']['EARNINGS'] != null}">
+      <tr th:each="row : ${report['row_section']['rows_by_identifier']['EARNINGS'][0]}">
+        <td th:text="${row.value['Account_1']}"></td>
+        <th:block th:switch="${row.value['Check_1']}">
+          <td class="text-center" th:case="'62120'" th:text="${reportRow['79020']}"></td>
+          <td class="text-center" th:case="'62119'" th:text="${reportRow['79021']}"></td>
+          <td class="text-center" th:case="'62121'" th:text="${reportRow['79022']}"></td>
+          <td class="text-center" th:case="'62122'" th:text="${reportRow['79023']}"></td>
+          <td class="text-center" th:case="'62123'" th:text="${reportRow['79024']}"></td>
+          <td class="text-center" th:case="'62124'" th:text="${reportRow['79025']}"></td>
+          <td class="text-center" th:case="'62125'" th:text="${reportRow['79026']}"></td>
+          <td class="text-center" th:case="'62126'" th:text="${reportRow['79027']}"></td>
+          <td class="text-center" th:case="'62127'" th:text="${reportRow['79028']}"></td>
+          <td class="text-center" th:case="'62128'" th:text="${reportRow['79029']}"></td>
+          <td class="text-center" th:case="'62155'" th:text="${reportRow['79030']}"></td>
+          <td class="text-center" th:case="*" th:text="${row.value['Rate_1']}"></td>
+        </th:block>
+        <td class="text-right" th:text="${row.value['Amount_1']}">22</td>
+        <td class="text-right" th:text="${row.value['YTD_1']}">22</td>
+      </tr>
+    </tbody>
+    <tr>
+      <td class="bg-white" colspan="4">
+        <br>
+      </td>
+    </tr>
+    <tr>
+      <td class="bg-light-blue text-bold">GROSS PAY</td>
+      <td class="bg-light-blue"></td>
+      <td class="bg-light-blue text-right text-bold" th:text="${reportRow['GROSS']}">222</td>
+      <td class="bg-light-blue text-right text-bold" th:text="${reportRow['GROSS_YTD']}"></td>
+    </tr>
+    <tr>
+      <td class="bg-white" colspan="4">
+        <br>
+        <br>
+      </td>
+    </tr>
+    <tr>
+      <th class="bg-dark-blue">DEDUCTIONS</th>
+      <th class="bg-dark-blue text-center">Rate </th>
+      <th class="bg-dark-blue text-center">Amount</th>
+      <th class="bg-dark-blue text-center">YTD</th>
+    </tr>
+    <tbody th:if="${report['row_section']['rows_by_identifier']['DEDUCTION'] != null}">
+      <tr th:each="row : ${report['row_section']['rows_by_identifier']['DEDUCTION'][0]}">
+        <td th:text="${row.value['Account_2']}"></td>
+        <td class="text-center" th:text="${row.value['Rate_2']}"></td>
+        <td class="text-right" th:text="${row.value['Amount_2']}">122</td>
+        <td class="text-right" th:text="${row.value['YTD_2']}"></td>
+      </tr>
+    </tbody>
+    <tr>
+      <td class="bg-white" colspan="4">
+        <br>
+      </td>
+    </tr>
+    <tr>
+      <td class="bg-light-blue text-bold">TOTAL DEDUCTIONS</td>
+      <td class="bg-light-blue"></td>
+      <td class="bg-light-blue text-right text-bold" th:text="${reportRow['TOTAL_DEDUCTIONS']}"></td>
+      <td class="bg-light-blue text-right text-bold" th:text="${reportRow['TOTAL_DEDUCTIONS_YTD']}"></td>
+    </tr>
+    <tr>
+      <td class="bg-white" colspan="4">
+        <br>
+      </td>
+    </tr>
+    <tr>
+      <td class="bg-light-blue text-bold">NET PAY</td>
+      <td class="bg-light-blue"></td>
+      <td class="bg-light-blue text-right text-bold" th:text="${reportRow['NET_PAY']}"></td>
+      <td class="bg-light-blue text-right text-bold" th:text="${reportRow['NET_PAY_YTD']}"></td>
+    </tr>
+    <tr>
+      <td class="bg-white" colspan="4">
+        <br>
+      </td>
+    </tr>
+    <tr>
+      <th class="bg-dark-blue" colspan="2">TOTAL TAXABLE & NON-TAXABLE EARNINGS</th>
+      <th class="bg-dark-blue text-center">Amount</th>
+      <th class="bg-dark-blue text-center">YTD</th>
+    </tr>
+    <tr>
+      <td class="bg-white text-bold">Total Taxable Earnings</td>
+      <td class="bg-white"></td>
+      <td class="bg-white text-right" th:text="${reportRow['TAXABLE_EARNINGS']}"></td>
+      <td class="bg-white text-right" th:text="${reportRow['TAXABLE_EARNINGS_YTD']}"></td>
+    </tr>
+    <tr>
+      <td class="bg-light-blue text-bold">Total Non-Taxable Earnings</td>
+      <td class="bg-light-blue"></td>
+      <td class="bg-light-blue text-right" th:text="${reportRow['NON_TAXABLE_EARNINGS']}"></td>
+      <td class="bg-light-blue text-right" th:text="${reportRow['NON_TAXABLE_EARNINGS_YTD']}"></td>
+    </tr>
+    <tr>
+      <td class="bg-white" colspan="4">
+        <br>
+      </td>
+    </tr>
+  </table>
+</th:block>

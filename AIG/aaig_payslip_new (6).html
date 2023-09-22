@@ -1,0 +1,688 @@
+<style type="text/css" xmlns:th="http://www.w3.org/1999/xhtml" th:fragment="payslip_styles">
+    * {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 9px;
+        background-color: white;
+        color: black;
+    }
+
+    small {
+        font-size: 8px;
+    }
+
+    body,
+    html {
+        margin: 0 !important;
+        padding: 1px !important;
+
+    }
+
+    hr {
+        height: 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    table {
+        margin-bottom: 20px;
+        page-break-after: auto;
+    }
+
+    table:last-child {
+        margin-bottom: 0;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr.title>td,
+    tr.title>td>div,
+    tr.title>td>div>span {
+        font-size: 11px;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    table tbody tr td:before,
+    table tbody tr td:after,
+    table tfoot tr th:before,
+    table tfoot tr th:after {
+        content: "";
+        height: 1px;
+        display: block;
+    }
+
+    table>thead>tr.caption>td {
+        background: #aaa;
+        border-bottom: 1px solid #000;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 3px;
+        text-align: center;
+    }
+
+    .table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .table>thead>tr>th,
+    .table>tfoot>tr>th {
+        background: #ddd;
+        text-align: left;
+    }
+
+    .table>tbody>tr>td,
+    .table>tfoot>tr>th,
+    .table>thead>tr>th {
+        vertical-align: top;
+        border-bottom: 1px solid #000;
+        padding: 4px;
+    }
+
+    .table>tbody>tr>td,
+    .table>tfoot>tr>th {
+        border: 1px solid black;
+    }
+
+    .table>thead>tr>th {
+        font-weight: bold;
+    }
+
+    .table>tbody>tr.important>td {
+        background-color: #f8f8f8;
+        font-weight: bold;
+    }
+
+    .infobox {
+        border: 1px solid #ccc;
+    }
+
+    .table-2col>tbody>tr>td {
+        width: 50%;
+    }
+
+    .table-3col>tbody>tr>td {
+        width: 33%;
+    }
+
+    .table-4col>tbody>tr>td {
+        width: 25%;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .text-right {
+        text-align: right !important;
+    }
+
+    .text-left {
+        text-align: left !important;
+    }
+
+    .text-bold {
+        font-weight: bold;
+    }
+
+    .bg-attention {
+        background-color: #f2dede;
+    }
+
+    .document-footer {
+        margin-top: 10px;
+    }
+
+    .document-footer p {
+        font-size: 9px;
+        text-align: center;
+    }
+
+    .document-footer-ref {
+        font-size: 9px;
+        vertical-align: bottom;
+    }
+
+    .document-footer-copy {
+        font-size: 9px;
+        text-align: center;
+    }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .panel {
+        border: 1px solid #000;
+    }
+
+    .panel>.panel-heading {
+        background: #aaa;
+        border-bottom: 1px solid #000;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 6px;
+        text-align: center;
+    }
+
+    .panel>.panel-body {
+        padding: 10px;
+    }
+
+    table {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .table-height {
+        height: 200px !important;
+    }
+
+    .table-left {
+        width: 50%;
+        float: left;
+    }
+
+    .table-right {
+        width: 50%;
+        float: right;
+    }
+
+    .key {
+        width: 100px !important;
+    }
+
+    .infobox {
+        border: 1px solid #000;
+    }
+
+    .header-table {
+        font-weight: bold;
+        text-align: right;
+    }
+
+    .header-table td:first-child {
+        text-align: left;
+    }
+
+    img.logo {
+        max-height: 90px;
+        max-width: 300px;
+    }
+
+    .details-table {
+        border: 1px solid #000;
+        border-spacing: 0;
+        padding: 0;
+    }
+
+    .info-table {
+        border: 1px solid #000;
+        border-spacing: 0;
+
+    }
+
+    .main-header {
+        background: #aaa;
+    }
+
+    .vertical-align-middle {
+        vertical-align: middle !important;
+    }
+
+    .info-table>tbody>tr>td {
+        border-right: 1px solid #000;
+        border-left: 1px solid #000;
+        padding: 4px;
+        vertical-align: top;
+    }
+
+    .info-table>tbody>tr>td:first-child {
+        border-left: 0;
+    }
+
+    .info-table>tbody>tr>td:last-child {
+        border-right: 0;
+    }
+
+    .details-table>tbody>tr>td {
+        border-right: 1px solid #000;
+        border-left: 1px solid #000;
+        padding: 0;
+        vertical-align: top;
+    }
+
+    .details-table>tbody>tr>td:first-child {
+        border-left: 0;
+    }
+
+    .details-table>tbody>tr>td:last-child {
+        border-right: 0;
+    }
+
+    .row-header {
+        background: #ddd;
+        font-weight: bold;
+    }
+
+    .details-row-key {
+        border-left: 1px solid #000;
+        border-right: 1px solid #000;
+    }
+
+    .details-row-key>tbody>tr>td {
+        padding: 4px;
+        border-spacing: 0;
+        border-top: none;
+        border-bottom: none;
+    }
+
+    .details-row-key-arabic {
+        width: 20% !important;
+        background: #ddd;
+        border-left: 1px solid #000;
+        border-right: 1px solid #000;
+        font-weight: bold;
+    }
+
+    .details-row-table {
+        border-spacing: 0;
+        border: 1px solid #000;
+        padding: 0;
+    }
+
+    .details-row-table>tbody>tr>td {
+        padding: 4px;
+        border-spacing: 0;
+        width: 50%;
+        border: none;
+    }
+
+    .details-row-table>tbody>tr>td:first-child {
+        background: #ddd;
+        width: 50%;
+        border-right: 1px solid #000;
+        border-left: none;
+        font-weight: bold;
+    }
+
+    .detail-row-table>tbody>tr>td:last-child {
+        text-align: left;
+    }
+
+    .general-ledger-table,
+    .general-ledger-table>caption,
+    .general-ledger-table>tbody>tr>td {
+        border: 0;
+    }
+
+    .leave-balance {
+        margin-top: -10px;
+        margin-bottom: 20px;
+        float: left;
+        list-style: none;
+        width: 100%;
+    }
+
+    .leave-balance li {
+        margin-left: -35px;
+    }
+
+    .border-right {
+        border-right: 1px solid black !important;
+    }
+
+    .border-none {
+        border: none !important;
+    }
+
+    .border-rgiht-none {
+        border-right: none !important;
+    }
+
+    .border-left-none {
+        border-left: none !important;
+    }
+
+    .margin-bottom-0 {
+        margin-bottom: 0 !important;
+    }
+
+    .margin-top-0 {
+        margin-top: 0 !important;
+    }
+
+    .solid-border {
+        border: 1px solid #000000 !important;
+    }
+
+    .border-top-none {
+        border-top: none !important;
+    }
+
+    .border-bottom-none {
+        border-bottom: none !important;
+    }
+
+    .infobox-3-row {
+        float: right;
+        width: 32%;
+        padding: 22px 10px 23px 10px;
+    }
+
+    .infobox-4-row {
+        float: right;
+        width: 25%;
+        padding: 32px 10px 33px 10px;
+    }
+
+    .infobox-5-row {
+        float: right;
+        width: 32%;
+        padding: 42px 10px 43px 10px;
+    }
+
+    .page-break-inside-avoid {
+        page-break-inside: avoid;
+    }
+</style>
+<th:block th:with="reportRow = ${report['row_section']['rows'][0]}">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <table class="table-3col header-table" style="margin-bottom: 0 !important; margin-top: -8px;">
+        <tr class="title">
+            <td th:if="${logo_uri == null}">
+                <div th:text="${legalEntity.getLegalName()}"></div>
+            </td>
+            <td th:if="${logo_uri != null}">
+                <img th:src="${logo_uri}" th:alt="${legalEntity.getLegalName()}" class="logo" /><br><br>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <table class="margin-bottom-0 ;" style="margin-top: -8px;">
+        <tr>
+            <td colspan="3" width="75%"></td>
+            <td class="text-center"></td>
+        </tr>
+    </table>
+    <table class="table details-row-table table-left" style="line-height: 8px;">
+        <tr valign="top" style="height:25px ;">
+            <td>Arbejdsgiveradresse</td>
+            <td th:text="${employerAddressString}"> </td>
+        </tr>
+        <tr valign="top">
+            <td>CVR/SE-nummer</td>
+            <td th:text="${reportRow['cvr_nr']}"></td>
+        </tr>
+        <tr valign="top">
+            <td>Lønseddel for perioden</td>
+            <td th:text="${period}">January-February</td>
+        </tr>
+        <tr valign="top">
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <table class="table border-none table-left" style="margin-top: -8px;">
+    </table>
+    <table class="table details-row-key" style="line-height: 7px;">
+        <tr valign="top">
+            <td width="25%" class="row-header">Ansattes navn</td>
+            <td width="25%" th:text="${employeeDisplayName}">John Doe</td>
+            <td width="25%" class="row-header">Medarbejder ID</td>
+            <td th:text="${employee.getReferenceCode()}">1234</td>
+        </tr>
+        <tr valign="top">
+            <td class="row-header">Medarbejderens adresse</td>
+            <td th:text="${reportRow['address_1']}">Test</td>
+            <td class="row-header">Ansættelsesdato</td>
+            <td th:text="${reportRow['hire_date']}"></td>
+            <!-- <td class="row-header">Department</td>
+            <td th:text="${reportRow['cost_center']}"></td> -->
+        </tr>
+        <tr valign="top">
+            <td class="row-header">Betalingsdato</td>
+            <td th:text="${reportRow['pay_date']}"></td>
+            <td class="row-header">CPR-nummer</td>
+            <td th:text="${reportRow['national_id']}"></td>
+
+        </tr>
+        <tr valign="top">
+            <td class="row-header"></td>
+            <td ></td>
+            <td class="row-header"></td>
+            <td></td>
+
+        </tr>
+    </table>
+    <table class="table" style="margin-top: -8px;">
+        <thead>
+            <tr class="caption">
+                <td colspan="4">Detaljer</td>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th width="25%">Betalingsmiddel</th>
+                <th width="25%" class="text-center">Indtjening</th>
+                <th width="25%" class="text-center">Fradrag</th>
+                <th width="25%" class="text-center">Nettoløn</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td th:text="${currency}">DKK</td>
+                <td class="text-right" th:text="${reportRow['earnings_total']}">5,000.00</td>
+                <td class="text-right" th:text="${'-' + reportRow['deduct_total']}">1,501.10</td>
+                <td class="text-right" th:text="${reportRow['net_pay_tot']}">3,498.99</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table" style="margin-top: -8px;">
+        <thead>
+            <tr class="caption">
+                <td colspan="5" class="solid-border">Lønspecifikation</td>
+            </tr>
+            <tr>
+                <th width="5%">Lønart</th>
+                <th width="60%">Betegnelse</th>
+                <th width="10%" class="text-center">Enheder</th>
+                <th width="10%" class="text-center">Sats</th>
+                <th width="15%" class="text-right">Beløb</th>
+            </tr>
+        </thead>
+        <tbody th:if="${report['row_section']['rows_by_identifier']['EARNINGS'] != null}">
+            <tr th:each="row : ${report['row_section']['rows_by_identifier']['EARNINGS'][0]}">
+                <td th:text="${row.value['Account_1']}">-</td>
+                <td th:text="${row.value['Account_name']}">-</td>
+                <th:block th:switch="${row.value['Check_1']}">
+                    <td class="text-center" th:case="'62100'" th:text="${reportRow['63104']}"></td>
+                    <td class="text-center" th:case="*" th:text="${row.value['Rate_1']}"></td>
+                </th:block>
+                <th:block th:switch="${row.value['Check_1']}">
+                    <td class="text-center" th:case="'2552'" th:text="${reportRow['63900']}"></td>
+                    <td class="text-center" th:case="'23674'" th:text="${reportRow['63110']}"></td>
+                    <td class="text-center" th:case="'21642'" th:text="${reportRow['63111']}"></td>
+                    <td class="text-center" th:case="*" th:text="${row.value['Rate_1']}"></td>
+                </th:block>
+                <td class="text-right" th:text="${row.value['Amount_1']}"></td>
+            </tr>
+        </tbody>
+        <tbody th:if="${report['row_section']['rows_by_identifier']['UNITS'] != null}">
+            <tr th:each="row : ${report['row_section']['rows_by_identifier']['UNITS'][0]}">
+                <td th:text="${row.value['Account_3']}"></td>
+                <td th:text="${row.value['Account_name_3']}"></td>
+                <td class="text-center" th:text="${row.value['Amount_3']}"></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+        <tbody th:if="${report['row_section']['rows_by_identifier']['DEDUCTIONS'] != null}">
+            <tr th:each="row : ${report['row_section']['rows_by_identifier']['DEDUCTIONS'][0]}">
+                <td th:text="${row.value['Account_2']}"></td>
+                <td th:text="${row.value['Account_name_2']}">-</td>
+                <th:block th:switch="${row.value['Check_2']}">
+                    <td class="text-center" th:case="'2517'" th:text="${reportRow['63104']}"></td>
+                    <td class="text-center" th:case="*" th:text="${row.value['Rate_2']}"></td>
+                </th:block>
+                <th:block th:switch="${row.value['Check_2']}">
+                    <td class="text-center" th:case="'23674'" th:text="${reportRow['63110']}"></td>
+                    <td class="text-center" th:case="'21642'" th:text="${reportRow['63111']}"></td>
+                    <td class="text-center" th:case="*" th:text="${row.value['Rate_2']}"></td>
+                </th:block>
+                <td class="text-right" th:text="${row.value['Amount_2']}"></td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>2513</td>
+                <td>
+                    <table style="line-height: 5px; ">
+                        <tr>
+                            <td width="75%">AM-bidrag</td>
+                            <td>Grundlag: <span th:text="${reportRow['68002']}"></span> </td>
+                        </tr>
+                    </table>
+                </td>
+                <td></td>
+                <td></td>
+                <td class="text-right" th:text="${reportRow['2513']}"></td>
+            </tr>
+            <tr>
+                <td>2552</td>
+                <td>
+                    <table style="line-height: 5px;">
+                        <tr>
+                            <td width="40%">A-SKAT: <span th:text="${reportRow['a_income']}"></span></td>
+                            <td width="35%">Anvendt skattefradrag: <span th:text="${reportRow['taxfree']}"></span> </td>
+                            <td width="25%">Skat af: <span th:text="${reportRow['tax_of']}"></span></td>
+                        </tr>
+                    </table>
+                </td>
+                <td></td>
+                <td class="text-center" th:text="${reportRow['63900']}"></td>
+                <td class="text-right" th:text="${reportRow['2552']}"></td>
+            </tr>
+        </tbody>
+        <tr>
+            <td class="text-bold" colspan="9"> på konto :<span class="text-bold"
+                    th:text="${reportRow['transfer']}"></span></td>
+        </tr>
+        <tr>
+            <td colspan="5"></td>
+        </tr>
+        <tbody th:if="${report['row_section']['rows_by_identifier']['EMPLOYER'] != null}">
+            <tr th:each="row : ${report['row_section']['rows_by_identifier']['EMPLOYER'][0]}">
+                <td th:text="${row.value['Account_4']}"></td>
+                <td th:text="${row.value['Account_name_4']}"></td>
+                <td></td>
+                <th:block th:switch="${row.value['Check_4']}">
+                    <td class="text-center" th:case="'23674'" th:text="${reportRow['63110']}"></td>
+                    <td class="text-center" th:case="'23680'" th:text="${reportRow['63112']}"></td>
+                    <td class="text-center" th:case="'2513'" th:text="${reportRow['constant']}"></td>
+                    <td class="text-center" th:case="*" th:text="${row.value['Rate_4']}"></td>
+                </th:block>
+                <td class="text-right" th:text="${row.value['Amount_4']}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table" style="line-height:0.5 ; margin-top:-8px; ">
+        <thead>
+            <tr>
+                <th width="25%">Saldi</th>
+                <th width="10%" class="text-right ; border-right">Ultimo saldo</th>
+                <th width="20%" class="text-left ; border-left">Saldi
+                </th>
+                <th width="10%"> Perioden
+                </th>
+                <th width="10%" class="text-right">Ultimo saldo
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="border-none">Bidragspligtig AM-indkomst</td>
+                <td class="border-none text-right" th:text="${reportRow['88002']}"></td>
+                <td class="border-none">Samtidighedsferie Ferieberettiget</td>
+                <td class="border-none text-center" th:text="${reportRow['68004']}">123</td>
+                <td class="border-none text-right" th:text="${reportRow['68005']}">1</td>
+            </tr>
+            <tr>
+                <td class="border-none">AM-free income</td>
+                <td class="border-none text-right">0.00</td>
+                <td class="border-none">Månedsfridage</td>
+                <td class="border-none text-center"></td>
+                <td class="border-none"></td>
+            </tr>
+
+            <tr>
+                <td class="border-none">Arbejdsmarkedsbidrag</td>
+                <td class="border-none text-right" th:text="${reportRow['85513']}"></td>
+                <td class="border-none">Free telefon</td>
+                <td class="border-none text-center"></td>
+                <td class="border-none"></td>
+            </tr>
+            <tr>
+                <td class="border-none"> ATP medarbejderbidrag</td>
+                <td class="border-none text-right" th:text="${reportRow['85517']}"></td>
+                <td class="border-none">Omsorgsdage</td>
+                <td class="border-none text-center"></td>
+                <td class="border-none"></td>
+            </tr>
+            <tr>
+                <td class="border-none"> Pension firma bidrag
+                </td>
+                <td class="border-none text-right" th:text="${reportRow['81642']}"></td>
+                <td class="border-none">Feriefridage</td>
+                <td class="border-none text-center" th:text="${reportRow['68006']}">1234</td>
+                <td class="border-none text-right" th:text="${reportRow['64200']}">232</td>
+
+            </tr>
+            <tr>
+                <td class="border-none">Pension eget bidrag
+                <td class="border-none text-right" th:text="${reportRow['68003']}"></td>
+                <td class="border-none">Ferie sidste år
+                </td>
+                <td class="border-none"></td>
+                <td class="border-none"></td>
+            </tr>
+            <tr>
+                <td class="border-none">A-skat</td>
+                <td class="border-none text-right" th:text="${reportRow['85552']}"></td>
+                <td class="border-none">Feriedage til afholdelse </td>
+                <td class="border-none text-center" th:text="${reportRow['68006']}">1234</td>
+                <td class="border-none text-right" th:text="${reportRow['64200']}">99</td>
+
+            </tr>
+            <tr>
+                <td class="border-none"></td>
+                <td class="border-none text-right"></td>
+                <td class="border-none">Saldo Ferietillæg
+                </td>
+                <td class="border-none text-center" th:text="${reportRow['68006']}">1234</td>
+                <td class="border-none text-right" th:text="${reportRow['64200']}">232</td>
+
+            </tr>
+        </tbody>
+    </table>
+    <table class="footer">
+        <tr>
+            <td width="25%" class="document-footer-ref" th:text="${#strings.toUpperCase(code)}"></td>
+            <td colspan="3" class="document-footer-copy">
+                Dette dokument er blevet genereret af Mercans                <br>
+                <br>
+                &copy; Alle rettigheder forbeholdes
+            </td>
+            <td width="25%"></td>
+        </tr>
+    </table>
+</th:block>

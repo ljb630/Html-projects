@@ -1,0 +1,395 @@
+<style type="text/css">
+    * {
+        font-family: Lato;
+        font-size: 10px;
+    }
+
+    body,
+    html {
+        margin: 0 !important;
+        padding: 0 !important;
+
+    }
+
+    small {
+        font-size: 8px;
+    }
+
+    hr {
+        height: 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    table {
+        margin-bottom: 15px;
+        page-break-after: auto;
+    }
+
+    table:last-child {
+        margin-bottom: 0;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr.title>td,
+    tr.title>td>div,
+    tr.title>td>div>span {
+        font-size: 11px;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+
+    table tbody tr td:before,
+    table tbody tr td:after,
+    table tfoot tr th:before,
+    table tfoot tr th:after {
+        content: "";
+        height: 1px;
+        display: block;
+    }
+
+    table>thead>tr.caption>td {
+        background: #aaa;
+        border-bottom: 1px solid #000;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 3px;
+        text-align: center;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .text-right {
+        text-align: right !important;
+    }
+
+    .text-left {
+        text-align: left !important;
+    }
+
+    .text-bold {
+        font-weight: bold;
+    }
+
+    table {
+        width: 100%;
+        table-layout: fixed;
+        max-width: 0;
+        word-wrap: break-word;
+    }
+
+    .table-height {
+        height: 200px !important;
+    }
+
+    .table-left {
+        width: 50%;
+        float: left;
+    }
+
+    .table-right {
+        width: 50%;
+        float: right;
+    }
+
+    img.logo {
+        max-height: 70px;
+        max-width: 280px;
+    }
+
+    .border-none {
+        border: none !important;
+    }
+
+    .border-right-none {
+        border-right: none !important;
+    }
+
+    .border-left-none {
+        border-left: none !important;
+    }
+
+    .margin-bottom-0 {
+        margin-bottom: 0 !important;
+    }
+
+    .margin-top-0 {
+        margin-top: 0 !important;
+    }
+
+    .medium-blue {
+        color: #009cde;
+    }
+
+    .medium-blue-bg {
+        background-color: #009cde;
+        color: white !important font-weight: bold
+    }
+
+    .medium-blue-table {
+        border: 1px solid #009cde;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .medium-blue-table>tbody>tr>td,
+    .medium-blue-table>tfoot>tr>th,
+    .medium-blue-table>thead>tr>th {
+        border: 1px solid #009cde;
+    }
+
+    .dark-gray {
+        color: #25282a;
+    }
+
+    .medium-gray {
+        color: #9ea2a2;
+    }
+
+    .medium-gray-bg {
+        background-color: #9ea2a2;
+        color: white !important;
+        font-weight: bold;
+        border: 1px solid #9ea2a2;
+    }
+
+    .medium-gray-table {
+        border: 1px solid #9ea2a2;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .medium-gray-table>tr>th,
+    .medium-gray-table>tr>th,
+    .medium-gray-table>tr>td {
+        border: 1px solid #9ea2a2;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .padding-right {
+        padding-right: 10px;
+    }
+
+
+    .white-bold {
+        color: white;
+        font-weight: bold
+    }
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<div class="table-left margin-bottom-0">
+    <table class="margin-bottom-0" style="margin-bottom: 0px;">
+        <tr>
+            <td rowspan="3" colspan="2">
+                <img th:src="${logo_uri}" th:alt="${legalEntity.getLegalName()}" class="logo" /><br><br>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="table-right margin-bottom-0" style="margin-top: 35px">
+    <table class="margin-bottom-0">
+        <tr>
+            <td class="text-center medium-blue">Periodo de Pago</td>
+            <td class="text-center medium-blue">Pago Neto</td>
+        </tr>
+        <tr valign="bottom">
+            <td class="text-center dark-gray text-bold" th:text="${period.getName()}">Octubre 2020</td>
+            <td class="text-center dark-gray text-bold" th:text="${#numbers.formatInteger(net_pay_amount, 3, 'COMMA')}">
+                400
+            </td>
+        </tr>
+    </table>
+</div>
+<table class="medium-blue-table">
+    <tr>
+        <td class="border-right-none dark-gray text-bold" width="15%">Nombre</td>
+        <td class="border-left-none" width="35%" th:text="${employeeDisplayName}">Lina Uribe</td>
+        <td class="border-right-none dark-gray text-bold" width="25%">% Retencion en la Fuente</td>
+        <td class="border-left-none" th:text="${reportRow.withholding_at_source}" width="25%">0%</td>
+    </tr>
+    <tr>
+        <td class="border-right-none dark-gray text-bold">Per Number</td>
+        <td class="border-left-none" th:text="${employee.getReferenceCode()}">34333</td>
+        <td class="border-right-none dark-gray text-bold"># Cuenta Bancaria</td>
+        <td class="border-left-none" th:text="${reportRow.bank_account}">4455788</td>
+    </tr>
+    <tr>
+        <td class="border-right-none dark-gray text-bold">Posicion</td>
+        <td class="border-left-none" th:text="${employee.getPosition()}">EEX Specialist</td>
+        <td class="border-right-none dark-gray text-bold">Banco</td>
+        <td class="border-left-none" th:text="${reportRow.bank_name}">Bancolombia</td>
+    </tr>
+</table>
+<table style="border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th colspan="3" class="text-center medium-blue-bg white-bold medium-blue-table">Ingresos</th>
+        </tr>
+        <tr class="border-none" th:if="${entries.getField('SALARIALES') != null}">
+            <th colspan="3" class="text-left dark-gray text-bold">Salario</th>
+        </tr>
+    </thead>
+    <tbody class="medium-gray-table" th:if="${entries.getField('SALARIALES') != null}">
+        <th:block th:each="salaries : ${entries.getField('SALARIALES')}">
+            <th:block th:each="salaries_account : ${salaries.getAccounts()}">
+                <th:block th:each="salaries_account_currency : ${salaries_account.getCurrencies()}">
+                    <tr th:if="${#numbers.formatInteger(salaries_account_currency.getAmount(),3, 'COMMA')} != '000'">
+                        <td colspan="2" th:text="${salaries_account_currency.getLocalName()}"></td>
+                        <td class="text-right padding-right"
+                            th:text="${#numbers.formatInteger(salaries_account_currency.getAmount(),3, 'COMMA')}"></td>
+                    </tr>
+                </th:block>
+            </th:block>
+        </th:block>
+        <tr th:if="${reportRow.vacation_bonus}">
+            <td colspan="2">Bono de vacaciones</td>
+            <td class="text-right padding-right"
+                th:text="${#numbers.formatInteger(reportRow.vacation_bonus,3, 'COMMA')}"></td>
+        </tr>
+        <tr th:if="${reportRow.salary_attendance_bonus}">
+            <td colspan="2">Prima Asistencia Salario</td>
+            <td class="text-right padding-right"
+                th:text="${#numbers.formatInteger(reportRow.salary_attendance_bonus,3, 'COMMA')}"></td>
+        </tr>
+    </tbody>
+    <thead>
+        <tr th:if="${entries.getField('BENEFICIOS') != null}">
+            <th colspan="3" class="text-left dark-gray text-bold">Beneficios</th>
+        </tr>
+    </thead>
+    <tbody class="medium-gray-table" th:if="${entries.getField('BENEFICIOS') != null}">
+        <th:block th:each="entitlements : ${entries.getField('BENEFICIOS')}">
+            <th:block th:each="entitlement_account : ${entitlements.getAccounts()}">
+                <th:block th:each="entitlement_account_currency : ${entitlement_account.getCurrencies()}">
+                    <tr th:if="${#numbers.formatInteger(entitlement_account_currency.getAmount(),3, 'COMMA')} != '000'">
+                        <td colspan="2" th:text="${entitlement_account_currency.getLocalName()}"></td>
+                        <td class="text-right padding-right"
+                            th:text="${#numbers.formatInteger(entitlement_account_currency.getAmount(),3, 'COMMA')}">
+                        </td>
+                    </tr>
+                </th:block>
+            </th:block>
+        </th:block>
+    </tbody>
+    <thead>
+        <tr class="border-none">
+            <th colspan="2" class="text-bold text-left dark-gray">Total Ingresos</th>
+            <th class="text-right padding-right text-bold dark-gray"
+                th:text="${#numbers.formatInteger(entitlements_amount,3, 'COMMA')}">2,600
+            </th>
+        </tr>
+    </thead>
+</table>
+<table style="border-collapse: collapse;">
+    <thead>
+        <tr>
+            <td colspan="3" class="text-center medium-blue-bg white-bold medium-blue-table">Deducciones</td>
+        </tr>
+        <tr class="border-none" th:if="${entries.getField('DE LEY') != null}">
+            <td colspan="3" class="text-left dark-gray text-bold">Deducciones de Ley</td>
+        </tr>
+    </thead>
+    <tbody class="medium-gray-table" th:if="${entries.getField('DE LEY') != null}">
+        <th:block th:each="units : ${entries.getField('DE LEY')}">
+            <th:block th:each="units_account : ${units.getAccounts()}">
+                <th:block th:each="unit_account_currency : ${units_account.getCurrencies()}">
+                    <tr th:if="${#numbers.formatInteger(unit_account_currency.getAmount(),3, 'COMMA')} != '000'">
+                        <td colspan="2" th:text="${unit_account_currency.getLocalName()}"></td>
+                        <td class="text-right padding-right"
+                            th:text="${#numbers.formatInteger(unit_account_currency.getAmount(),3, 'COMMA')}"></td>
+                    </tr>
+                </th:block>
+            </th:block>
+        </th:block>
+    </tbody>
+    <thead>
+        <tr th:if="${entries.getField('VOLUNTARIAS') != null}" class="border-none">
+            <td colspan="3" class="text-left dark-gray text-bold">Deducciones Voluntarias</td>
+        </tr>
+    </thead>
+    <tbody class="medium-gray-table" th:if="${entries.getField('VOLUNTARIAS') != null}">
+        <th:block th:each="deductions : ${entries.getField('VOLUNTARIAS')}">
+            <th:block th:each="deductions_account : ${deductions.getAccounts()}">
+                <th:block th:each="deductions_account_currency : ${deductions_account.getCurrencies()}">
+                    <tr th:if="${#numbers.formatInteger(deductions_account_currency.getAmount(),3, 'COMMA')} != '000'">
+                        <td colspan="2" th:text="${deductions_account_currency.getLocalName()}"></td>
+                        <td class="text-right padding-right"
+                            th:text="${#numbers.formatInteger(deductions_account_currency.getAmount(),3, 'COMMA')}">
+                        </td>
+                    </tr>
+                </th:block>
+            </th:block>
+        </th:block>
+    </tbody>
+    <thead>
+        <tr class="border-none">
+            <th colspan="2" class="text-bold text-left dark-gray">Total Deducciones</th>
+            <th class="text-right padding-right text-bold dark-gray"
+                th:text="${#numbers.formatInteger(deductions_amount,3, 'COMMA')}">2,200
+            </th>
+        </tr>
+    </thead>
+</table>
+<table style="border-collapse: collapse;">
+    <thead>
+        <tr class="medium-gray-bg">
+            <td class="text-right medium-gray-bg white-bold" colspan="2">Pago Neto en Pesos Colombianos</td>
+            <td class="text-right padding-right medium-gray-bg white-bold"
+                th:text="${#numbers.formatInteger(net_pay_amount,3, 'COMMA')}">400
+            </td>
+        </tr>
+    </thead>
+</table>
+<table th:if="${entries.getField('NON CASH EARNING') or entries.getField('NON CASH EARNING DEDUCTION')}"
+    style="border-collapse: collapse; margin-bottom: 5px !important;">
+    <thead>
+        <tr class="border-none">
+            <td colspan="3" class="text-center medium-blue-bg white-bold medium-blue-table">Conceptos Informativos</td>
+        </tr>
+    </thead>
+    <tbody class="medium-gray-table">
+        <th:block th:each="noncash : ${entries.getField('NON CASH EARNING')}">
+            <th:block th:each="noncash_account : ${noncash.getAccounts()}">
+                <th:block th:each="noncash_account_currency : ${noncash_account.getCurrencies()}">
+                    <tr th:if="${#numbers.formatInteger(noncash_account_currency.getAmount(),3, 'COMMA')} != '000'">
+                        <td colspan="2" th:text="${noncash_account_currency.getLocalName()}"></td>
+                        <td class="text-right padding-right"
+                            th:text="${#numbers.formatInteger(noncash_account_currency.getAmount(),3, 'COMMA')}"></td>
+                    </tr>
+                </th:block>
+            </th:block>
+        </th:block>
+        <th:block th:each="noncashded : ${entries.getField('NON CASH EARNING DEDUCTION')}">
+            <th:block th:each="noncashded_account : ${noncashded.getAccounts()}">
+                <th:block th:each="noncashded_account_currency : ${noncashded_account.getCurrencies()}">
+                    <tr th:if="${#numbers.formatInteger(noncashded_account_currency.getAmount(),3, 'COMMA')} != '000'">
+                        <td colspan="2" th:text="${noncashded_account_currency.getLocalName()}"></td>
+                        <td class="text-right padding-right"
+                            th:text="${'-' +#numbers.formatInteger(noncashded_account_currency.getAmount(),3, 'COMMA')}">
+                        </td>
+                    </tr>
+                </th:block>
+            </th:block>
+        </th:block>
+    </tbody>
+</table>
+<table>
+    <tr>
+        <td class="text-left medium-gray" th:text="${reportRow.note}">COLTABACO S.A.S</td>
+    </tr>
+    <tr>
+        <td class="text-right text-bold dark-gray" th:text="${legalEntity.getLegalName()}">COLTABACO S.A.S</td>
+    </tr>
+    <tr>
+        <td class="text-right medium-gray">Una filiada de Philip Morris International</td>
+    </tr>
+</table>

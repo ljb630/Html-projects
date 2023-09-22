@@ -1,0 +1,474 @@
+<style type="text/css">
+    * {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 10px;
+    }
+
+    small {
+        font-size: 10px;
+    }
+
+    hr {
+        height: 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    h2 {
+        font-size: 14px;
+    }
+
+    table {
+        margin-bottom: 20px;
+        page-break-inside: avoid;
+        page-break-after: auto;
+        border-collapse: collapse;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        text-align: right;
+    }
+
+    table:last-child {
+        margin-bottom: 0;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    table tbody tr td:before,
+    table tbody tr td:after,
+    table tfoot tr th:before,
+    table tfoot tr th:after {
+        content: "";
+        height: 1px;
+        display: block;
+    }
+
+    table>thead>tr.caption>td {
+        background: #aaa;
+        border-bottom: 1px solid #000;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 3px;
+        text-align: center;
+    }
+
+    .margin-top {
+        margin-top: -11px;
+    }
+
+    .table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .table>thead>tr>th,
+    .table>tbody>tr>th,
+    .table>tfoot>tr>th {
+        background: #ddd;
+        text-align: left;
+    }
+
+    .table>tbody>tr>td,
+    .table>tbody>tr>th,
+    .table>tfoot>tr>th,
+    .table>thead>tr>th {
+        border: 1px solid black;
+        vertical-align: top;
+        border-bottom: 1px solid #000;
+        padding: 4px;
+    }
+
+    .table>thead>tr>th {
+        font-weight: bold;
+    }
+
+    .table>tbody>tr.important>td {
+        background-color: #f8f8f8;
+        font-weight: bold;
+    }
+
+    .infobox {
+        border: 1px solid #ccc;
+    }
+
+    .table-2col>tbody>tr>td {
+        width: 50%;
+    }
+
+    .table-3col>tbody>tr>td {
+        width: 33%;
+    }
+
+    .table-4col>tbody>tr>td {
+        width: 25%;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .text-right {
+        text-align: right !important;
+    }
+
+    .text-left {
+        text-align: left !important;
+    }
+
+    .text-bold {
+        font-weight: bold;
+    }
+
+    .bg-attention {
+        background-color: #f2dede;
+    }
+
+    .document-footer {
+        margin-top: 20px;
+    }
+
+    .document-footer p {
+        font-size: 9px;
+        text-align: center;
+    }
+
+    .details-table {
+        border: 1px solid #000;
+        border-spacing: 0;
+    }
+
+    .details-table>tbody>tr>td:last-child {
+        border-right: 0;
+    }
+
+    .details-table>tbody>tr>td {
+        padding: 4px;
+        vertical-align: top;
+        width: 50%;
+    }
+
+    .details-table>tbody>tr>td:first-child {
+        background: #ddd;
+        border-right: 1px solid #000;
+        font-weight: bold;
+    }
+
+    .details-table>tbody>tr>td:last-child {
+        text-align: right;
+    }
+
+    img.logo {
+        max-width: 300px;
+        max-height: 120px;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    thead>tr>th,
+    tfoot>tr>th {
+        font-size: 10px;
+    }
+
+    .footer-total,
+    .footer-total>strong {
+        font-size: 15px;
+    }
+
+    .table-left {
+        width: 49%;
+        float: left;
+    }
+
+    .table-right {
+        width: 49%;
+        float: right;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .text-right {
+        text-align: right !important;
+    }
+
+    .text-left {
+        text-align: left !important;
+    }
+
+    .border-none>tr>th {
+        border: none !important;
+    }
+
+    .border-none>th {
+        border: none !important;
+    }
+
+    .border-none {
+        border: none !important;
+    }
+
+    .border-right {
+        border-right: 1px solid black !important;
+    }
+
+    span {
+        font-size: 10px;
+        margin-right: 2px;
+    }
+
+    .last {
+        margin-right: 3px;
+    }
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<div style="margin-bottom:20px;margin-top:30px;overflow:visible !important;">
+    <div style="margin-bottom:20px;">
+        <table class="table table-bordered">
+            <thead>
+                <tr class="border-none">
+                    <th colspan="6" class="text-left">
+                        <h3>Private</h3>
+                    </th>
+                    <th colspan="6" class="text-center">
+                        <h3 th:text="${label}"></h3>
+                    </th>
+                    <th colspan="6" class="text-right"></th>
+                </tr>
+                <tr class="border-none">
+                    <th colspan="6" class="text-left">HRB-PRD</th>
+                    <th colspan="6" class="text-center"
+                        th:text="${#dateUtil.formatDate(payroll.end_date, 'MMMM yyyy')}"></th>
+                    <th colspan="6" class="text-right">Country: <span th:text="${legal_entity.country}"></span></th>
+                </tr>
+                <tr class="border-none">
+                    <th colspan="6" class="text-left">Report date: <span
+                            th:text="${#dates.format(#dates.createNow(), 'dd/MM/yyyy HH:mm:ss')}"></span></th>
+                    <th colspan="6" class="text-center" th:text="${legal_entity.legal_name}"></th>
+                    <th colspan="6" class="text-right">Generated By: <span th:text="${actor_employee.name}"></span>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="text-right">#</th>
+                    <th style="width: 100px;">Employee ID</th>
+                    <th>Employee name</th>
+                    <th style="width: 100px;">RU</th>
+                    <th style="width: 100px;">Hire Date</th>
+                    <th style="width: 100px;">Last Working Day</th>
+                    <th style="width: 100px;">Cost Center</th>
+                    <th style="width: 100px;">Employee Group</th>
+                    <th style="width: 100px;">Employee Status</th>
+                    <th style="width: 100px;">Location</th>
+                    <th style="width: 100px;">Area</th>
+                    <th style="width: 100px;">Work Schedule</th>
+                    <th style="width: 100px;">CL</th>
+                    <th style="width: 100px;">Union Due</th>
+                    <th style="width: 100px;">One Time Union Due</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th colspan="15">1602 - EE&P NG Offshre East</th>
+                </tr>
+                <tr th:each="row : ${report.rows}" th:if="${row['RU'] == '1602'}">
+                    <td class="text-right" th:text="${custom.counter1.incrementAndGet()}"></td>
+                    <td class="text-left" th:text="${row['Employee_ID']}"></td>
+                    <td class="text-left" th:text="${row['employee_name']}"></td>
+                    <td class="text-left" th:text="${row['RU']}"></td>
+                    <td class="text-left" th:text="${row['hire_date']}"></td>
+                    <td class="text-left" th:text="${row['last_working_day']}"></td>
+                    <td class="text-left" th:text="${row['cost_center']}"></td>
+                    <td class="text-left" th:text="${row['Employee_Group']}"></td>
+                    <td class="text-left" th:text="${row['Employee_Status']}"></td>
+                    <td class="text-left" th:text="${row['Location']}"></td>
+                    <td class="text-left" th:text="${row['Area']}"></td>
+                    <td class="text-left" th:text="${row['Work_Schedule']}"></td>
+                    <td class="text-left" th:text="${row['CL']}"></td>
+                    <td th:with="initialSubSaving5=${custom.context.addTo('initialSubSaving5', row['Union_Due'])}"
+                        th:text="${#numberFormat.format(row['Union_Due'])}"></td>
+                    <td th:with="initialSubSaving6=${custom.context.addTo('initialSubSaving6', row['One_Time'])}"
+                        th:text="${#numberFormat.format(row['One_Time'])}"></td>
+
+
+                <tr>
+                    <th colspan="4" class="text-left"
+                        th:text="'1602 - EE&P NG Offshre East: ' + ${custom.counter1.get()}"></th>
+                    <th></th>
+
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th class="text-right" th:text="${#numberFormat.format(custom.context.get('initialSubSaving5'))}">
+                        &nbsp;
+                    </th>
+                    <th class="text-right" th:text="${#numberFormat.format(custom.context.get('initialSubSaving6'))}">
+                        &nbsp;
+                    </th>
+
+                    </th>
+                </tr>
+                <tr>
+                    <td style="border: none" colspan="15"></td>
+                </tr>
+                <tr>
+                    <td style="border: none" colspan="15"></td>
+                </tr>
+                <tr>
+                    <th colspan="15">4040 - Mobil Producing Nigeria U</th>
+                </tr>
+                <tr th:each="row : ${report.rows}" th:if="${row['RU'] == '4040'}">
+                    <td class="text-right" th:text="${custom.counter3.incrementAndGet()}"></td>
+                    <td class="text-left" th:text="${row['Employee_ID']}"></td>
+                    <td class="text-left" th:text="${row['employee_name']}"></td>
+                    <td class="text-left" th:text="${row['RU']}"></td>
+                    <td class="text-left" th:text="${row['hire_date']}"></td>
+                    <td class="text-left" th:text="${row['last_working_day']}"></td>
+                    <td class="text-left" th:text="${row['cost_center']}"></td>
+                    <td class="text-left" th:text="${row['Employee_Group']}"></td>
+                    <td class="text-left" th:text="${row['Employee_Status']}"></td>
+                    <td class="text-left" th:text="${row['Location']}"></td>
+                    <td class="text-left" th:text="${row['Area']}"></td>
+                    <td class="text-left" th:text="${row['Work_Schedule']}"></td>
+                    <td class="text-left" th:text="${row['CL']}"></td>
+                    <td th:with="initialSubSaving3=${custom.context.addTo('initialSubSaving3', row['Union_Due'])}"
+                        th:text="${#numberFormat.format(row['Union_Due'])}"></td>
+                    <td th:with="initialSubSaving4=${custom.context.addTo('initialSubSaving4', row['One_Time'])}"
+                        th:text="${#numberFormat.format(row['One_Time'])}"></td>
+
+
+                </tr>
+                <tr>
+                    <th colspan="4" class="text-left"
+                        th:text="'4040 - Mobil Producing Nigeria U: ' + ${custom.counter3.get()}"></th>
+                    <th></th>
+
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th class="text-right" th:text="${#numberFormat.format(custom.context.get('initialSubSaving3'))}">
+                        &nbsp;
+                    </th>
+                    <th class="text-right" th:text="${#numberFormat.format(custom.context.get('initialSubSaving4'))}">
+                        &nbsp;
+                    </th>
+
+
+                </tr>
+                <tr>
+                    <td style="border: none" colspan="15"></td>
+                </tr>
+                <tr>
+                    <td style="border: none" colspan="15"></td>
+                </tr>
+                <tr>
+                    <th colspan="15">1601 - ESSO Expl & Prod Nigeria</th>
+                </tr>
+                <tr th:each="row : ${report.rows}" th:if="${row['RU'] == '1601'}">
+                    <td class="text-right" th:text="${custom.counter2.incrementAndGet()}"></td>
+                    <td class="text-left" th:text="${row['Employee_ID']}"></td>
+                    <td class="text-left" th:text="${row['employee_name']}"></td>
+                    <td class="text-left" th:text="${row['RU']}"></td>
+                    <td class="text-left" th:text="${row['hire_date']}"></td>
+                    <td class="text-left" th:text="${row['last_working_day']}"></td>
+                    <td class="text-left" th:text="${row['cost_center']}"></td>
+                    <td class="text-left" th:text="${row['Employee_Group']}"></td>
+                    <td class="text-left" th:text="${row['Employee_Status']}"></td>
+                    <td class="text-left" th:text="${row['Location']}"></td>
+                    <td class="text-left" th:text="${row['Area']}"></td>
+                    <td class="text-left" th:text="${row['Work_Schedule']}"></td>
+                    <td class="text-left" th:text="${row['CL']}"></td>
+                    <td th:with="initialSubSaving1=${custom.context.addTo('initialSubSaving1', row['Union_Due'])}"
+                        th:text="${#numberFormat.format(row['Union_Due'])}"></td>
+                    <td th:with="initialSubSaving2=${custom.context.addTo('initialSubSaving2', row['One_Time'])}"
+                        th:text="${#numberFormat.format(row['One_Time'])}"></td>
+
+
+
+                <tr>
+                    <th colspan="4" class="text-left"
+                        th:text="'1601 - ESSO Expl & Prod Nigeria - headcount: ' + ${custom.counter2.get()}"></th>
+                    <th></th>
+
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th class="text-right" th:text="${#numberFormat.format(custom.context.get('initialSubSaving1'))}">
+                        &nbsp;
+                    </th>
+                    <th class="text-right" th:text="${#numberFormat.format(custom.context.get('initialSubSaving2'))}">
+                        &nbsp;
+                    </th>
+
+
+                </tr>
+                <tr>
+                    <td style="border: none" colspan="15"></td>
+                </tr>
+                <tr>
+                    <td style="border: none" colspan="15"></td>
+                </tr>
+                <tr>
+                    <th colspan="4" class="text-left"
+                        th:text="'GRAND TOTAL: ' + ${custom.counter1.addAndGet(custom.counter2.get()) + custom.counter3.get()}">
+                    </th>
+                    <th></th>
+
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th class="text-right" th:text="${#numberFormat.format(report.grand_total.Union_Due)}"></th>
+                    <th class="text-right" th:text="${#numberFormat.format(report.grand_total.One_Time)}"></th>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="document-footer">
+    <p class="text-center">***&nbsp;<strong>End of Report</strong>&nbsp;***</p>
+    <p>Generated by Mercans</p>
+    <p>&copy; All rights reserved</p>
+</div>

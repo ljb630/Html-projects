@@ -1,0 +1,193 @@
+<style>
+  * {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 11px;
+  }
+
+
+
+  page {
+    display: block;
+  }
+
+  page[size="A4"] {
+    width: 28cm;
+    height: 35.7cm;
+  }
+
+  /*
+    page[size="A3"] {
+        width: 29.7cm;
+        height: 42cm;
+    }
+
+    page[size="A3"][layout="landscape"] {
+        width: 42cm;
+        height: 29.7cm;
+    }
+
+    page[size="A5"] {
+        width: 14.8cm;
+        height: 21cm;
+    }
+
+    page[size="A5"][layout="landscape"] {
+        width: 21cm;
+        height: 14.8cm;
+    } --> */
+
+  #all-page {
+    margin: 15px;
+    padding: 20px;
+  }
+
+  h2 {
+    margin: 2px;
+    padding: 2px;
+    background-color: rgba(156, 194, 229, 255);
+    width: 40%;
+    text-align: center;
+    margin-left: 230px;
+    border: 1px solid black;
+  }
+
+  div {
+    margin: 5px;
+    padding: 5px;
+  }
+
+  #tab-1 {
+    border-collapse: collapse;
+    margin: 5px;
+    padding: 5px;
+  }
+
+  #tab-1 tr td {
+    padding: 5px;
+    margin: 2px;
+    border: 1px solid black;
+  }
+
+  tr:nth-child(even) {
+    background: #8EA9DB
+  }
+
+  tr:nth-child(odd) {
+    background: #D9E0F1
+  }
+
+  .sub-tab-clor td {
+    background-color: #305496;
+  }
+
+  .rt {
+    text-align: right;
+  }
+
+  /*footer*/
+
+  .document-footer {
+    margin-top: 10px;
+  }
+
+  .document-footer p {
+    font-size: 9px;
+    text-align: center;
+  }
+
+  .document-footer-ref {
+    font-size: 9px;
+    vertical-align: bottom;
+  }
+
+  .document-footer-copy {
+    font-size: 9px;
+    text-align: center;
+  }
+
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+</style>
+<page size="A4">
+  <th:block th:with="noEl = 53,totalSize = ${#lists.size(report.get('row_section').get('rows'))} - 1">
+    <th:block th:each=" listIndex: ${#numbers.sequence(0, totalSize, noEl)}">
+      <th:block th:with="reportRow = ${report['row_section']['rows'][0]}">
+        <div th:with="maxValue = ${ totalSize lt (listIndex + noEl -1) ? totalSize : listIndex + noEl -1}">
+          <div id="all-page">
+            <h2 class="sub-tab-clor">December Summary Book</h2>
+            <table id="tab-1">
+              <tr class="sub-tab-clor" width="auto">
+                <td><strong>WT Code</strong></td>
+                <td><strong>Wage type in English</strong></td>
+                <td><strong>Wage type in French</strong></td>
+                <td><strong>Chelghoum Laid</strong></td>
+                <td><strong>Dely Ibrahim</strong></td>
+                <td><strong>Reghaia</strong></td>
+                <td><strong>Grand Total</strong></td>
+              </tr>
+              <th:block th:if="${report['row_section']['rows_by_identifier']['EARNINGS'] != null}">
+                <th:block th:if="${report['row_section']['rows_by_identifier']['EARNINGS'] != ''}">
+                  <th:block th:if="${report['row_section']['rows_by_identifier']['EARNINGS'] != '0.00'}">
+                    <th:block th:each="row : ${report['row_section']['rows_by_identifier']['EARNINGS'][0]}">
+                      <tr>
+                        <td th:text="${row.value['Wage_type_1']}">62100</td>
+                        <td th:text="${row.value['Wage_type_English_1']}">62100</td>
+                        <td th:text="${row.value['Wage_type_Franch_1']}">62100</td>
+                        <td class="text-right" th:text="${row.value['Chelghoum Laid_1']}">62100</td>
+                        <td class="text-right" th:text="${row.value['Dely Ibrahim_1']}">62100</td>
+                        <td class="text-right" th:text="${row.value['Reghaia_1']}">3,000.00</td>
+                        <td class="text-right" th:text="${row.value['Grand Total_1']}">3,000.00</td>
+                      </tr>
+                    </th:block>
+                  </th:block>
+                </th:block>
+              </th:block>
+              <tr>
+                <td th:text="${reportRow['Wage_type_EARNINGS']}">62100</td>
+                <td th:text="${reportRow['Wage_type_English_EARNINGS']}">62100</td>
+                <td th:text="${reportRow['Wage_type_Franch_EARNINGS']}">62100</td>
+                <td class="text-right" th:text="${reportRow['Chelghoum Laid_EARNINGS']}">62100</td>
+                <td class="text-right" th:text="${reportRow['Dely Ibrahim_EARNINGS']}">62100</td>
+                <td class="text-right" th:text="${reportRow['Reghaia_EARNINGS']}">3,000.00</td>
+                <td class="text-right" th:text="${reportRow['Grand Total_EARNINGS']}">3,000.00</td>
+              </tr>
+              <th:block th:if="${report['row_section']['rows_by_identifier']['DEDUCTIONS'] != ''}">
+                <th:block th:if="${report['row_section']['rows_by_identifier']['DEDUCTIONS'] != '0.00'}">
+                  <th:block th:if="${report['row_section']['rows_by_identifier']['DEDUCTIONS'] != null}">
+                    <th:block th:each="row : ${report['row_section']['rows_by_identifier']['DEDUCTIONS'][0]}">
+                      <tr>
+                        <td th:text="${row.value['Wage_type_2']}">62100</td>
+                        <td th:text="${row.value['Wage_type_English_2']}">62100</td>
+                        <td th:text="${row.value['Wage_type_Franch_2']}">62100</td>
+                        <td class="text-right" th:text="${row.value['Chelghoum Laid_2']}">62100</td>
+                        <td class="text-right" th:text="${row.value['Dely Ibrahim_2']}">62100</td>
+                        <td class="text-right" th:text="${row.value['Reghaia_2']}">3,000.00</td>
+                        <td class="text-right" th:text="${row.value['Grand Total_2']}">3,000.00</td>
+                      </tr>
+                    </th:block>
+                  </th:block>
+                </th:block>
+              </th:block>
+              <tr>
+                <td th:text="${reportRow['Wage_type_deductions']}">62100</td>
+                <td th:text="${reportRow['Wage_type_English_deductions']}">62100</td>
+                <td th:text="${reportRow['Wage_type_Franch_deductions']}">62100</td>
+                <td class="text-right" th:text="${reportRow['Chelghoum Laid_deductions']}">62100</td>
+                <td class="text-right" th:text="${reportRow['Dely Ibrahim_deductions']}">62100</td>
+                <td class="text-right" th:text="${reportRow['Reghaia_deductions']}">3,000.00</td>
+                <td class="text-right" th:text="${reportRow['Grand Total_deductions']}">3,000.00</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </th:block>
+    </th:block>
+  </th:block>
+</page>

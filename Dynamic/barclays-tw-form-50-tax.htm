@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie8" lang="en"><![endif]-->
+<!--[if IE 9]><html class="ie9" lang="en"><![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+<title>Payroll</title>
+
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta content name="description" />
+<meta content name="author" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self';
+          script-src 'self' 'unsafe-inline' 'unsafe-eval' https://plausible.hrblizz.dev/js/script.js;
+          connect-src 'self' https://plausible.hrblizz.dev/api/event;
+          font-src 'self' https://fonts.gstatic.com/;
+          style-src 'self' https://fonts.googleapis.com/css 'unsafe-inline';">
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700,900|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+
+
+<link rel="stylesheet" href="/assets/animate.css/animate.css" />
+<link rel="stylesheet" href="/assets/themify-icons/css/themify-icons.css" />
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+document.head.parentNode.className += 'has-js';
+window.APP_VERSION = '2023-08-09T08:20:23+00:00';
+window.Payroll = {};
+window.Payroll.sessionPreferences = {"currency":"USD","date_format":"d-m-Y","time_format":"H:i","datetime_format":"d-m-Y H:i","time_zone":"Zulu","decimal_point":".","thousands_separator":",","decimal_scale":2};
+</script>
+<link rel="stylesheet" type="text/css" href="https://payroll.hrblizz.net/external/font-awesome/css/font-awesome.min.css?hash=3faa1b7c160d1ce1d753020025078354" />
+<link rel="stylesheet" type="text/css" href="https://payroll.hrblizz.net/external/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css?hash=54e6627165b4761605ce0e39ca47e0cd" />
+<link rel="stylesheet" type="text/css" href="https://payroll.hrblizz.net/external/select2/css/select2.min.css?hash=65ab165512df6ab768cab14b0dd49457" />
+<link rel="stylesheet" type="text/css" href="https://payroll.hrblizz.net/external/DataTables/datatables.min.css?hash=685034479111ccd36a9982be38a16c5f" />
+<link rel="stylesheet" type="text/css" href="https://payroll.hrblizz.net/external/fixed-data-table.min.css?hash=de60af5181c91fff77651797146aee7a" />
+<link rel="stylesheet" type="text/css" href="https://payroll.hrblizz.net/css/app.css?hash=40dff45a9e09faae5037bd36a4f7e166" />
+<script src="/scripts/external/require.js"></script>
+<script type="text/javascript" src="https://payroll.hrblizz.net/scripts/app.js?hash=8cc5ddaba36b91b1946df6ff2433a725"></script>
+
+<link rel="shortcut icon" href="/images/small_logo.png" />
+</head>
+
+<body>
+<div id="app" class="lyt-2">
+
+<div class="sidebar app-aside" id="sidebar">
+<div class="sidebar-container perfect-scrollbar">
+<div>
+<nav>
+
+<ul class="main-navigation-menu">
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/employees">
+<div class="item-content">
+<div class="item-media">
+<i class="fa fa-home"></i>
+</div>
+<div class="item-inner">
+<span class="title"> Home </span>
+</div>
+</div>
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/employees">
+<div class="item-content">
+<div class="item-media">
+<i class="fa fa-users"></i>
+</div>
+<div class="item-inner">
+<span class="title"> Employees </span>
+</div>
+</div>
+</a>
+</li>
+<li class="dropdown ">
+<a href="javascript:void(0)">
+<div class="item-content">
+<div class="item-media">
+<i class="fa fa-building"></i>
+</div>
+<div class="item-inner">
+<span class="title"> Main settings </span><i class="icon-arrow"></i>
+</div>
+</div>
+</a>
+<ul class="sub-menu">
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/599/edit">
+General Information
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/edit/payroll">
+Payroll Settings
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/period/settings">
+Period Settings
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/pay-elements">
+Pay Elements
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/employee-field-groups">
+Field Groups
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/workweeks">
+Workweeks
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/employee/groups">
+Pay Groups
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown ">
+<a href="javascript:void(0)">
+<div class="item-content">
+<div class="item-media">
+<i class="fa fa-list"></i>
+</div>
+<div class="item-inner">
+<span class="title">
+Payrolls
+</span><i class="icon-arrow"></i>
+</div>
+</div>
+</a>
+<ul class="sub-menu">
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/payrolls">
+Payroll
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/edit/payroll">
+Payroll Settings
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/pay-elements">
+Pay Elements
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/fiscal-years">
+Fiscal Years
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/value-formats">
+Value Format
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/gl-codes/">
+General Ledger Codes
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/cost-centers">
+Cost Centers
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/profit-centers">
+Profit Centers
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/currency-rates">
+Currency Rates
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/bank-accounts">
+Bank Accounts
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/calculated-fields">
+Calculated Fields
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/regulations">
+Regulations
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown ">
+<a href="javascript:void(0)">
+<div class="item-content">
+<div class="item-media">
+<i class="fa fa-th"></i>
+</div>
+<div class="item-inner">
+<span class="title"> Modules </span><i class="icon-arrow"></i>
+</div>
+</div>
+</a>
+<ul class="sub-menu">
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/launchpad">
+Launchpad Settings
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/mss">
+PAC Settings
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/timesheet">
+Timesheet Settings
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/leave/regulations">
+Leave
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/expense-report/types">
+Benefits
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/request-types">
+Request Types
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/languages">
+Languages
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/calculated-fields">
+Calculated Fields
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/users">
+Access Management
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown ">
+<a href="javascript:void(0)">
+<div class="item-content">
+<div class="item-media">
+<i class="fa fa-bell"></i>
+</div>
+<div class="item-inner">
+<span class="title">
+Notifications
+</span><i class="icon-arrow"></i>
+</div>
+</div>
+</a>
+<ul class="sub-menu">
+<li class>
+<a href="https://payroll.hrblizz.net/notifications">
+Notifications
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/email-templates">
+Email Templates
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown ">
+<a href="javascript:void(0)">
+<div class="item-content">
+<div class="item-media">
+<i class="fa fa-calendar"></i>
+</div>
+<div class="item-inner">
+<span class="title">
+Calendar
+</span><i class="icon-arrow"></i>
+</div>
+</div>
+</a>
+<ul class="sub-menu">
+<li class>
+<a href="https://payroll.hrblizz.net/calendar">
+Calendar
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/calendar/settings">
+Calendar Settings
+</a>
+</li>
+</ul>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/interfaces/status">
+<div class="item-content">
+<div class="item-media">
+<i class="fa fa-cube"></i>
+</div>
+<div class="item-inner">
+<span class="title"> Interfaces </span>
+</div>
+</div>
+</a>
+</li>
+<li class="dropdown ">
+<a href="javascript:void(0)">
+<div class="item-content">
+<div class="item-media">
+<i class="fa fa-file-text"></i>
+</div>
+<div class="item-inner">
+<span class="title"> Reports </span><i class="icon-arrow"></i>
+</div>
+</div>
+</a>
+<ul class="sub-menu">
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/report/defaults">
+Report Settings
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/report/master-data">
+Master data
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/report/gross-to-net">Gross
+to
+net</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/report/general-ledger">General
+ledger</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/report/accruals-ytd">Year to
+date accruals</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/report/concatenated/leave-accruals">Leave
+accruals</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/report/summary-payslip">Summary
+payslip</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/report/audit-trail">Audit
+trail</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/report/ess-request">ESS
+request report</a>
+</li>
+</ul>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/files">
+<div class="item-content">
+<div class="item-media">
+<i class="fa fa-files-o"></i>
+</div>
+<div class="item-inner">
+<span class="title"> Files </span>
+</div>
+</div>
+</a>
+</li>
+<li class>
+<a href="https://payroll.hrblizz.net/legal-entity/queue">
+<div class="item-content">
+<div class="item-media">
+<i class="fa fa-tasks"></i>
+</div>
+<div class="item-inner">
+<span class="title"> Queue </span>
+</div>
+</div>
+</a>
+</li>
+</ul>
+<div class="navbar-title">
+<span> &nbsp; </span>
+</div>
+<ul>
+<li>
+<a href="https://hrblizz.freshdesk.com" target="_blank" rel="noopener noreferrer">
+<div class="item-content">
+<div class="item-media">
+<i class="fa fa-info-circle"></i>
+</div>
+<div class="item-inner">
+<span class="title"> Help </span>
+</div>
+</div>
+</a>
+</li>
+</ul>
+
+</nav>
+</div>
+</div>
+</div>
+
+<div class="app-content">
+
+<header class="navbar navbar-default navbar-static-top">
+
+<div class="navbar-header">
+<button href="#" class="sidebar-mobile-toggler pull-left btn no-radius hidden-md hidden-lg" class="btn btn-navbar sidebar-toggle" data-toggle-class="app-slide-off" data-toggle-target="#app" data-toggle-click-outside="#sidebar">
+<i class="fa fa-bars"></i>
+</button>
+<a class="navbar-brand" href="https://payroll.hrblizz.net/legal-entity/employees"> <img src="/images/hrb_main_logo.png" width="88" alt="HRBlizz" /> </a>
+<a class="navbar-brand navbar-brand-collapsed" href="https://payroll.hrblizz.net/legal-entity/employees">
+<img src="/images/small_logo.svg" height="24" alt /> </a>
+<button class="btn pull-right menu-toggler visible-xs-block" id="menu-toggler" data-toggle="collapse" href=".navbar-collapse" data-toggle-class="menu-open">
+<i class="fa fa-folder closed-icon"></i><i class="fa fa-folder-open open-icon"></i>
+<small><i class="fa fa-caret-down margin-left-5"></i></small>
+</button>
+</div>
+
+
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-left hidden-sm hidden-xs">
+<li class="sidebar-toggler-wrapper">
+<div>
+<button href="javascript:void(0)" class="btn sidebar-toggler visible-md visible-lg">
+<i class="fa fa-bars"></i>
+</button>
+</div>
+</li>
+</ul>
+<ul class="nav navbar-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+<span class="glyphicon glyphicon-cog"></span> System settings <span class="caret"></span>
+</a>
+<ul role="menu" class="dropdown-menu dropdown-dark pull-left" style="width: 250px" aria-labelledby="system">
+<li>
+<a href="https://payroll.hrblizz.net/account-legal-entities">
+<span class="glyphicon glyphicon-list"></span> Legal Entities
+</a>
+</li>
+<li>
+<a href="https://payroll.hrblizz.net/pay-elements">
+<span class="glyphicon glyphicon-stats"></span> Pay Elements
+</a>
+</li>
+<li>
+<a href="https://payroll.hrblizz.net/banks">
+<span class="glyphicon glyphicon-list"></span> Banks
+</a>
+</li>
+<li>
+<a href="https://payroll.hrblizz.net/consolidation-groups">
+<span class="glyphicon glyphicon-list"></span> Consolidation Groups
+</a>
+</li>
+<li>
+<a href="https://payroll.hrblizz.net/countries">
+<span class="glyphicon glyphicon-list"></span> Countries
+</a>
+</li>
+<li>
+<a href="https://payroll.hrblizz.net/regulations">
+<span class="glyphicon glyphicon-list"></span> Regulations
+(taxes/deductions)
+</a>
+</li>
+<li>
+<a href="https://payroll.hrblizz.net/tax-years">
+<span class="glyphicon glyphicon-list"></span> Tax Years
+</a>
+</li>
+<li>
+<a href="https://payroll.hrblizz.net/system/users/">
+<span class="glyphicon glyphicon-list"></span> Users
+</a>
+</li>
+<li>
+<a href="https://payroll.hrblizz.net/system/reports">
+<span class="fa fa-file-text"></span> Reports
+</a>
+</li>
+<li>
+<a href="https://payroll.hrblizz.net/system/templates">
+<span class="fa fa-file-text"></span> Templates
+</a>
+</li>
+<li>
+<a href="https://payroll.hrblizz.net/system/field-validators">
+<span class="fa fa-check"></span> Field Validators
+</a>
+</li>
+<li>
+<a href="https://payroll.hrblizz.net/system-option-mappers">
+<span class="glyphicon glyphicon-list"></span> System Option Mappers
+</a>
+</li>
+<li>
+<a href="https://payroll.hrblizz.net/saml/login-history">
+<span class="glyphicon glyphicon-list"></span> SAML
+</a>
+</li>
+<li>
+<a href="https://payroll.hrblizz.net/currencies">
+<span class="glyphicon glyphicon-usd"></span> Currencies
+</a>
+</li>
+<li>
+<a href="https://payroll.hrblizz.net/system-notifications">
+<span class="glyphicon glyphicon-bell"></span> Notifications
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href class="dropdown-toggle" data-toggle="dropdown">
+<span class="logo-image" style="background-image: url('/images/placeholder.png')">
+</span> A0_2107 </a>
+<ul role="menu" class="dropdown-menu pull-left" aria-labelledby="user_info">
+<li class="company-logo">
+<img src="/images/placeholder.png" alt>
+</li>
+<li class="legal-name">
+<span>
+A0_2107 </span>
+<span class="status">
+</span>
+</li>
+<li role="separator" class="divider"></li>
+<li><a href="https://payroll.hrblizz.net/legal-entity/switcher"><span class="glyphicon glyphicon-refresh"></span> Switch Legal Entity</a>
+</li>
+<li><a href="https://payroll.hrblizz.net/legal-entity/users"><span class="glyphicon glyphicon-user"></span> Manage Users</a>
+</li>
+<li><a href="https://payroll.hrblizz.net/logout"><span class="glyphicon glyphicon-off"></span>
+Logout</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+</header>
+
+<div class="main-content">
+<div class="wrap-content container" id="container">
+<div class="row margin-top-20">
+<div class="col-sm-12">
+<div class="panel panel-white no-radius">
+<div class="panel-body">
+<div class="col-sm-12">
+<div class="row">
+<div class="alert alert-info p-4">
+<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+<span class="alert-body"></span>
+<script>
+            document.currentScript.previousElementSibling.innerHTML = "System Maintenance\r\n<br>\r\nPlease expect system downtime from <b>UTC 08:00 09.08.2023 until UTC 11:00 09.08.2023<\/b>\r\n<\/br>\r\n                                             ";
+        </script>
+</div> </div>
+<div class="row">
+<div class="alert alert-info p-4">
+<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+<span class="alert-body"></span>
+<script>
+            document.currentScript.previousElementSibling.innerHTML = "<h2>DEPLOYMENT IN PROGRESS <\/h2>\r\n\r\n<p>During that time please do not:<\/p>\r\n\r\n<li>Run payroll<\/li>\r\n\r\n<li>Generate reports<\/li>\r\n\r\n<\/ol>\r\n\r\n<p>While waiting for the deployment please take some time and read about what is being deployed.<\/p>\r\n\r\n<\/blockquote>\r\n\r\n<h3> ><a href=\"https:\/\/sites.google.com\/mercans.com\/hrb-changelog\/home\">Changelog<\/a><<\/h3>";
+        </script>
+</div> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<form class method="post" id="system-template-edit" action="/system/template/barclays-tw-form-50-tax" enctype="multipart/form-data">
+<input type="hidden" id="djRiekE5R1BTYUxRVUttTFRsMGFhZz09" name="djRiekE5R1BTYUxRVUttTFRsMGFhZz09" value="M0M4aTk5MW5FbEI1cVB0UzBuM0pIZz09" /> <button name="_trap" class="hidden" hidden></button>
+<div class="container-fluid container-fullw padding-bottom-10">
+<div class="row">
+<div class="col-sm-12">
+<div class="panel panel-white no-radius">
+<div class="panel-body">
+<div class="row">
+<div class="col-md-12 col-lg-12">
+<div class="panel panel-white no-radius no-border">
+<div class="panel-heading">
+<div class="row">
+<div class="col-sm-12">
+<h2 class="inline-block">Template</h2>
+<p class="text-muted">
+Edit - Barclays TW Form 50 Tax (Custom report HTML template)
+</p>
+</div>
+</div>
+</div>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-12">
+<div class="pull-right">
+<a href="https://payroll.hrblizz.net/system/templates" class="btn btn-o btn-wide btn-grey">
+Cancel
+</a>
+<button class="btn btn-wide btn-orange" name="save">
+Save
+</button>
+</div>
+</div>
+</div>
+<div class="panel-body">
+<form>
+<input type="hidden" id="djRiekE5R1BTYUxRVUttTFRsMGFhZz09" name="djRiekE5R1BTYUxRVUttTFRsMGFhZz09" value="M0M4aTk5MW5FbEI1cVB0UzBuM0pIZz09" /> <div class="row">
+<div class="col-md-6">
+<div class="form-group active">
+<label title="Name" for="name" class="form-label">Name *</label>
+<input type="text" id="name" name="name" value="Barclays TW Form 50 Tax" class="form-control form-input" style="width:100%" />
+</div> </div>
+<div class="col-md-6">
+<div class="form-group active">
+<label title="Code" for="code" class="form-label">Code *</label>
+<input type="text" id="code" name="code" value="barclays-tw-form-50-tax" class="form-control form-input disabled" style="width:100%" readonly="readonly" />
+</div> </div>
+<div class="col-md-4 hidden">
+<div class="form-group active">
+<label title="Type" for="type" class="form-label">Type *</label>
+<select id="type" name="type" class="form-control form-input" style="width:100%">
+<option value>Please choose one..</option>
+<option value="payslip">Payslip HTML template</option>
+<option value="email">Email HTML template</option>
+<option value="custom_report_style">Style template</option>
+<option selected="selected" value="custom_report_html">Custom report HTML template</option>
+<option value="custom_report_xlsx">Custom report Excel template</option>
+<option value="custom_report_xml">Custom report XML template</option>
+</select>
+</div> </div>
+<fieldset>
+<legend>Template</legend>
+<div class="row">
+<div class="col-md-3">
+<div>
+<p>Current template:</p>
+<a href="https://payroll.hrblizz.net/file/download/078013019270411f84713295bd365fd4?data=XfQc%2Fsyk7sqwlMKlvGZMhFdiZFqwjze3SitgafEemAA%3D%3Aattachment_name%3Dbarclays_tw_annual_tax_statement.html%26id%3D1807416" target="_blank">
+barclays_tw_annual_tax_statement.html </a>
+</div>
+</div>
+<div class="col-md-3" id="html_template">
+<div class="form-group active">
+<label title="Template file" class="form-label">New HTML template file</label>
+<input type="file" class="form-control" id="html_system_template_file" name="html_system_template_file" accept="text/html" />
+</div>
+</div>
+<div class="col-md-3" id="xlsx_template">
+<div class="form-group active">
+<label title="Template file" class="form-label">New XLSX template file</label>
+<input type="file" class="form-control" id="xlsx_system_template_file" name="xlsx_system_template_file" accept="application/vnd.openxmlformatsofficedocument.spreadsheetml.sheet" />
+</div>
+</div>
+<div class="col-md-3" id="xml_template">
+<div class="form-group active">
+<label title="Template file" class="form-label">New XML template file</label>
+<input type="file" class="form-control" id="xml_system_template_file" name="xml_system_template_file" accept="text/xml, text/html" />
+</div>
+</div>
+<div class="col-md-3" id="css_template">
+<div class="form-group active">
+<label title="Template file" class="form-label">New CSS file</label>
+<input type="file" class="form-control" id="system_css_file" name="system_css_file" accept="text/css" />
+</div>
+</div>
+</div>
+</fieldset>
+</div>
+</form>
+</div>
+<div class="row">
+<div class="col-md-12">
+<a href="https://payroll.hrblizz.net/system/templates" class="btn btn-link">
+<i class="fa fa-arrow-left"></i>
+Back
+</a>
+<div class="pull-right">
+<a href="https://payroll.hrblizz.net/system/templates" class="btn btn-o btn-wide btn-grey">
+Cancel
+</a>
+<button class="btn btn-wide btn-orange" name="save">
+Save
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+<script>
+    requirejs(['components/SystemTemplate'], function (SystemTemplate) {
+        new SystemTemplate($('#system-template-edit'));
+    });
+</script>
+</div>
+</div>
+</div>
+</div>
+<div class="modal" id="date-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<h4 class="modal-title" id="exampleModalLabel">Pick a date</h4>
+</div>
+<div class="modal-body">
+<div id="main-datepicker"></div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+<button type="button" class="btn btn-primary" id="date-selected">Ok</button>
+</div>
+</div>
+</div>
+</div>
+<script defer data-domain="payroll.hrblizz.net" src="https://plausible.hrblizz.dev/js/script.js"></script>
+</body>
+</html>
+</div>

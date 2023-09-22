@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Loonaangifte xmlns="http://xml.belastingdienst.nl/schemas/Loonaangifte/2023/01" version="2.0">
+    <Bericht>
+        <IdBer th:text="${report.get('row_section').get('rows')[0].get('IdBer')}">863870211LO1P202206</IdBer>
+        <DatTdAanm th:text="${report.get('row_section').get('rows')[0].get('DatTdAanm')}">2022-07-13T12:48:00+01:00</DatTdAanm>
+        <ContPers th:text="${report.get('row_section').get('rows')[0].get('ContPers')}">R. Netten</ContPers>
+        <TelNr th:text="${report.get('row_section').get('rows')[0].get('TelNr')}">+31623489532</TelNr>
+        <RelNr th:text="${report.get('row_section').get('rows')[0].get('RelNr')}">swo02769</RelNr>
+        <GebrSwPakket>HR Blizz</GebrSwPakket>
+    </Bericht>
+    <AdministratieveEenheid>
+        <LhNr th:text="${report.get('row_section').get('rows')[0].get('LhNr')}">863870211L01</LhNr>
+        <NmIP th:text="${report.get('row_section').get('rows')[0].get('taxauth')}"></NmIP>
+        <TijdvakAangifte>
+            <DatAanvTv th:text="${#dateUtil.formatDate(period.begin_date, 'yyyy-MM-dd')}">2022-06-01</DatAanvTv>
+            <DatEindTv th:text="${#dateUtil.formatDate(period.end_date, 'yyyy-MM-dd')}">2022-06-30</DatEindTv>
+            <VolledigeAangifte>
+                <CollectieveAangifte th:each="additionalHeader: ${report.get('additional_column_headers_by_identifier')}">
+                    <TotLnLbPh th:text="${additionalHeader['TotLnLbPh']}">9974</TotLnLbPh>
+                    <TotLnSV th:text="${additionalHeader['TotLnLbPh']}">9974</TotLnSV>
+                    <TotPrlnAofAnwLg th:text="${additionalHeader['TotPrlnAofAnwLg']}">5051</TotPrlnAofAnwLg>
+                    <TotPrlnAofAnwHg th:text="${additionalHeader['TotPrlnAofAnwHg']}">0</TotPrlnAofAnwHg>
+                    <TotPrlnAofAnwUit th:text="${additionalHeader['TotPrlnAofAnwUit']}">0</TotPrlnAofAnwUit>
+                    <TotPrlnWhkAnw th:text="${additionalHeader['TotPrlnAofAnwHg']}">0</TotPrlnWhkAnw>
+                    <TotPrlnAwfAnwLg th:text="${additionalHeader['TotPrlnAwfAnwLg']}">0</TotPrlnAwfAnwLg>
+                    <TotPrlnAwfAnwHg th:text="${additionalHeader['TotPrlnAwfAnwHg']}">5051</TotPrlnAwfAnwHg>
+                    <TotPrlnAwfAnwHz th:text="${additionalHeader['TotPrlnAwfAnwHz']}">0</TotPrlnAwfAnwHz>
+                    <TotPrlnAwfAnwUit th:text="${additionalHeader['TotPrlnAofAnwUit1']}">0</TotPrlnAwfAnwUit>
+                    <PrLnUFO th:text="${additionalHeader['PrLnUFO']}">0</PrLnUFO>
+                    <IngLbPh th:text="${additionalHeader['IngLbPh']}">4219</IngLbPh>
+                    <EHPubUitk th:text="${report.get('row_section').get('rows')[0].get('EHPubUitk')}">0</EHPubUitk>
+                    <EHGebrAuto th:text="${report.get('row_section').get('rows')[0].get('EHGebrAuto')}">0</EHGebrAuto>
+                    <EHVUT th:text="${report.get('row_section').get('rows')[0].get('EHVUT')}">0</EHVUT>
+                    <EhOvsFrfWrkkstrg th:text="${report.get('row_section').get('rows')[0].get('EhOvsFrfWrkkstrg')}">0</EhOvsFrfWrkkstrg>
+                    <AVZeev th:text="${report.get('row_section').get('rows')[0].get('AVZeev')}">0</AVZeev>
+                    <VrlAVSO th:text="${report.get('row_section').get('rows')[0].get('VrlAVSO')}">0</VrlAVSO>
+                    <TotPrAofLg th:text="${additionalHeader['TotPrAofLg']}">277</TotPrAofLg>
+                    <TotPrAofHg th:text="${additionalHeader['TotPrAofHg']}">0</TotPrAofHg>
+                    <TotPrAofUit th:text="${additionalHeader['TotPrAofUit']}">0</TotPrAofUit>
+                    <TotOpslWko th:text="${additionalHeader['TotOpslWko']}">25</TotOpslWko>
+                    <TotPrGediffWhk th:text="${additionalHeader['TotPrGediffWhk']}">71</TotPrGediffWhk>
+                    <TotPrAwfLg th:text="${additionalHeader['TotPrAwfLg']}">0</TotPrAwfLg>
+                    <TotPrAwfHg th:text="${additionalHeader['TotPrAwfHg']}">389</TotPrAwfHg>
+                    <TotPrAwfHz th:text="${additionalHeader['TotPrAwfHz']}">0</TotPrAwfHz>
+                    <TotPrAwfUit th:text="${additionalHeader['TotPrAwfUit']}">0</TotPrAwfUit>
+                    <PrUFO th:text="${additionalHeader['PrUFO']}">0</PrUFO>
+                    <IngBijdrZvw th:text="${additionalHeader['IngBijdrZvw']}">0</IngBijdrZvw>
+                    <TotWghZvw th:text="${additionalHeader['TotWghZvw']}">341</TotWghZvw>
+                    <TotTeBet th:text="${additionalHeader['TotTeBet']}">5322</TotTeBet>
+                    <TotGen th:text="${additionalHeader['TotGen']}">5322</TotGen>
+                </CollectieveAangifte>
+                <InkomstenverhoudingInitieel th:each="row: ${report.get('row_section').get('rows')}">
+                    <NumIV th:text="${row.get('NumIV')}">0001</NumIV>
+                    <DatAanv  th:text="${row.get('DatAanv')}">2022-06-01</DatAanv>
+                    <DatEind th:if="${row.get('DatEind')} != 0"> th:text="${row.get('DatEind')}">2022-06-01</DatEind>
+                    <CdRdnEindArbov th:if="${row.get('CdRdnEindArbov')} != 0" th:text="${row.get('CdRdnEindArbov')}">2022-06-01</CdRdnEindArbov>
+                    <PersNr th:text="${row.get('PersNr')}">0001</PersNr>
+                    <NatuurlijkPersoon>
+                        <SofiNr th:text="${row.get('SofiNr')}">029733650</SofiNr>
+                        <Voorl th:if="${row.get('Voorl')} != 0" th:text="${row.get('Voorl')}">D</Voorl>
+                        <Voorv th:if="${row.get('Voorv')} != 0" th:text="${row.get('Voorv')}">van</Voorv>
+                        <SignNm th:text="${row.get('SignNm')}">Thillo</SignNm>
+                        <Gebdat th:text="${row.get('Gebdat')}">1965-07-27</Gebdat>
+                        <Nat th:text="${row.get('Nat')}">0001</Nat>
+                        <Gesl th:text="${row.get('Gesl')}">1</Gesl>
+                        <AdresBinnenland>
+                            <Str th:text="${row.get('Str')}">Kraanvogel</Str>
+                            <HuisNr th:text="${row.get('HuisNr')}">7</HuisNr>
+                            <HuisNrToev th:text="${row.get('HuisNrToev')}">7</HuisNrToev>
+                            <LocOms th:text="${row.get('LocOms')}">7</LocOms>
+                            <Pc th:text="${row.get('Pc')}">4822RC</Pc>
+                            <Woonpl th:text="${row.get('WoonPl')}">Breda</Woonpl>
+                            <LandCd th:if="${row.get('LandCd')} != 0" th:text="${row.get('LandCd')}">Breda</LandCd>
+                        </AdresBinnenland>
+                    </NatuurlijkPersoon>
+                    <Inkomstenperiode>
+                        <DatAanv th:text="${#dateUtil.formatDate(period.begin_date, 'yyyy-MM-dd')}">2022-06-01</DatAanv>
+                        <SrtIV th:text="${row.get('SrtIV')}">15</SrtIV>
+                        <CdAard th:text="${row.get('CdAard')}">1</CdAard>
+                        <CdInvlVpl th:if="${row.get('CdInvlVpl')} != 0" th:text="${row.get('CdInvlVpl')}">1</CdInvlVpl>
+                        <FsIndFZ th:if="${row.get('FsIndFZ')} != 0" th:text="${row.get('FsIndFZ')}">1</FsIndFZ>
+                        <CAO th:text="${row.get('CAO')}">9999</CAO>
+                        <IndArbovOnbepTd th:text="${row.get('IndArbovOnbepTd')}">N</IndArbovOnbepTd>
+                        <IndSchriftArbov th:text="${row.get('IndSchriftArbov')}">J</IndSchriftArbov>
+                        <IndOprov th:text="${row.get('IndOprov')}">N</IndOprov>
+                        <IndJrurennrm th:if="${row.get('IndJrurennrm')} != 0" th:text="${row.get('IndJrurennrm')}">N</IndJrurennrm>
+                        <IndPubAanOnbepTd th:if="${row.get('IndPubAanOnbepTd')} != 0" th:text="${row.get('IndPubAanOnbepTd')}">N</IndPubAanOnbepTd>
+                        <IndAvrLkvOudrWn th:text="${row.get('IndAvrLkvOudrWn')}">N</IndAvrLkvOudrWn>
+                        <IndAvrLkvAgWn th:text="${row.get('IndAvrLkvAgWn')}">N</IndAvrLkvAgWn>
+                        <IndAvrLkvDgBafSb th:text="${row.get('IndAvrLkvDgBafSb')}">N</IndAvrLkvDgBafSb>
+                        <IndAvrLkvHpAgWn th:text="${row.get('IndAvrLkvHpAgWn')}">N</IndAvrLkvHpAgWn>
+                        <IndLhKort th:text="${row.get('IndLhKort')}">J</IndLhKort>
+                        <CdRdnGnBijt th:if="${row.get('CdRdnGnBijt')} != 0" th:text="${row.get('CdRdnGnBijt')}">J</CdRdnGnBijt>
+                        <LbTab th:text="${row.get('LbTab')}">012</LbTab>
+                        <IndWAO th:text="${row.get('IndWAO')}">J</IndWAO>
+                        <IndWW th:text="${row.get('IndWW')}">J</IndWW>
+                        <IndZW th:text="${row.get('IndZW')}">J</IndZW>
+                        <IndWgldOudRegl th:text="${row.get('IndWgldOudRegl')}">J</IndWgldOudRegl>
+                        <CdZvw th:text="${row.get('CdZVW')}">K</CdZvw>
+                        <IndVakBn>N</IndVakBn>
+                        <IndSA71>N</IndSA71>
+                        <IndSA72>N</IndSA72>
+                        <IndSA03>N</IndSA03>
+                        <CdIncInkVerm th:if="${row.get('CdIncInkVerm')} != 0" th:text="${row.get('CdIncInkVerm')}">K</CdIncInkVerm>
+                    </Inkomstenperiode>
+                    <Werknemersgegevens>
+                        <LnLbPh th:text="${row.get('LnLbPh')}">9974.54</LnLbPh>
+                        <LnSV th:text="${row.get('LnLbPh')}">9974.54</LnSV>
+                        <PrlnAofAnwLg th:text="${row.get('PrlnAofAnwLg1')}">5051.86</PrlnAofAnwLg>
+                        <PrlnAofAnwHg th:text="${row.get('PrlnAofAnwHg1')}">0.00</PrlnAofAnwHg>
+                        <PrlnAofAnwUit th:text="${row.get('PrlnAofAnwUit')}">0.00</PrlnAofAnwUit>
+                        <PrlnWhkAnw th:text="${row.get('PrlnWhkAnw')}">0.00</PrlnWhkAnw>
+                        <PrlnAwfAnwLg th:text="${row.get('PrlnAwfAnwLg1')}">0.00</PrlnAwfAnwLg>
+                        <PrlnAwfAnwHg th:text="${row.get('PrlnAwfAnwHg1')}">5051.86</PrlnAwfAnwHg>
+                        <PrlnAwfAnwHz th:text="${row.get('PrlnAwfAnwHz')}">0.00</PrlnAwfAnwHz>
+                        <PrlnAwfAnwUit th:text="${row.get('PrlnAofAnwUit1')}">0.00</PrlnAwfAnwUit>
+                        <PrLnUfo th:text="${row.get('PrLnUfo')}">0.00</PrLnUfo>
+                        <LnTabBB th:text="${row.get('LnTabBB')}">0.00</LnTabBB>
+                        <VakBsl th:text="${row.get('VakBsl')}">0.00</VakBsl>
+                        <OpgRchtVakBsl th:text="${row.get('OpgRchtVakBsl')}">0.00</OpgRchtVakBsl>
+                        <OpnAvwb th:text="${row.get('OpnAvwb')}">0.00</OpnAvwb>
+                        <OpbAvwb th:text="${row.get('OpbAvwb')}">0.00</OpbAvwb>
+                        <LnInGld th:text="${row.get('LnInGld')}">9000.00</LnInGld>
+                        <WrdLn th:text="${row.get('WrdLn')}">974.54</WrdLn>
+                        <LnOwrk th:text="${row.get('lnOwrk')}">0.00</LnOwrk>
+                        <VerstrAanv th:text="${row.get('VerstrAanv')}">0.00</VerstrAanv>
+                        <IngLbPh th:text="${row.get('IngLbPh')}">4218.50</IngLbPh>
+                        <PrAofLg th:text="${row.get('PrAofLg')}">277.35</PrAofLg>
+                        <PrAofHg th:text="${row.get('PrAofHg')}">0.00</PrAofHg>
+                        <PrAofUit th:text="${row.get('PrAofUit')}">0.00</PrAofUit>
+                        <OpslWko th:text="${row.get('OpslWko')}">25.26</OpslWko>
+                        <PrGediffWhk th:text="${row.get('PrGediffWhk')}">71.23</PrGediffWhk>
+                        <PrAwfLg th:text="${row.get('PrAwfLg')}">0.00</PrAwfLg>
+                        <PrAwfHg th:text="${row.get('PrAwfHg')}">0.00</PrAwfHg>
+                        <PrAwfHz th:text="${row.get('PrAwfHz')}">0.00</PrAwfHz>
+                        <PrAwfUit th:text="${row.get('PrAwfUit')}">0.00</PrAwfUit>
+                        <PrUFO th:text="${row.get('PrUFO')}">0.00</PrUFO>
+                        <BijdrZvw th:text="${row.get('IngBijdrZvw')}">0.00</BijdrZvw>
+                        <WghZvw th:text="${row.get('WghZvw')}">341.00</WghZvw>
+                        <WrdPrGebrAut th:text="${row.get('WrdPrGebrAut')}">974.54</WrdPrGebrAut>
+                        <WrknBijdrAut th:text="${row.get('WrknBijdrAut')}">0.00</WrknBijdrAut>
+                        <Reisk th:text="${row.get('Reisk')}">0.00</Reisk>
+                        <VerrArbKrt th:text="${row.get('VerrArbKrt')}">0.00</VerrArbKrt>
+                        <AantVerlU th:text="${row.get('AantVerlU')}">173</AantVerlU>
+                        <Ctrctln th:text="${row.get('Ctrctln')}">8333.33</Ctrctln>
+                        <AantCtrcturenPWk th:text="${row.get('AantCtrcturenPWk')}">40.00</AantCtrcturenPWk>
+                        <BedrRntKstvPersl th:text="${row.get('BdrRntKstvPersl')}">0.00</BedrRntKstvPersl>
+                        <BedrAlInWWB th:text="${row.get('BedrAlInWWB')}">0.00</BedrAlInWWB>
+                        <BedrRchtAl th:text="${row.get('BedrRchtAl')}">0.00</BedrRchtAl>
+                    </Werknemersgegevens>
+                    <Sector>
+                        <DatAanvSect th:text="${#dateUtil.formatDate(period.begin_date, 'yyyy-MM-dd')}">2022-06-01</DatAanvSect>
+                        <Sect th:text="${row.get('Sect')}">032</Sect>
+                    </Sector>
+                </InkomstenverhoudingInitieel>
+            </VolledigeAangifte>
+        </TijdvakAangifte>
+    </AdministratieveEenheid>
+</Loonaangifte>

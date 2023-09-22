@@ -1,0 +1,379 @@
+<style type="text/css">
+    * {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 10px;
+        background-color: white;
+        color: black;
+    }
+
+    small {
+        font-size: 8px;
+    }
+
+    hr {
+        height: 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    h3 {
+        font-size: 16px;
+        margin-bottom: 0;
+        background-color: #ddd;
+    }
+
+    h2 {
+        font-size: 14px;
+    }
+
+    table {
+        margin-bottom: 20px;
+        page-break-inside: avoid;
+        page-break-after: auto;
+        border-collapse: collapse;
+
+    }
+
+    table,
+    th,
+    td {
+
+        text-align: right;
+    }
+
+    table:last-child {
+        margin-bottom: 0;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    table tbody tr td:before,
+    table tbody tr td:after,
+    table tfoot tr th:before,
+    table tfoot tr th:after {
+        content: "";
+        height: 1px;
+        display: block;
+
+    }
+
+    table>thead>tr.caption>td {
+        background: #aaa;
+        border-bottom: 1px solid #000;
+        font-size: 8px;
+        padding: 3px;
+        text-align: center;
+    }
+
+    .margin-top {
+        margin-top: -11px;
+    }
+
+    .table {
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .table>thead>tr>th,
+    .table>tbody>tr>th,
+    .table>tfoot>tr>th {
+        text-align: left;
+
+    }
+
+    .table>tbody>tr>td,
+    .table>tbody>tr>th,
+    .table>tfoot>tr>th,
+    .table>thead>tr>th {
+        vertical-align: top;
+        padding: 2px;
+    }
+
+    .table>tbody>tr.important>td {
+        background-color: #f8f8f8;
+
+    }
+
+    .infobox {
+        border: 1px solid #ccc;
+    }
+
+    .table-2col>tbody>tr>td {
+        width: 50%;
+    }
+
+    .table-3col>tbody>tr>td {
+        width: 33%;
+    }
+
+    .table-4col>tbody>tr>td {
+        width: 25%;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .text-right {
+        text-align: right !important;
+    }
+
+    .text-left {
+        text-align: left !important;
+    }
+
+
+    .bg-attention {
+        background-color: #f2dede;
+    }
+
+    .document-footer {
+        margin-top: 20px;
+    }
+
+    .document-footer p {
+        font-size: 8px;
+        text-align: center;
+    }
+
+    .details-table {
+        border: 1px solid #000;
+        border-spacing: 0;
+    }
+
+    .details-table>tbody>tr>td:last-child {
+        border-right: 0;
+    }
+
+    .details-table>tbody>tr>td {
+        padding: 2px;
+        vertical-align: top;
+        width: 50%;
+    }
+
+    .details-table>tbody>tr>td:first-child {
+        background: #ddd;
+        border-right: 1px solid #000;
+    }
+
+    .details-table>tbody>tr>td:last-child {
+        text-align: right;
+    }
+
+    img.logo {
+        max-width: 300px;
+        max-height: 120px;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    thead>tr>th,
+    tfoot>tr>th {
+        font-size: 8px;
+
+    }
+
+    tbody>tr>th>div {
+        font-size: 8px;
+        white-space: nowrap
+    }
+
+    .footer-total,
+    .footer-total>strong {
+        font-size: 15px;
+    }
+
+    .table-left {
+        width: 49%;
+        float: left;
+    }
+
+    .table-right {
+        width: 49%;
+        float: right;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .text-right {
+        text-align: right !important;
+    }
+
+    .text-left {
+        text-align: left !important;
+    }
+
+    .border-none>tr>th {
+        border: none !important;
+    }
+
+    .border-none>th {
+        border: none !important;
+    }
+
+    .border-none {
+        border: none !important;
+    }
+
+    .border-right {
+        border-right: 1px solid black !important;
+    }
+
+    span {
+        font-size: 10px;
+    }
+
+    .column-header {
+        font-size: 8px !important;
+        width: 85px !important;
+        text-align: left !important;
+    }
+
+    #footer {
+        width: 100%;
+        margin-top: 300px;
+    }
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<th:block th:with="noEl = 1,totalSize = ${#lists.size(report.rows)} - 1">
+    <th:block th:each=" listIndex: ${#numbers.sequence(0, totalSize, noEl)}">
+        <div style="margin-bottom:20px;margin-top:30px;overflow:visible !important;">
+            <div style="margin-bottom:20px;">
+                <div th:with="maxValue = ${ totalSize lt (listIndex + noEl -1) ? totalSize : listIndex + noEl -1}">
+                    <table>
+                        <tr th:each="index : ${#numbers.sequence(listIndex, maxValue)}"
+                            th:with="row = ${report.rows[index]}">
+                            <td>
+                                <table class="table">
+                                    <tr>
+                                        <th class="border-none text-center">
+                                            <img style="width: 110px;"
+                                                src="https://logos-world.net/wp-content/uploads/2021/04/Rolls-Royce-Logo.png"
+                                                alt>
+                                        </th>
+                                    </tr>
+                                </table>
+                                <table class="table ">
+                                    <tr>
+                                        <td class="text-left">HSBC Bank Middle East
+                                            <br> United Arab Emirates
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table class="table">
+                                    <tr>
+                                        <td class="text-left" width="15%">Department/From:</td>
+                                        <td class="text-left">PZ-APAE</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">Telephone:</td>
+                                        <td class=" text-left">+971-4-3129900 </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">E-mail:</td>
+                                        <td class="text-left"><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                                data-cfemail="1c544e3151595c7e716b327f7371">[email&#160;protected]</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">Date:</td>
+                                        <td class="text-left" th:text="${row['date']}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">Subject:</td>
+                                        <td class="text-left">Salary Certificate – <span
+                                                th:text="${row['subject']}"></span></td>
+                                    </tr>
+                                </table>
+                                <table class="table">
+                                    <tr>
+                                        <td class="text-left">Dear <span th:text="${row['gender']}"></span>, </td>
+                                    </tr>
+                                </table>
+                                <table class="table">
+                                    <tr>
+                                        <td class="text-left">
+                                            This is to certify that <span th:text="${row['subject']}"></span> of
+                                            <span th:text="${row['nationality']}"></span>, and holding passport number
+                                            <span th:text="${row['passport_number']}"></span>, is
+                                            employed by BMW Group Middle East since <span
+                                                th:text="${row['hire_date']}"></span> in the capacity of
+                                            <span th:text="${row['position']}"></span> and is drawing a monthly salary
+                                            of AED <span th:text="${row['net_pay']}"></span>
+                                            inclusive of all allowances.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">
+                                            Please note that this letter is being issued upon the request of the
+                                            employee and with no liability on the company’s part.
+                                            <br>If you require any further information, please do not hesitate to
+                                            contact us.
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table class="table">
+                                    <tr>
+                                        <td class="text-left">Best regards,</td>
+                                    </tr>
+                                </table>
+                                <table class="table">
+                                    <tr>
+                                        <td class="text-left" width="50%">Cesar Habib </td>
+                                        <td class="text-left">Kristina Chastukhina </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">Regional Director</td>
+                                        <td class="text-left">Head of Human Resources Middle East</td>
+                                    </tr>
+                                </table>
+                                <table class="table" id="footer">
+                                    <tr>
+                                        <th class="text-center">
+                                            <img style="width: 340px;"
+                                                src="https://vectorlogo4u.com/wp-content/uploads/2020/09/rolls-royce-motor-cars-01.png"
+                                                alt>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            Rolls-Royce Motor Cars Limited, Regional Office Middle East & Africa, One
+                                            Central, The Offices 4, Level 12, Trade Centre Street
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">P.O. Box 125990 Dubai, United Arab Emirates Telephone
+                                            +971 4 312 29930 www.rolls-roycemotorcars.com</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            Commercial License No.: 654947
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </th:block>
+</th:block>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMPLOYEE ANNUAL REGULARIZATION</title>
+</head>
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+        font-family: Verdana, Arial, sans-serif;
+    }
+
+    /* Page */
+    page {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 0.5cm;
+        background: white;
+    }
+
+    page[size="A4"] {
+        width: 21cm;
+        height: 29.7cm;
+    }
+
+    page[size="A4"][layout="landscape"] {
+        width: 29.7cm;
+        height: 21cm;
+    }
+
+    page[size="A3"] {
+        width: 29.7cm;
+        height: 42cm;
+    }
+
+    page[size="A3"][layout="landscape"] {
+        width: 42cm;
+        height: 29.7cm;
+    }
+
+    page[size="A5"] {
+        width: 14.8cm;
+        height: 21cm;
+    }
+
+    page[size="A5"][layout="landscape"] {
+        width: 21cm;
+        height: 14.8cm;
+    }
+
+    #all-page {
+        margin: 15px;
+        padding: 15px;
+        font-size: 14px;
+        /* height: 950px; */
+    }
+
+    h2 {
+        margin: 5px;
+        padding: 5px;
+        background-color: rgba(156, 194, 229, 255);
+        width: 100p;
+        width: 50%;
+        align-items: center;
+        text-align: center;
+        margin-left: 200px;
+    }
+
+    div {
+        margin: 5px;
+        padding: 5px;
+    }
+
+    #tab-1 {
+        border-collapse: collapse;
+        margin: 5px;
+        padding: 5px;
+    }
+
+    #tab-1 tr td {
+        padding: 1px;
+        margin: 2px;
+        border: 1px solid black;
+    }
+
+    .sub-tab-clor td {
+        background-color: rgba(156, 194, 229, 255);
+    }
+
+    .rt {
+        text-align: right;
+    }
+
+    /*footer*/
+
+    .document-footer {
+        margin-top: 10px;
+    }
+
+    .document-footer p {
+        font-size: 9px;
+        text-align: center;
+    }
+
+    .document-footer-ref {
+        font-size: 9px;
+        vertical-align: bottom;
+    }
+
+    .document-footer-copy {
+        font-size: 9px;
+        text-align: center;
+    }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+
+<body>
+    <page size="A4">
+        <div id="all-page">
+            <h2 class="sub-tab-clor"> December Summary Book </h2>
+            <table id="tab-1">
+                <tr class="sub-tab-clor" width="100%">
+                    <td><strong>WT Code</strong></td>
+                    <td>Wage type in English</td>
+                    <td>Wage type in French</td>
+                    <td>Chelghoum Laid</td>
+                    <td>Dely Ibrahim</td>
+                    <td>Reghaia</td>
+                    <td>Grand Total</td>
+                </tr>
+                <!-- <tbody th:if="${report['row_section']['rows_by_identifier']['EARNINGS'] != null}">
+                        <tr th:each="row : ${report['row_section']['rows_by_identifier']['EARNINGS'][0]}">
+                            <td th:text="${row.value['WT_Code']}"> EARNINGS </td>
+                            <td class="text-right vertical-align-middle" th:text="${row.value['Wage_type_English']}">-
+                            </td>
+                            <td class="text-right vertical-align-middle" th:text="${row.value['Wage_type_Franch']}">-
+                            </td>
+                            <td class="text-right vertical-align-middle" th:text="${row.value['Test']}">-</td>
+                            <td class="text-right vertical-align-middle" th:text="${row.value['Test2']}">-</td>
+                            <td class="text-right vertical-align-middle" th:text="${row.value['Test3']}">-</td>
+                            <td class="text-right vertical-align-middle" th:text="${row.value['YTD_1']}">-</td>
+                        </tr>
+                </tbody> -->
+
+
+                <tbody>
+                    <tr th:each="row : ${report['row_section']['rows_by_identifier']['EARNINGS'][0]}">
+                        <td colspan="1" class="text-right vertical-align-middle" th:text="${row.value['Account']}"> account</td>
+                        <td class="text-right vertical-align-middle" th:text="${row.value['HolidayAccount']}">HolidayAccount</td>
+                        <td class="text-right vertical-align-middle" th:text="${row.value['TaxOrPercent']}"></td>
+                        <td class="text-right vertical-align-middle" th:text="${row.value['Unit']}"></td>
+                        <td class="text-right vertical-align-middle" th:text="${row.value['Amount']}"></td>
+                        <td class="text-right vertical-align-middle" th:text="${row.value['Amount']}"></td>
+                        <td class="text-right vertical-align-middle" th:text="${row.value['Amount']}"></td>
+                    </tr>
+                </tbody>
+
+
+
+            </table>
+            <br>
+            <!-- footer  -->
+            <br>
+            <br>
+            <table class="footer">
+                <tr>
+                    <td width="25%" class="document-footer-ref" th:text="${#strings.toUpperCase(code)}"></td>
+                    <td colspan="3" class="document-footer-copy">
+                        This document has been generated by Mercans <br> <br> &copy; All rights reserved
+                    </td>
+                    <td width="25%"></td>
+                </tr>
+            </table>
+        </div>
+    </page>
+</body>
+
+</html>

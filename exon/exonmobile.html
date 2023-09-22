@@ -1,0 +1,879 @@
+<style type="text/css">
+    * {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 10px;
+    }
+
+    small {
+        font-size: 9px;
+    }
+
+    hr {
+        height: 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    h3 {
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+
+    h2 {
+        font-size: 14px;
+    }
+
+    table {
+        margin-bottom: 20px;
+        page-break-inside: avoid;
+        page-break-after: auto;
+        border-collapse: collapse;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        text-align: right;
+    }
+
+    table:last-child {
+        margin-bottom: 0;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    table tbody tr td:before,
+    table tbody tr td:after,
+    table tfoot tr th:before,
+    table tfoot tr th:after {
+        content: "";
+        height: 1px;
+        display: block;
+    }
+
+    table>thead>tr.caption>td {
+        background: #aaa;
+        border-bottom: 1px solid #000;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 3px;
+        text-align: center;
+    }
+
+    .margin-top {
+        margin-top: -11px;
+    }
+
+    .table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .table>thead>tr>th,
+    .table>tbody>tr>th,
+    .table>tfoot>tr>th {
+        background: #ddd;
+        text-align: left;
+    }
+
+    .table>tbody>tr>td,
+    .table>tbody>tr>th,
+    .table>tfoot>tr>th,
+    .table>thead>tr>th {
+        border: 1px solid black;
+        vertical-align: top;
+        border-bottom: 1px solid #000;
+        padding: 2px;
+    }
+
+    .table>thead>tr>th {
+        font-weight: bold;
+    }
+
+    .table>tbody>tr.important>td {
+        background-color: #f8f8f8;
+        font-weight: bold;
+    }
+
+    .infobox {
+        border: 1px solid #ccc;
+    }
+
+    .table-2col>tbody>tr>td {
+        width: 50%;
+    }
+
+    .table-3col>tbody>tr>td {
+        width: 33%;
+    }
+
+    .table-4col>tbody>tr>td {
+        width: 25%;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .text-right {
+        text-align: right !important;
+    }
+
+    .text-left {
+        text-align: left !important;
+    }
+
+    .text-bold {
+        font-weight: bold;
+    }
+
+    .bg-attention {
+        background-color: #f2dede;
+    }
+
+    .document-footer {
+        margin-top: 20px;
+    }
+
+    .document-footer p {
+        font-size: 9px;
+        text-align: center;
+    }
+
+    .details-table {
+        border: 1px solid #000;
+        border-spacing: 0;
+    }
+
+    .details-table>tbody>tr>td:last-child {
+        border-right: 0;
+    }
+
+    .details-table>tbody>tr>td {
+        padding: 2px;
+        vertical-align: top;
+        width: 50%;
+    }
+
+    .details-table>tbody>tr>td:first-child {
+        background: #ddd;
+        border-right: 1px solid #000;
+        font-weight: bold;
+    }
+
+    .details-table>tbody>tr>td:last-child {
+        text-align: right;
+    }
+
+    img.logo {
+        max-width: 300px;
+        max-height: 120px;
+    }
+
+
+    thead>tr>th,
+    tfoot>tr>th {
+        font-size: 10px;
+    }
+
+    .footer-total,
+    .footer-total>strong {
+        font-size: 15px;
+    }
+
+    .table-left {
+        width: 49%;
+        float: left;
+    }
+
+    .table-right {
+        width: 49%;
+        float: right;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .text-right {
+        text-align: right !important;
+    }
+
+    .text-left {
+        text-align: left !important;
+    }
+
+    .border-none>tr>th {
+        border: none !important;
+    }
+
+    .border-none>th {
+        border: none !important;
+    }
+
+    .border-none {
+        border: none !important;
+    }
+
+    .border-right {
+        border-right: 1px solid black !important;
+    }
+
+    span {
+        font-size: 10px;
+    }
+
+    .column-header {
+        font-size: 9px !important;
+        font-weight: normal !important;
+        width: 85px !important;
+        text-align: left !important;
+    }
+
+    thead>tr>th,
+    tbody>tr>th>div {
+        font-size: 9px;
+        white-space: nowrap
+    }
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<div style="margin-bottom:20px;overflow:visible !important;">
+    <div style="margin-bottom:20px;">
+        <table class="table table-bordered">
+            <thead>
+                <tr class="border-none">
+                    <th colspan="3" class="text-left">
+                        <h3>Private</h3>
+                    </th>
+                    <th colspan="6" class="text-center">
+                        <h3 th:text="${label}">Expat Charge Out Report</h3>
+                    </th>
+                    <th colspan="3" class="text-right">&nbsp;</th>
+                </tr>
+                <tr class="border-none">
+                    <th colspan="3" class="text-left">HRB-PRD</th>
+                    <th colspan="6" class="text-center"
+                        th:text="${#dateUtil.formatDate(payroll.begin_date, 'MMMM yyyy')}">January 2019</th>
+                    <th colspan="3" class="text-right">Country: <span th:text="${legal_entity.country}"></span></th>
+                </tr>
+                <tr class="border-none">
+                    <th colspan="3" class="text-left">Report date: <span
+                            th:text="${#dates.format(#dates.createNow(), 'dd/MM/yyyy HH:mm:ss')}"></span></th>
+                    <th colspan="6" class="text-center" th:text="${legal_entity.legal_name}">Legal Entity Name</th>
+                    <th colspan="3" class="text-right">Generated By: <span th:text="${actor_employee.name}"></span></th>
+                </tr>
+                <tr>
+                    <th class="text-right">#</th>
+                    <th style="width: 100px;">Employee ID</th>
+                    <th style="min-width: 150px">Employee name</th>
+                    <th class="column-header">
+                        Total Salary (Reg)
+                        <br>
+                        Basic Salary
+                        <br>
+                        Other.Allow.
+                        <br>
+                        Special Allow.
+                        <br>
+                        Adj.Basic
+                        <br>
+                        Adj.Oth Allow
+                        <br>
+                        Adj.Spec.Allow.
+                    </th>
+                    <th class="column-header">
+                        Transportation
+                        <br>
+                        Car Allowance
+                        <br>
+                        Nature of Work Allow
+                        <br>
+                        Connetivity Allowance
+                        <br>
+                        Taxable Connectivity allowance
+                        <br>
+                        Taxable Connectivity allowance ADJ
+                        <br>
+                        Othr Tax Allow Reg
+                        <br>
+                        End Of Service
+                        <br>
+                        EoS redundancy Payment
+                        <br>
+                        3 Months’ Notice
+                    </th>
+                    <th class="column-header">
+                        Overtime
+                        <br>
+                        Relocation Allow
+                        <br>
+                        Accrued Leave
+                        <br>
+                        Onetime Non-Taxable
+                        <br>
+                        Sick Leave Refund
+                        <br>
+                        Active Allow. Pay
+                        <br>
+                        Bonus (Reg)
+                    </th>
+                    <th class="column-header">
+                        Soc.Sec.Ded.
+                        <br>
+                        Purch.Period
+                        <br>
+                        Soc.Sec.Adj.
+                        <br>
+                        Payroll Tax
+                        <br>
+                        Payroll Tax Adj
+                        <br>
+                        Memo Tax Pay
+                        <br>
+                        Memo Tax Ded
+                        <br>
+                        COVID Ded
+                    </th>
+                    <th class="column-header">
+                        Atlas Net
+                        <br>
+                        Base Salary (Expats)
+                        <br>
+                        Car Allow Expat AFP
+                        <br>
+                        PS Month Adv. Expat
+                        <br>
+                        Othr Tax Allow Exp
+                        <br>
+                        Onetime Ded Exp
+                        <br>
+                        CCP ded Exp
+                        <br>
+                        Bonus Pay expat
+                    </th>
+                    <th class="column-header">
+                        Petr.Synd.
+                        <br>
+                        Esso Club
+                        <br>
+                        Medical Plan
+                        <br>
+                        CCP Loan
+                        <br>
+                        SCP Loan
+                        <br>
+                        H.Loan Emp
+                        <br>
+                        Company Loan
+                        <br>
+                        Martyr Honor 0.05%
+                    </th>
+                    <th class="column-header">
+                        Salary Adv.
+                        <br>
+                        Legal Deduc.
+                        <br>
+                        Other Ded.
+                        <br>
+                        Sick Leave Ded.
+                        <br>
+                        Pers.Acct.
+                    </th>
+                    <th class="column-header">
+                        PS Month Adv.
+                        <br>
+                        PS M.Adv (Adj)
+                        <br>
+                        <br>
+                        PS Settlement
+                    </th>
+                    <th class="column-header">
+                        TOTAL EARNINGS
+                        <br>
+                        TOTAL DEDUCTION
+                        <br>
+                        NET PAY
+                        <br>
+                        TOTAL EPS Adv
+                        <br>
+                        TOTAL EPS Distr
+                        <br>
+                        TOTAL TRANSFER
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="row : ${report.rows}">
+                    <td class="text-right" th:text="${custom.counter1.incrementAndGet()}">&nbsp;</td>
+                    <td class="text-left" th:text="${row['employee_id']}"></td>
+                    <td class="text-left" text-left th:text="${row['employee_name']}"></td>
+                    <td>
+                        <div th:if="${row['total_salary'] != 0}"
+                            th:text="${#numberFormat.format(row['total_salary'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['total_salary'] != 0}">&nbsp;</div>
+                        <div th:if="${row['basic_salary'] != 0}"
+                            th:text="${#numberFormat.format(row['basic_salary'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['basic_salary'] != 0}">&nbsp;</div>
+                        <div th:if="${row['other_allow'] != 0}"
+                            th:text="${#numberFormat.format(row['other_allow'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['other_allow'] != 0}">&nbsp;</div>
+                        <div th:if="${row['special_allow'] != 0}"
+                            th:text="${#numberFormat.format(row['special_allow'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['special_allow'] != 0}">&nbsp;</div>
+                        <div th:if="${row['adj_basic'] != 0}"
+                            th:text="${#numberFormat.format(row['adj_basic'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['adj_basic'] != 0}">&nbsp;</div>
+                        <div th:if="${row['adj_oth_allow'] != 0}"
+                            th:text="${#numberFormat.format(row['adj_oth_allow'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['adj_oth_allow'] != 0}">&nbsp;</div>
+                        <div th:if="${row['adj_spec_allow'] != 0}"
+                            th:text="${#numberFormat.format(row['adj_spec_allow'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['adj_spec_allow'] != 0}">&nbsp;</div>
+                    </td>
+                    <td>
+                        <div th:if="${row['transportation'] != 0}"
+                            th:text="${#numberFormat.format(row['transportation'], valueFormat)}">123350.00</div>
+                        <div th:unless="${row['transportation'] != 0}">&nbsp</div>
+
+
+                        <!--  -->
+                        <div th:if="${row['taxable_connectivity'] != 0}"
+                            th:text="${#numberFormat.format(row['taxable_connectivity'], valueFormat)}">123350.00</div>
+                        <div th:unless="${row['taxable_connectivity'] != 0}">&nbsp</div>
+                        <!--  -->
+                        <div th:if="${row['taxable_conn_adj'] != 0}"
+                            th:text="${#numberFormat.format(row['taxable_conn_adj'], valueFormat)}">123350.00</div>
+                        <div th:unless="${row['taxable_conn_adj'] != 0}">&nbsp</div>
+                        <!--  -->
+
+
+                        <div th:if="${row['car_allowance'] != 0}"
+                            th:text="${#numberFormat.format(row['car_allowance'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['car_allowance'] != 0}">&nbsp</div>
+                        <div th:if="${row['nature_of_work_allow'] != 0}"
+                            th:text="${#numberFormat.format(row['nature_of_work_allow'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['nature_of_work_allow'] != 0}">&nbsp;</div>
+                        <div th:if="${row['connectivity_allowance'] != 0}"
+                            th:text="${#numberFormat.format(row['connectivity_allowance'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['connectivity_allowance'] != 0}">&nbsp;</div>
+                        <div th:if="${row['othr_tax_allow_reg'] != 0}"
+                            th:text="${#numberFormat.format(row['othr_tax_allow_reg'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['othr_tax_allow_reg'] != 0}">&nbsp;</div>
+                        <div th:if="${row['end_of_service'] != 0}"
+                            th:text="${#numberFormat.format(row['end_of_service'], valueFormat)}">
+                            125767647474747774750.00</div>
+                        <div th:unless="${row['end_of_service'] != 0}">&nbsp;</div>
+                        <div th:if="${row['eos_redundancy_payment'] != 0}"
+                            th:text="${#numberFormat.format(row['eos_redundancy_payment'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['eos_redundancy_payment'] != 0}">&nbsp;</div>
+                        <div th:if="${row['three_months_notice'] != 0}"
+                            th:text="${#numberFormat.format(row['three_months_notice'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['three_months_notice'] != 0}">&nbsp;</div>
+                    </td>
+                    <td>
+                        <div th:if="${row['overtime'] != 0}"
+                            th:text="${#numberFormat.format(row['overtime'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['overtime'] != 0}">&nbsp</div>
+                        <div th:if="${row['relocation_allow'] != 0}"
+                            th:text="${#numberFormat.format(row['relocation_allow'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['relocation_allow'] != 0}">&nbsp;</div>
+                        <div th:if="${row['accrued_leave'] != 0}"
+                            th:text="${#numberFormat.format(row['accrued_leave'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['accrued_leave'] != 0}">&nbsp;</div>
+                        <div th:if="${row['onetime_non_taxable'] != 0}"
+                            th:text="${#numberFormat.format(row['onetime_non_taxable'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['onetime_non_taxable'] != 0}">&nbsp;</div>
+                        <div th:if="${row['sick_leave_refund'] != 0}"
+                            th:text="${#numberFormat.format(row['sick_leave_refund'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['sick_leave_refund'] != 0}">&nbsp;</div>
+                        <div th:if="${row['active_allow_pay'] != 0}"
+                            th:text="${#numberFormat.format(row['active_allow_pay'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['active_allow_pay'] != 0}">&nbsp;</div>
+                        <div th:if="${row['bonus'] != 0}" th:text="${#numberFormat.format(row['bonus'], valueFormat)}">
+                            1250.00</div>
+                        <div th:unless="${row['bonus'] != 0}">&nbsp;</div>
+                    </td>
+                    <td>
+                        <div th:if="${row['soc_sec_ded'] != 0}"
+                            th:text="${#numberFormat.format(row['soc_sec_ded'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['soc_sec_ded'] != 0}">&nbsp</div>
+                        <div th:if="${row['purch_period'] != 0}"
+                            th:text="${#numberFormat.format(row['purch_period'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['purch_period'] != 0}">&nbsp;</div>
+                        <div th:if="${row['soc_sec_adj'] != 0}"
+                            th:text="${#numberFormat.format(row['soc_sec_adj'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['soc_sec_adj'] != 0}">&nbsp;</div>
+                        <div th:if="${row['payroll_tax'] != 0}"
+                            th:text="${#numberFormat.format(row['payroll_tax'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['payroll_tax'] != 0}">&nbsp;</div>
+                        <div th:if="${row['payroll_tax_adj'] != 0}"
+                            th:text="${#numberFormat.format(row['payroll_tax_adj'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['payroll_tax_adj'] != 0}">&nbsp;</div>
+                        <div th:if="${row['memo_tax_pay'] != 0}"
+                            th:text="${#numberFormat.format(row['memo_tax_pay'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['memo_tax_pay'] != 0}">&nbsp;</div>
+                        <div th:if="${row['memo_tax_ded'] != 0}"
+                            th:text="${#numberFormat.format(row['memo_tax_ded'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['memo_tax_ded'] != 0}">&nbsp;</div>
+                        <div th:if="${row['covid_ded'] != 0}"
+                            th:text="${#numberFormat.format(row['covid_ded'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['covid_ded'] != 0}">&nbsp;</div>
+                    </td>
+                    <td>
+                        <div th:if="${row['atlas_net'] != 0}"
+                            th:text="${#numberFormat.format(row['atlas_net'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['atlas_net'] != 0}">&nbsp</div>
+                        <div th:if="${row['base_salary_expats'] != 0}"
+                            th:text="${#numberFormat.format(row['base_salary_expats'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['base_salary_expats'] != 0}">&nbsp;</div>
+                        <div th:if="${row['car_allow_expat_afp'] != 0}"
+                            th:text="${#numberFormat.format(row['car_allow_expat_afp'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['car_allow_expat_afp'] != 0}">&nbsp;</div>
+                        <div th:if="${row['ps_month_adv_expat'] != 0}"
+                            th:text="${#numberFormat.format(row['ps_month_adv_expat'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['ps_month_adv_expat'] != 0}">&nbsp;</div>
+                        <div th:if="${row['othr_tax_allow_exp'] != 0}"
+                            th:text="${#numberFormat.format(row['othr_tax_allow_exp'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['othr_tax_allow_exp'] != 0}">&nbsp;</div>
+                        <div th:if="${row['onetime_ded_exp'] != 0}"
+                            th:text="${#numberFormat.format(row['onetime_ded_exp'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['onetime_ded_exp'] != 0}">&nbsp;</div>
+                        <div th:if="${row['ccp_ded_exp'] != 0}"
+                            th:text="${#numberFormat.format(row['ccp_ded_exp'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['ccp_ded_exp'] != 0}">&nbsp;</div>
+                        <div th:if="${row['bonus_apy_expat'] != 0}"
+                            th:text="${#numberFormat.format(row['bonus_apy_expat'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['bonus_apy_expat'] != 0}">&nbsp;</div>
+                    </td>
+                    <td>
+                        <div th:if="${row['petr_synd'] != 0}"
+                            th:text="${#numberFormat.format(row['petr_synd'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['petr_synd'] != 0}">&nbsp</div>
+                        <div th:if="${row['esso_club'] != 0}"
+                            th:text="${#numberFormat.format(row['esso_club'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['esso_club'] != 0}">&nbsp;</div>
+                        <div th:if="${row['medical_plan'] != 0}"
+                            th:text="${#numberFormat.format(row['medical_plan'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['medical_plan'] != 0}">&nbsp;</div>
+                        <div th:if="${row['ccp_loan'] != 0}"
+                            th:text="${#numberFormat.format(row['ccp_loan'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['ccp_loan'] != 0}">&nbsp;</div>
+                        <div th:if="${row['scp_loan'] != 0}"
+                            th:text="${#numberFormat.format(row['scp_loan'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['scp_loan'] != 0}">&nbsp;</div>
+                        <div th:if="${row['housing_loan_emp'] != 0}"
+                            th:text="${#numberFormat.format(row['housing_loan_emp'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['housing_loan_emp'] != 0}">&nbsp;</div>
+                        <div th:if="${row['company_loan'] != 0}"
+                            th:text="${#numberFormat.format(row['company_loan'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['company_loan'] != 0}">&nbsp;</div>
+                        <div th:if="${row['martyr_honor_fund'] != 0}"
+                            th:text="${#numberFormat.format(row['martyr_honor_fund'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['martyr_honor_fund'] != 0}">&nbsp;</div>
+                    </td>
+                    <td>
+                        <div th:if="${row['salary_adv_deduction'] != 0}"
+                            th:text="${#numberFormat.format(row['salary_adv_deduction'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['salary_adv_deduction'] != 0}">&nbsp</div>
+                        <div th:if="${row['legal_deduction'] != 0}"
+                            th:text="${#numberFormat.format(row['legal_deduction'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['legal_deduction'] != 0}">&nbsp;</div>
+                        <div th:if="${row['other_ded'] != 0}"
+                            th:text="${#numberFormat.format(row['other_ded'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['other_ded'] != 0}">&nbsp;</div>
+                        <div th:if="${row['sick_leave_ded'] != 0}"
+                            th:text="${#numberFormat.format(row['sick_leave_ded'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['sick_leave_ded'] != 0}">&nbsp;</div>
+                        <div th:if="${row['pers_acct_ded'] != 0}"
+                            th:text="${#numberFormat.format(row['pers_acct_ded'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['pers_acct_ded'] != 0}">&nbsp;</div>
+                    </td>
+                    <td>
+                        <div th:if="${row['ps_month_adv'] != 0}"
+                            th:text="${#numberFormat.format(row['ps_month_adv'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['ps_month_adv'] != 0}">&nbsp</div>
+                        <div th:if="${row['ps_madv_adj'] != 0}"
+                            th:text="${#numberFormat.format(row['ps_madv_adj'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['ps_madv_adj'] != 0}">&nbsp;</div>
+                        <div>&nbsp;</div>
+                        <div th:if="${row['ps_settlement'] != 0}"
+                            th:text="${#numberFormat.format(row['ps_settlement'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['ps_settlement'] != 0}">&nbsp;</div>
+                    </td>
+                    <td>
+                        <div th:if="${row['total_earnings'] != 0}"
+                            th:text="${#numberFormat.format(row['total_earnings'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['total_earnings'] != 0}">&nbsp</div>
+                        <div th:if="${row['total_deductions'] != 0}"
+                            th:text="${#numberFormat.format(row['total_deductions'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['total_deductions'] != 0}">&nbsp;</div>
+                        <div th:if="${row['net_pay'] != 0}"
+                            th:text="${#numberFormat.format(row['net_pay'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['net_pay'] != 0}">&nbsp;</div>
+                        <div th:if="${row['total_eps_adv'] != 0}"
+                            th:text="${#numberFormat.format(row['total_eps_adv'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['total_eps_adv'] != 0}">&nbsp;</div>
+                        <div th:if="${row['total_eps_distr'] != 0}"
+                            th:text="${#numberFormat.format(row['total_eps_distr'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['total_eps_distr'] != 0}">&nbsp;</div>
+                        <div th:if="${row['total_transfer'] != 0}"
+                            th:text="${#numberFormat.format(row['total_transfer'], valueFormat)}">1250.00</div>
+                        <div th:unless="${row['total_transfer'] != 0}">&nbsp;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="3" class="text-left" th:text="'Total headcount: ' + ${custom.counter1.get()}"></th>
+                    <th class="text-right">
+                        <div th:if="${report.grand_total.total_salary != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.total_salary, valueFormat)}">1250.00
+                        </div>
+                        <div th:unless="${report.grand_total.total_salary != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.basic_salary != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.basic_salary, valueFormat)}">1250.00
+                        </div>
+                        <div th:unless="${report.grand_total.basic_salary != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.other_allow != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.other_allow, valueFormat)}"></div>
+                        <div th:unless="${report.grand_total.other_allow != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.special_allow != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.special_allow, valueFormat)}">1250.00
+                        </div>
+                        <div th:unless="${report.grand_total.special_allow != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.adj_basic != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.adj_basic, valueFormat)}"></div>
+                        <div th:unless="${report.grand_total.adj_basic != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.adj_oth_allow != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.adj_oth_allow, valueFormat)}">1250.00
+                        </div>
+                        <div th:unless="${report.grand_total.adj_oth_allow != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.adj_spec_allow != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.adj_spec_allow, valueFormat)}"></div>
+                        <div th:unless="${report.grand_total.adj_spec_allow != 0}">&nbsp;</div>
+                    </th>
+                    <th class="text-right">
+                        <div th:if="${report.grand_total.transportation != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.transportation, valueFormat)}">1250.00
+                        </div>
+                        <div th:unless="${report.grand_total.transportation != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.car_allowance != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.car_allowance, valueFormat)}">1250.00
+                        </div>
+                        <div th:unless="${report.grand_total.car_allowance != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.nature_of_work_allow != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.nature_of_work_allow, valueFormat)}">
+                            1250.00</div>
+                        <div th:unless="${report.grand_total.nature_of_work_allow != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.connectivity_allowance != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.connectivity_allowance, valueFormat)}">
+                            1250.00</div>
+                        <div th:unless="${report.grand_total.connectivity_allowance != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.othr_tax_allow_reg != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.othr_tax_allow_reg, valueFormat)}">
+                            1250.00</div>
+                        <div th:unless="${report.grand_total.othr_tax_allow_reg != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.end_of_service != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.end_of_service, valueFormat)}">1250.00
+                        </div>
+                        <div th:unless="${report.grand_total.end_of_service != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.eos_redundancy_payment != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.eos_redundancy_payment, valueFormat)}">
+                            1250.00</div>
+                        <div th:unless="${report.grand_total.eos_redundancy_payment != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.three_months_notice != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.three_months_notice, valueFormat)}">
+                            1250.00</div>
+                        <div th:unless="${report.grand_total.three_months_notice != 0}">&nbsp;</div>
+                        <!--  -->
+                        <div th:if="${report.grand_total.taxable_connectivity != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.taxable_connectivity, valueFormat)}">1212
+                        </div>
+                        <div th:unless="${report.grand_total.taxable_connectivity != 0}">&nbsp;</div>
+                        <!--  -->
+                        <div th:if="${report.grand_total.taxable_conn_adj != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.taxable_conn_adj, valueFormat)}">12121
+                        </div>
+                        <div th:unless="${report.grand_total.taxable_conn_adj != 0}">&nbsp;</div>
+                        <!--  -->
+                    </th>
+
+                    <th class="text-right">
+                        <div th:if="${report.grand_total.overtime != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.overtime, valueFormat)}">1250.00</div>
+                        <div th:unless="${report.grand_total.overtime != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.relocation_allow != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.relocation_allow, valueFormat)}">1250.00
+                        </div>
+                        <div th:unless="${report.grand_total.relocation_allow != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.accrued_leave != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.accrued_leave, valueFormat)}"></div>
+                        <div th:unless="${report.grand_total.accrued_leave != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.onetime_non_taxable != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.onetime_non_taxable, valueFormat)}">
+                            1250.00</div>
+                        <div th:unless="${report.grand_total.onetime_non_taxable != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.sick_leave_refund != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.sick_leave_refund, valueFormat)}"></div>
+                        <div th:unless="${report.grand_total.sick_leave_refund != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.active_allow_pay != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.active_allow_pay, valueFormat)}">1250.00
+                        </div>
+                        <div th:unless="${report.grand_total.active_allow_pay != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.bonus != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.bonus, valueFormat)}"></div>
+                        <div th:unless="${report.grand_total.bonus != 0}">&nbsp;</div>
+                    </th>
+                    <th class="text-right">
+                        <div th:if="${report.grand_total.soc_sec_ded != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.soc_sec_ded, valueFormat)}">1250.00</div>
+                        <div th:unless="${report.grand_total.soc_sec_ded != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.purch_period != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.purch_period, valueFormat)}">1250.00
+                        </div>
+                        <div th:unless="${report.grand_total.purch_period != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.soc_sec_adj != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.soc_sec_adj, valueFormat)}"></div>
+                        <div th:unless="${report.grand_total.soc_sec_adj != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.payroll_tax != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.payroll_tax, valueFormat)}">1250.00</div>
+                        <div th:unless="${report.grand_total.payroll_tax != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.payroll_tax_adj != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.payroll_tax_adj, valueFormat)}"></div>
+                        <div th:unless="${report.grand_total.payroll_tax_adj != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.memo_tax_pay != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.memo_tax_pay, valueFormat)}">1250.00
+                        </div>
+                        <div th:unless="${report.grand_total.memo_tax_pay != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.memo_tax_ded != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.memo_tax_ded, valueFormat)}"></div>
+                        <div th:unless="${report.grand_total.memo_tax_ded != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.covid_ded != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.covid_ded, valueFormat)}"></div>
+                        <div th:unless="${report.grand_total.covid_ded != 0}">&nbsp;</div>
+                    </th>
+                    <th class="text-right">
+                        <div th:if="${report.grand_total.atlas_net != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.atlas_net, valueFormat)}">1250.00</div>
+                        <div th:unless="${report.grand_total.atlas_net != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.base_salary_expats != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.base_salary_expats, valueFormat)}">
+                            1250.00</div>
+                        <div th:unless="${report.grand_total.base_salary_expats != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.car_allow_expat_afp != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.car_allow_expat_afp, valueFormat)}">
+                        </div>
+                        <div th:unless="${report.grand_total.car_allow_expat_afp != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.ps_month_adv_expat != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.ps_month_adv_expat, valueFormat)}">
+                            1250.00</div>
+                        <div th:unless="${report.grand_total.ps_month_adv_expat != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.othr_tax_allow_exp != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.othr_tax_allow_exp, valueFormat)}"></div>
+                        <div th:unless="${report.grand_total.othr_tax_allow_exp != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.onetime_ded_exp != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.onetime_ded_exp, valueFormat)}">1250.00
+                        </div>
+                        <div th:unless="${report.grand_total.onetime_ded_exp != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.ccp_ded_exp != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.ccp_ded_exp, valueFormat)}"></div>
+                        <div th:unless="${report.grand_total.ccp_ded_exp != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.bonus_apy_expat != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.bonus_apy_expat, valueFormat)}"></div>
+                        <div th:unless="${report.grand_total.bonus_apy_expat != 0}">&nbsp;</div>
+                    </th>
+                    <th class="text-right">
+                        <div th:if="${report.grand_total.petr_synd != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.petr_synd, valueFormat)}">1250.00</div>
+                        <div th:unless="${report.grand_total.petr_synd != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.esso_club != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.esso_club, valueFormat)}">1250.00</div>
+                        <div th:unless="${report.grand_total.esso_club != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.medical_plan != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.medical_plan, valueFormat)}"></div>
+                        <div th:unless="${report.grand_total.medical_plan != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.ccp_loan != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.ccp_loan, valueFormat)}">1250.00</div>
+                        <div th:unless="${report.grand_total.ccp_loan != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.scp_loan != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.scp_loan, valueFormat)}"></div>
+                        <div th:unless="${report.grand_total.scp_loan != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.housing_loan_emp != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.housing_loan_emp, valueFormat)}">1250.00
+                        </div>
+                        <div th:unless="${report.grand_total.housing_loan_emp != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.company_loan != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.company_loan, valueFormat)}"></div>
+                        <div th:unless="${report.grand_total.company_loan != 0}">&nbsp;</div>
+                        <div th:if="${report.grand_total.martyr_honor_fund != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.martyr_honor_fund, valueFormat)}"></div>
+                        <div th:unless="${report.grand_total.martyr_honor_fund != 0}">&nbsp;</div>
+                    </th>
+                    <th class="text-right">
+                        <<div th:if="${report.grand_total.salary_adv_deduction != 0}"
+                            th:text="${#numberFormat.format(report.grand_total.salary_adv_deduction, valueFormat)}">
+                            1250.00
+    </div>
+    <div th:unless="${report.grand_total.salary_adv_deduction != 0}">&nbsp;</div>
+    <div th:if="${report.grand_total.legal_deduction != 0}"
+        th:text="${#numberFormat.format(report.grand_total.legal_deduction, valueFormat)}">1250.00</div>
+    <div th:unless="${report.grand_total.legal_deduction != 0}">&nbsp;</div>
+    <div th:if="${report.grand_total.other_ded != 0}"
+        th:text="${#numberFormat.format(report.grand_total.other_ded, valueFormat)}"></div>
+    <div th:unless="${report.grand_total.other_ded != 0}">&nbsp;</div>
+    <div th:if="${report.grand_total.sick_leave_ded != 0}"
+        th:text="${#numberFormat.format(report.grand_total.sick_leave_ded, valueFormat)}">1250.00</div>
+    <div th:unless="${report.grand_total.sick_leave_ded != 0}">&nbsp;</div>
+    <div th:if="${report.grand_total.pers_acct_ded != 0}"
+        th:text="${#numberFormat.format(report.grand_total.pers_acct_ded, valueFormat)}"></div>
+    <div th:unless="${report.grand_total.pers_acct_ded != 0}">&nbsp;</div>
+    </th>
+    <th class="text-right">
+        <div th:if="${report.grand_total.ps_month_adv != 0}"
+            th:text="${#numberFormat.format(report.grand_total.ps_month_adv, valueFormat)}">1250.00</div>
+        <div th:unless="${report.grand_total.ps_month_adv != 0}">&nbsp;</div>
+        <div th:if="${report.grand_total.ps_madv_adj != 0}"
+            th:text="${#numberFormat.format(report.grand_total.ps_madv_adj, valueFormat)}">1250.00</div>
+        <div th:unless="${report.grand_total.ps_madv_adj != 0}">&nbsp;</div>
+        <div>&nbsp;</div>
+        <div th:if="${report.grand_total.ps_settlement != 0}"
+            th:text="${#numberFormat.format(report.grand_total.ps_settlement, valueFormat)}">1250.00</div>
+        <div th:unless="${report.grand_total.ps_settlement != 0}">&nbsp;</div>
+    </th>
+    <th class="text-right">
+        <div th:if="${report.grand_total.total_earnings != 0}"
+            th:text="${#numberFormat.format(report.grand_total.total_earnings, valueFormat)}">1250.00</div>
+        <div th:unless="${report.grand_total.total_earnings != 0}">&nbsp;</div>
+        <div th:if="${report.grand_total.total_deductions != 0}"
+            th:text="${#numberFormat.format(report.grand_total.total_deductions, valueFormat)}">1250.00</div>
+        <div th:unless="${report.grand_total.total_deductions != 0}">&nbsp;</div>
+        <div th:if="${report.grand_total.net_pay != 0}"
+            th:text="${#numberFormat.format(report.grand_total.net_pay, valueFormat)}"></div>
+        <div th:unless="${report.grand_total.net_pay != 0}">&nbsp;</div>
+        <div th:if="${report.grand_total.total_eps_adv != 0}"
+            th:text="${#numberFormat.format(report.grand_total.total_eps_adv, valueFormat)}">1250.00</div>
+        <div th:unless="${report.grand_total.total_eps_adv != 0}">&nbsp;</div>
+        <div th:if="${report.grand_total.total_eps_distr != 0}"
+            th:text="${#numberFormat.format(report.grand_total.total_eps_distr, valueFormat)}"></div>
+        <div th:unless="${report.grand_total.total_eps_distr != 0}">&nbsp;</div>
+        <div th:if="${report.grand_total.total_transfer != 0}"
+            th:text="${#numberFormat.format(report.grand_total.total_transfer, valueFormat)}">1250.00</div>
+        <div th:unless="${report.grand_total.total_transfer != 0}">&nbsp;</div>
+    </th>
+    </tr>
+    </tbody>
+    </table>
+</div>
+</div>
+<div class="document-footer">
+    <p class="text-center">***&nbsp;<strong>End of Report</strong>&nbsp;***</p>
+    <p>Generated by Mercans</p>
+    <p>&copy; All rights reserved</p>
+</div>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title> Entravision Pakistan </title>
+
+    <style>
+        #tab-1 {
+            margin: 5px;
+            padding: 5px;
+            border-collapse: collapse;
+            margin-right: auto;
+            margin-left: auto;
+
+
+            IF(EQUALS($entry.account;'21803');'22110108'
+
+
+
+
+
+            font-family: Verdana, Arial, sans-serif;
+
+
+
+
+
+        }
+
+        #tab-1 tr td {
+            padding: 1px;
+            margin: 2px;
+            border: 1px solid black;
+
+
+        }
+
+        .c1 {
+            text-align: center;
+
+        }
+
+        .sub-tab-1 tr td {
+            font-size: small;
+            margin-right: auto;
+
+
+        }
+
+        .c2 {
+            width: 25%;
+
+
+        }
+
+        .c3 {
+            background-color: rgba(239, 239, 239, 255);
+        }
+
+        .table>thead>tr>th {
+            padding: 1px;
+            margin: 2px;
+            border: 1px solid black;
+
+        }
+
+        .table {
+            font-size: small;
+            margin-right: auto;
+
+        }
+
+        .details-table {
+            width: 100%;
+            margin: 5px;
+            margin-left: auto;
+            border-collapse: collapse;
+        }
+
+        .tab-2 {
+            border: 1px solid black;
+        }
+        .document-footer {
+            margin-top: 10px;
+        }
+
+        .document-footer p {
+            font-size: 9px;
+            text-align: center;
+        }
+
+        .document-footer-ref {
+            font-size: 9px;
+            vertical-align: bottom;
+        }
+
+        .document-footer-copy {
+            font-size: 9px;
+            text-align: center;
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+
+<body>
+    <table class="table-3col header-table" style="margin-bottom: 0 !important;">
+        <tr class="title">
+            <!-- <td th:if="${logo_uri == null}">
+                <div th:text="${legalEntity.getLegalName()}"></div>
+            </td> -->
+            <td th:if="${logo_uri != null}">
+                <img th:src="${logo_uri}" th:alt="${legalEntity.getLegalName()}" class="logo"
+                    style="width: 100px; height: 100px; margin-left: 55px; float: left;" /><br><br>
+            </td>
+            <td></td>
+
+        </tr>
+    </table>
+
+    <table id="tab-1" width="100%>
+
+        <tr class= " sub-tab-clor" width="100%">
+        <td class="c1" colspan="4" style="font-size: larger;"><strong>Jack of Digital Private Limited</strong></td>
+
+        </tr>
+
+        <tr class="sub-tab-clor" width="100%">
+            <td class="c1" colspan="4" style="font-size:small;">3rd Floor M.A Tabba Foundation Building Clifton Block 9
+                Karachi Pakistan</td>
+
+
+        </tr>
+        <tr class="sub-tab-clor" width="100%">
+            <td class="c1" colspan="4" style="font-size:small;">Payslip for the Month of Aug, 2022</td>
+
+
+        </tr>
+
+        <tr class="sub-tab-1" style="font-size: small;">
+            <td style="border-right: none;"><b>Employee ID</b></td>
+            <td style="border-left: none;" th:text="${employee.getReferenceCode()}"></td>
+            <td style="border-right: none;"><b>Date of Joining </b></td>
+            <td style="border-left:none;" th:text="${employee_hire_date}"></td>
+
+        </tr>
+        <tr class="sub-tab-1" style="font-size: small;">
+            <td style="border-right: none;" class="c2"><b>Employee Name </b> </td>
+            <td style="border-left:none;" th:text="${employeeDisplayName}"> </td>
+            <td style="border-right: none;"><b>Employment Status </b></td>
+            <td style="border-left:none;" th:text="${employee.getStatus()}"></td>
+
+        </tr>
+        <tr class="sub-tab-1" style="font-size: small;">
+            <td style="border-right: none;"><b> Designation </b></td>
+            <td style="border-left:none;" th:text="${employee.getPosition()}"></td>
+            <td style="border-right: none;"></td>
+            <td style="border-left: none;"></td>
+
+        </tr>
+
+
+
+
+        <table class="table" id="tab-1" width="100%">
+            <thead>
+                <tr class="sub-tab-1" style="font-size: small;">
+                    <th style="font-size: small;"><b>Earnings</b></th>
+                    <th style="text-align: center; font-size: small;"><b>Amount (PKR)</b></th>
+                    <th><b>Deductions</th>
+                    <th style="text-align:center; font-size: small;"><b>Amount (PKR)</th>
+
+                </tr>
+
+                <!--
+            <tbody th:if="${entitlements != null}">
+                <tr class="sub-tab-1" style="font-size: small;">
+                    <td>Basic Salary</td>
+                    <td></td>
+                    <td>EOBI</td>
+                    <td></td>
+                <tr th:each="row : ${entitlements}">
+                    <td th:text="${row.getTitle()}"></td>
+                    <td class="text-right" th:text="${#numberFormat.format(row.getValue(), valueFormat)}"></td>
+
+                </tr>
+                </tr>
+
+                <tr class="sub-tab-1" style="font-size: small;">
+                    <td>Medical</td>
+                    <td></td>
+                    <td>Tax</td>
+                    <td></td>
+                <tr th:each="row : ${entitlements}">
+                    <td th:text="${row.getTitle()}"></td>
+                    <td class="text-right" th:text="${#numberFormat.format(row.getValue(), valueFormat)}"></td>
+                </tr>
+                </tr>
+
+                <tr class="sub-tab-1" style="font-size: small;">
+                    <td>Attendance/Add (Ded)</td>
+                    <td></td>
+                    <td>Other Deduction</td>
+                    <td></td>
+                <tr th:each="row : ${entitlements}">
+                    <td th:text="${row.getTitle()}"></td>
+                    <td class="text-right" th:text="${#numberFormat.format(row.getValue(), valueFormat)}"></td>
+                </tr>
+                </tr>
+
+                <tr class="sub-tab-1" style="font-size: small;">
+                    <td>Reimbursements</td>
+                    <td></td>
+                    <td>Advance Salary/Loan Adj</td>
+                    <td></td>
+                <tr th:each="row : ${entitlements}">
+                    <td th:text="${row.getTitle()}"></td>
+                    <td class="text-right" th:text="${#numberFormat.format(row.getValue(), valueFormat)}"></td>
+                </tr>
+                </tr>
+
+                <tr class="sub-tab-1" style="font-size: small;">
+                    <td>Performance Related Pay</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                <tr th:each="row : ${entitlements}">
+                    <td th:text="${row.getTitle()}"></td>
+                    <td class="text-right" th:text="${#numberFormat.format(row.getValue(), valueFormat)}"></td>
+                </tr>
+                </tr> -->
+                <!-- </tbody> -->
+
+ CONTAINS($entry.account; RANGE('62100:62999 + 63100:63999 +22100: 22199 + 65800:65810 + 21100:21999 '))
+
+
+                <tr valign="top">
+                    <td width="25%" class="row-header">62100</td>
+                    <td width="25%" th:text="${employeeDisplayName}">John Doe</td>
+                    <td width="25%" class="row-header">Pay Period From</td>
+                    <td th:text="${reportRow.pay_period_begin}"></td>
+                </tr>
+                <tr valign="top">
+                    <td class="row-header">Employee ID*</td>
+                    <td th:text="${employee.getReferenceCode()}"></td>
+                    <td class="row-header">Pay Period To</td>
+                    <td th:text="${reportRow.pay_period_end}"></td>
+                </tr>
+                <tr valign="top">
+                    <td class="row-header">Employee Position</td>
+                    <td th:text="${employee.getPosition()}"></td>
+                    <td class="row-header">Overtime Up To</td>
+                    <td th:text="${reportRow.overtime_up_to}"></td>
+                </tr>
+
+
+            </thead>
+            <tfoot>
+                <tr class="sub-tab-1" style="font-size: small;">
+                    <td><b>Gross Earning</b></td>
+                    <td th:text="${#numberFormat.format(entitlements_amount, valueFormat)}"></td>
+                    <td><b>Total Deductions</td></b>
+                    <td th:text="${#numberFormat.format(deductions_amount, valueFormat)}"></td>
+                </tr>
+
+                <tr class="sub-tab-1" style="font-size: small;">
+                    <td class="c3"><b>Net pay</b></td>
+                    <td class="c3" th:text="${#numberFormat.format(net_pay_amount, valueFormat)}"></td>
+                    <td class="c3"></td>
+                    <td class="c3"></td>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+
+    </table>
+    <table class="footer">
+        <tr>
+            <td width="25%" class="document-footer-ref" th:text="${#strings.toUpperCase(code)}"></td>
+            <td colspan="3" class="document-footer-copy">
+                This document has been generated by Mercans <br> <br> © All rights reserved
+            </td>
+            <td width="25%"></td>
+        </tr>
+    </table>
+</body>
+
+</html>

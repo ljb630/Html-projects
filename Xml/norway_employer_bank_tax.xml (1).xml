@@ -1,0 +1,63 @@
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <CstmrCdtTrfInitn th:each="row: ${report.get('row_section').get('rows')}">
+        <GrpHdr>
+            <MsgId th:text="${row.get('MsgId')}">NOTAX2023SEP301009T</MsgId>
+            <CreDtTm th:text="${row.get('CreDtTm')}">2023-09-13T10:09:44</CreDtTm>
+            <NbOfTxs>01</NbOfTxs>
+            <InitgPty>
+                <Nm th:text="${row.get('Nm1')}">ABC Norway AS</Nm>
+            </InitgPty>
+        </GrpHdr>
+        <PmtInf>
+            <PmtInfId th:text="${row.get('PmtInfId1')}">TAXSWNL202309301009T</PmtInfId>
+            <PmtMtd>TRF</PmtMtd>
+            <PmtTpInf>
+                <SvcLvl>
+                    <Cd>URGP</Cd>
+                </SvcLvl>
+            </PmtTpInf>
+            <ReqdExctnDt th:text="${row.get('ReqdExctnDt')}"></ReqdExctnDt>
+            <Dbtr>
+                <Nm th:text="${row.get('Nm2')}">Sherwin-Williams Norway AS</Nm>
+            </Dbtr>
+            <DbtrAcct>
+                <Id>
+                    <Othr>
+                        <Id th:text="${row.get('IBAN1')}">55003880</Id>
+                    </Othr>
+                </Id>
+                <Ccy>NOK</Ccy>
+            </DbtrAcct>
+            <DbtrAgt>
+                <FinInstnId>
+                    <BIC th:text="${row.get('BIC1')}">CHASLULX</BIC>
+                </FinInstnId>
+            </DbtrAgt>
+            <CdtTrfTxInf>
+                <PmtId>
+                    <EndToEndId th:text="${row.get('EndToEndId')}">SWSAL20230801T1001</EndToEndId>
+                </PmtId>
+                <Amt>
+                    <InstdAmt Ccy="NOK" th:text="${row.get('CtrlSum')}">1452141.64</InstdAmt>
+                </Amt>
+                <CdtrAgt>
+                    <FinInstnId>
+                        <BIC>NDEANOKK</BIC>
+                    </FinInstnId>
+                </CdtrAgt>
+                <Cdtr>
+                    <Nm th:text="${row.get('Nm3')}">Skatteetaten - skatteinnkreving</Nm>
+                </Cdtr>
+                <CdtrAcct>
+                    <Id>
+                        <IBAN th:text="${row.get('IBAN2')}">NO4263450624804</IBAN>
+                    </Id>
+                </CdtrAcct>
+                <RmtInf>
+                    <Ustrd th:text="${row.get('Ustrd')}">Salary AUG 2023</Ustrd>
+                </RmtInf>
+            </CdtTrfTxInf>
+        </PmtInf>
+    </CstmrCdtTrfInitn>
+</Document>

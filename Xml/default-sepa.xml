@@ -1,0 +1,66 @@
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03 pain.001.001.03.xsd">
+    <CstmrCdtTrfInitn th:with="reportRow = ${report['row_section']['rows'][0]}">
+        <GrpHdr>
+            <MsgId th:text="${reportRow['GrpHdr_MsgId']}">HSBCIE2DXXX0020230814120000</MsgId>
+            <CreDtTm th:text="${reportRow['GrpHdr_CreDtTm']}">2023-08-14T12:00:00.000Z</CreDtTm>
+            <NbOfTxs th:text="${report['row_section']['totals']['GrpHdr_NbOfTxs']}">58</NbOfTxs>
+            <CtrlSum th:text="${report['row_section']['totals']['GrpHdr_CtrlSum']}">2331.05</CtrlSum>
+            <InitgPty>
+                <Nm th:text="${reportRow['GrpHdr_InitgPty_Nm']}">activpayroll Ireland Ltd</Nm>
+            </InitgPty>
+        </GrpHdr>
+        <PmtInf>
+            <PmtInfId th:text="${reportRow['PmtInf_PmtInfId']}">PMT-ID0-20230814120000</PmtInfId>
+            <PmtMtd th:text="${reportRow['PmtInf_PmtMtd']}">TRF</PmtMtd>
+            <BtchBookg th:text="${reportRow['PmtInf_BtchBookg']}">true</BtchBookg>
+            <NbOfTxs th:text="${report['row_section']['totals']['PmtInf_NbOfTxs']}">58</NbOfTxs>
+            <CtrlSum th:text="${report['row_section']['totals']['PmtInf_CtrlSum']}">2331.05</CtrlSum>
+            <PmtTpInf>
+                <SvcLvl>
+                    <Cd th:text="${reportRow['PmtInf_PmtTpInf_SvcLvl_Cd']}">SEPA</Cd>
+                </SvcLvl>
+                <CtgyPurp>
+                    <Cd th:text="${reportRow['PmtInf_PmtTpInf_CtgyPurp_Cd']}">SALA</Cd>
+                </CtgyPurp>
+            </PmtTpInf>
+            <ReqdExctnDt th:text="${reportRow['PmtInf_ReqdExctnDt']}">2023-08-14</ReqdExctnDt>
+            <Dbtr>
+                <Nm th:text="${reportRow['PmtInf_Dbtr_Nm']}">activpayroll Ireland Ltd</Nm>
+            </Dbtr>
+            <DbtrAcct>
+                <Id>
+                    <IBAN th:text="${reportRow['PmtInf_DbtrAcct_Id_IBAN']}">IE11HSBC99023136495502</IBAN>
+                </Id>
+            </DbtrAcct>
+            <DbtrAgt>
+                <FinInstnId>
+                    <BIC th:text="${reportRow['PmtInf_DbtrAgt_FinInstnId_BIC']}">HSBCIE2DXXX</BIC>
+                </FinInstnId>
+            </DbtrAgt>
+            <CdtTrfTxInf th:each="row : ${report['row_section']['rows']}">
+                <PmtId>
+                    <EndToEndId th:text="${row['CdtTrfTxInf_PmtId_EndToEndId']}">NOTPROVIDED</EndToEndId>
+                </PmtId>
+                <Amt>
+                    <th:block th:utext="'<InstdAmt Ccy=&quot;' + ${row['CdtTrfTxInf_Amt_Ccy']} + '&quot;>' + ${row['CdtTrfTxInf_Amt']} + '</InstdAmt>'"/>
+                </Amt>
+                <CdtrAgt>
+                    <FinInstnId>
+                        <BIC th:text="${row['CdtTrfTxInf_CdtrAgt_FinInstnId_BIC']}">CBVILT2XXXX</BIC>
+                    </FinInstnId>
+                </CdtrAgt>
+                <Cdtr>
+                    <Nm th:text="${row['CdtTrfTxInf_Cdtr_Nm']}">Vladimir Filippov</Nm>
+                </Cdtr>
+                <CdtrAcct>
+                    <Id>
+                        <IBAN th:text="${row['CdtTrfTxInf_CdtrAcct_Id_IBAN']}">LT587044090101765584</IBAN>
+                    </Id>
+                </CdtrAcct>
+                <RmtInf>
+                    <Ustrd th:text="${row['CdtTrfTxInf_RmtInf_Ustrd']}">Payment for goods</Ustrd>
+                </RmtInf>
+            </CdtTrfTxInf>
+        </PmtInf>
+    </CstmrCdtTrfInitn>
+</Document>

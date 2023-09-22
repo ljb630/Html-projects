@@ -1,0 +1,584 @@
+<style type="text/css" xmlns:th="http://www.w3.org/1999/xhtml" th:fragment="payslip_styles">
+    * {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 9px;
+    }
+
+    body, html {
+        margin: 0 !important;
+        padding: 0 !important;
+
+    }
+
+    small {
+        font-size: 8px;
+    }
+
+    hr {
+        height: 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    table {
+        margin-bottom: 20px;
+        page-break-after: auto;
+    }
+
+    table:last-child {
+        margin-bottom: 0;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr.title > td,
+    tr.title > td > div,
+    tr.title > td > div > span {
+        font-size: 11px;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    table tbody tr td:before,
+    table tbody tr td:after,
+    table tfoot tr th:before,
+    table tfoot tr th:after {
+        content: "";
+        height: 1px;
+        display: block;
+    }
+
+    table > thead > tr.caption > td {
+        background: #aaa;
+        border-bottom: 1px solid #000;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 3px;
+        text-align: center;
+    }
+
+    .table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .table > thead > tr > th,
+    .table > tfoot > tr > th {
+        background: #ddd;
+        text-align: left;
+    }
+
+    .table > tbody > tr > td,
+    .table > tfoot > tr > th,
+    .table > thead > tr > th {
+        vertical-align: top;
+        border-bottom: 1px solid #000;
+        padding: 6px;
+    }
+
+    .table > tbody > tr > td,
+    .table > tfoot > tr > th {
+        border: 1px solid black;
+    }
+
+    .table > thead > tr > th {
+        font-weight: bold;
+    }
+
+    .table > tbody > tr.important > td {
+        background-color: #f8f8f8;
+        font-weight: bold;
+    }
+
+    .infobox {
+        border: 1px solid #ccc;
+    }
+
+    .table-2col > tbody > tr > td {
+        width: 50%;
+    }
+
+    .table-3col > tbody > tr > td {
+        width: 33%;
+    }
+
+    .table-4col > tbody > tr > td {
+        width: 25%;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .text-right {
+        text-align: right !important;
+    }
+
+    .text-left {
+        text-align: left !important;
+    }
+
+    .text-bold {
+        font-weight: bold;
+    }
+
+    .bg-attention {
+        background-color: #f2dede;
+    }
+
+    .document-footer {
+        margin-top: 10px;
+    }
+
+    .document-footer p {
+        font-size: 9px;
+        text-align: center;
+    }
+
+    .document-footer-ref {
+        font-size: 9px;
+        vertical-align: bottom;
+    }
+
+    .document-footer-copy {
+        font-size: 9px;
+        text-align: center;
+    }
+
+    .panel {
+        border: 1px solid #000;
+    }
+
+    .panel > .panel-heading {
+        background: #aaa;
+        border-bottom: 1px solid #000;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 6px;
+        text-align: center;
+    }
+
+    .panel > .panel-body {
+        padding: 10px;
+    }
+
+    table {
+        width: 100%;
+        table-layout: fixed;
+        max-width: 0;
+        word-wrap: break-word;
+    }
+
+    .table-height {
+        height: 200px !important;
+    }
+
+    .table-left {
+        width: 50%;
+        float: left;
+    }
+
+    .table-right {
+        width: 50%;
+        float: right;
+    }
+
+    .key {
+        width: 100px !important;
+    }
+
+    .infobox {
+        border: 1px solid #000;
+    }
+
+    .header-table {
+        font-weight: bold;
+        text-align: right;
+    }
+
+    .header-table td:first-child {
+        text-align: left;
+    }
+
+    img.logo {
+        max-height: 90px;
+        max-width: 300px;
+    }
+
+    .details-table {
+        border: 1px solid #000;
+        border-spacing: 0;
+        padding: 0;
+    }
+
+    .info-table {
+        border: 1px solid #000;
+        border-spacing: 0;
+
+    }
+
+    .main-header {
+        background: #aaa;
+    }
+
+    .vertical-align-middle {
+        vertical-align: middle !important;
+    }
+
+    .info-table > tbody > tr > td {
+        border-right: 1px solid #000;
+        border-left: 1px solid #000;
+        padding: 4px;
+        vertical-align: top;
+    }
+
+    .info-table > tbody > tr > td:first-child {
+        border-left: 0;
+    }
+
+    .info-table > tbody > tr > td:last-child {
+        border-right: 0;
+    }
+
+    .details-table > tbody > tr > td {
+        border-right: 1px solid #000;
+        border-left: 1px solid #000;
+        padding: 0;
+        vertical-align: top;
+    }
+
+    .details-table > tbody > tr > td:first-child {
+        border-left: 0;
+    }
+
+    .details-table > tbody > tr > td:last-child {
+        border-right: 0;
+    }
+
+    .details-row-key {
+        width: 110px !important;
+        background: #ddd;
+        border-left: 1px solid #000;
+        border-right: 1px solid #000;
+        font-weight: bold;
+    }
+
+    .details-row-key-arabic {
+        width: 130px !important;
+        background: #ddd;
+        border-left: 1px solid #000;
+        border-right: 1px solid #000;
+        font-weight: bold;
+    }
+
+    .details-row-table {
+        border-spacing: 0;
+        border: 1px solid #000;
+        padding: 0;
+    }
+
+    .details-row-table > tbody > tr > td {
+        padding: 4px;
+        border-spacing: 0;
+        width: 50%;
+    }
+
+    .details-row-table > tbody > tr > td:first-child {
+        background: #ddd;
+        width: 88px;
+        border-right: 1px solid #000;
+        border-left: none;
+        font-weight: bold;
+    }
+
+    .detail-row-table > tbody > tr > td:last-child {
+        text-align: left;
+    }
+
+    .general-ledger-table,
+    .general-ledger-table > caption,
+    .general-ledger-table > tbody > tr > td {
+        border: 0;
+    }
+
+    .leave-balance {
+        margin-top: -10px;
+        margin-bottom: 20px;
+        float: left;
+        list-style: none;
+        width: 100%;
+    }
+
+    .leave-balance li {
+        margin-left: -35px;
+    }
+
+    .border-right {
+        border-right: 1px solid black !important;
+    }
+
+    .border-none {
+        border: none !important;
+    }
+
+    .border-rgiht-none {
+        border-right: none !important;
+    }
+
+    .border-left-none {
+        border-left: none !important;
+    }
+
+    .margin-bottom-0 {
+        margin-bottom: 0 !important;
+    }
+
+    .margin-top-0 {
+        margin-top: 0 !important;
+    }
+
+    .solid-border {
+        border: 1px solid #000000 !important;
+    }
+
+
+    .infobox-3-row {
+        float: right;
+        width: 32%;
+        padding: 22px 10px 23px 10px;
+    }
+
+    .infobox-4-row {
+        float: right;
+        width: 32%;
+        padding: 32px 10px 33px 10px;
+    }
+
+    .infobox-5-row {
+        float: right;
+        width: 32%;
+        padding: 42px 10px 43px 10px;
+    }
+
+    .page-break-inside-avoid {
+        page-break-inside: avoid;
+    }
+
+    .sub-header {
+        background: #ddd;
+    }
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<table class="table-3col header-table">
+<tr class="title">
+<td th:if="${logo_uri == null}">
+<div th:text="${legalEntity.getLegalName()}"></div>
+</td>
+<td th:if="${logo_uri != null}">
+<img th:src="${logo_uri}" th:alt="${legalEntity.getLegalName()}" class="logo" /><br><br>
+</td>
+<td>MAAŞ BORDROSU</td>
+</tr>
+<tr class="title">
+<td>MERSIS no: <span th:text="${ reportRow.MERSIS_NO }"></td>
+<td></td>
+</tr>
+</table>
+<table class="margin-bottom-0">
+<tr>
+<td colspan="3"></td>
+<td class="text-center">
+<small><strong>ÖDENECEK TUTAR:</strong></small>
+</td>
+</tr>
+</table>
+<table class="table-col details-row-table table-left">
+<tr valign="top">
+<td>İşveren</td>
+<td th:text="${legalEntity.getLegalName()}"></td>
+</tr>
+<tr valign="top">
+<td>İşveren Adresi</td>
+<td th:text="${employerAddressString}"></td>
+</tr>
+<tr valign="top">
+<td>Ülke</td>
+<td th:text="${legalEntity.getCountry().getName()}"></td>
+</tr>
+<tr valign="top">
+<td>Ödeme Dönemi</td>
+<td th:text="${period.getName()}"></td>
+</tr>
+</table>
+<table class="infobox infobox-4-row">
+<tr valign="middle" class="text-center text-bold">
+<td style="font-size: 12px;" th:text="${currency}"></td>
+<td style="font-size: 12px;" th:text="${#numberFormat.format(transferable_amount, valueFormat)}"></td>
+</tr>
+</table>
+<table class="table-col details-row-table">
+<tr valign="top">
+<td class="details-row-key">Çalışanın Adı Soyadı</td>
+<td th:text="${employeeDisplayName}"></td>
+<td class="details-row-key">Email</td>
+<td th:text="${employee.getPerson().getPrimaryEmail()}"></td>
+</tr>
+<tr valign="top">
+<td class="details-row-key">Çalışan No</td>
+<td th:text="${employee.getReferenceCode()}"></td>
+<td class="details-row-key">İşe Başlama Tarihi</td>
+<td th:text="${#dateUtil.formatDate(employee_hire_date, dateFormat)}"></td>
+</tr>
+<tr valign="top">
+<td class="details-row-key">TCKN</td>
+<td th:text="${employee.getPerson().getNationalId()}"></td>
+<td class="details-row-key">Ödeme Şekli</td>
+<td th:text="${employeePaymentMethodName}"></td>
+</tr>
+<tr valign="top">
+<td class="details-row-key">Görevi</td>
+<td th:text="${employee.getPosition()}"></td>
+<td class="details-row-key"></td>
+<td></td>
+</tr>
+</table>
+<table class="table">
+<thead>
+<tr class="caption">
+<td colspan="4">Özet</td>
+</tr>
+</thead>
+<thead>
+<tr>
+<th>Ödeme Para Birimi</th>
+<th class="text-right">Kazançlar</th>
+<th class="text-right">Kesintiler</th>
+<th class="text-right">Net Ödeme</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td th:text="${currency}"></td>
+<td class="text-right" th:text="${#numberFormat.format(entitlements_amount, valueFormat)}"></td>
+<td class="text-right" th:text="${#numberFormat.format(deductions_amount, valueFormat)}"></td>
+<td class="text-right" th:text="${#numberFormat.format(net_pay_amount, valueFormat)}"></td>
+</tr>
+</tbody>
+</table>
+<table class="table table-2col details-table">
+<thead>
+<tr class="caption">
+<td colspan="10">Ayrıntılar</td>
+</tr>
+<tr>
+<th colspan="3">Kazançlar</th>
+<th class="text-right">Tutar</th>
+<th class="text-center">Para Birimi</th>
+<th style="border-left: 1px solid black" colspan="3">Kesintiler</th>
+<th class="text-right">Tutar</th>
+<th class="text-center">Para Birimi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="5">
+<table>
+<tbody th:if="${entitlements != null}">
+<tr th:each="row : ${entitlements}">
+<td th:text="${row.getTitle()}" colspan="3"></td>
+<td class="text-right" th:text="${#numberFormat.format(row.getValue(), valueFormat)}"></td>
+<td class="text-center" th:with="isHourly = ${#strings.contains(row.getTitle(), '6314')}, isDaily = ${#strings.contains(row.getTitle(), '6305')}">
+<span th:if="${isHourly and not isDaily}" th:text="'Saat'"></span>
+<span th:if="${isDaily and not isHourly}" th:text="'Gün'"></span>
+<span th:unless="${isHourly or isDaily}" th:text="${currency}"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td colspan="5">
+<table>
+<tbody th:if="${deductions != null}">
+<tr th:each="row : ${deductions}">
+<td th:text="${row.getTitle()}" colspan="3"></td>
+<td class="text-right" th:text="${#numberFormat.format(row.getValue(), valueFormat)}"></td>
+<td class="text-center" th:with="isHourly = ${#strings.contains(row.getTitle(), '6314')}, isDaily = ${#strings.contains(row.getTitle(), '6305')}">
+<span th:if="${isHourly and not isDaily}" th:text="'Saat'"></span>
+<span th:if="${isDaily and not isHourly}" th:text="'Gün'"></span>
+<span th:unless="${isHourly or isDaily}" th:text="${currency}"></span>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="font-weight: bold; padding-top: 8px;">İşveren Katkısı</td>
+</tr>
+<tr th:each="row : ${employer_contributions}">
+<td th:text="${row.getTitle()}" colspan="3"></td>
+<td class="text-right" th:text="${#numberFormat.format(row.getValue(), valueFormat)}"></td>
+<td class="text-center" th:with="isHourly = ${#strings.contains(row.getTitle(), '6314')}, isDaily = ${#strings.contains(row.getTitle(), '6305')}">
+<span th:if="${isHourly and not isDaily}" th:text="'Saat'"></span>
+<span th:if="${isDaily and not isHourly}" th:text="'Gün'"></span>
+<span th:unless="${isHourly or isDaily}" th:text="${currency}"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table page-break-inside-avoid" th:if="${show_bank_account_info}">
+<thead>
+<tr class="caption">
+<td colspan="6">Banka Hesap Detayları</td>
+</tr>
+</thead>
+<thead>
+<tr>
+<th>Banka Adı</th>
+<th>SWIFT</th>
+<th>Alıcı Adı</th>
+<th colspan="2">IBAN numarası</th>
+<th>Hesap para birimi</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="bank_account : ${bank_accounts}">
+<td th:text="${bank_account.getBankName()}"></td>
+<td th:text="${bank_account.getSwift()}"></td>
+<td th:text="${bank_account.getBeneficiaryName()}"></td>
+<td colspan="2" th:text="${bank_account.getAccountNumber() }"></td>
+<td th:text="${bank_account.getAccountCurrency()}"></td>
+</tr>
+</tbody>
+</table>
+<table class="table" th:if="${show_eos_info || !payslip_notes.isEmpty()}">
+<thead>
+<tr class="caption">
+<td colspan="2">Notlar</td>
+</tr>
+</thead>
+<tbody th:if="${show_eos_info}">
+<tr>
+<td>Son çalışma günü</td>
+<td th:text="${employee.getLastWorkingDate()}"></td>
+</tr>
+<tr>
+<td>İşe son verme nedeni</td>
+<td th:text="${reportRow.TERMINATION_CODE}"></td>
+</tr>
+</tbody>
+<tbody th:if="${!payslip_notes.isEmpty()}">
+<tr th:each="note : ${payslip_notes}">
+<td colspan="2" th:text="${note.getMessage()}"></td>
+</tr>
+</tbody>
+</table>
+<div class="document-footer">
+<p>This document has been generated by Mercans</p>
+<p>&copy; All rights reserved</p>
+</div>

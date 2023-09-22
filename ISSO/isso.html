@@ -1,0 +1,534 @@
+
+<style type="text/css">
+    * {
+      font-size: 7px;
+      background-color: #fff;
+      line-height: 1;
+      text-align: left !important;
+    }
+    th {
+      font-size: 9px !important;
+      font-weight: normal;
+    }
+  
+    div {
+      font-size: 9px !important;
+      font-weight: normal;
+    }
+    hr {
+      height: 0;
+      border-bottom: 1px solid #ccc;
+    }
+  
+    h3 {
+      font-size: 8px;
+    }
+  
+    h2 {
+      font-size: 16px;
+    }
+    table {
+      page-break-inside: avoid;
+      page-break-after: auto;
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      border: 1px solid black;
+      text-align: right;
+    }
+    thead {
+      display: table-header-group;
+    }
+  
+    tr {
+      page-break-inside: avoid;
+      page-break-after: auto;
+    }
+    table tbody tr td:before,
+    table tbody tr td:after,
+    table tfoot tr th:before,
+    table tfoot tr th:after {
+      content: "";
+      height: 1px;
+      display: block;
+    }
+  
+    table > thead > tr.caption > td {
+      border-bottom: 1px solid #000;
+      font-size: 9px;
+      text-align: center;
+    }
+  
+    .margin-top {
+      margin-top: 20px;
+    }
+  
+    .table {
+      width: 100%;
+      margin-bottom: 10px;
+      border: 1px solid black;
+    }
+  
+    .table-header {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .table > thead > tr > th,
+    .table > tbody > tr > th,
+    .table > tfoot > tr > th {
+      text-align: left;
+    }
+  
+    .table-header > thead > tr > th,
+    .table-header > tbody > tr > th,
+    .table-header > tfoot > tr > th {
+      text-align: left;
+    }
+  
+    .table > tbody > tr > td,
+    .table > tbody > tr > th,
+    .table > tfoot > tr > th,
+    .table > thead > tr > th {
+      vertical-align: top;
+      border: 1px solid black;
+      padding: 2px;
+      padding-left: 4px;
+      padding-right: 6px;
+      text-align: left;
+    }
+  
+    .text-center {
+      text-align: center !important;
+    }
+  
+    .text-right {
+      text-align: right !important;
+    }
+  
+    .text-left {
+      text-align: left !important;
+    }
+  
+    .text-bold {
+      font-weight: bold;
+    }
+    img.logo {
+      max-width: 300px;
+      max-height: 120px;
+    }
+  
+    thead {
+      display: table-header-group;
+    }
+    .border-none > th {
+      border: none !important;
+    }
+  
+    .border-none-right > th {
+      border: none !important;
+      text-align: right !important;
+      font-weight: normal !important;
+      line-height: 1;
+    }
+  
+    .border-none > th {
+      border: none !important;
+    }
+  
+    .border-none {
+      border: none !important;
+    }
+    .valign-middle {
+      vertical-align: middle !important;
+      line-height: normal;
+    }
+    .bold-header {
+      font-size: 9px !important;
+      font-weight: bold !important;
+      line-height: 1;
+    }
+    .valign-top {
+      vertical-align: top !important;
+      line-height: normal;
+    }
+    .border-right-none {
+      border-right: none !important;
+    }
+  
+    .border-top-none {
+      border-top: none !important;
+    }
+  
+    .border-left-none {
+      border-left: none !important;
+    }
+    .border-bottom-none {
+      border-bottom: none !important;
+    }
+  
+    .padding-left-20 {
+      padding-left: 50px !important;
+    }
+    .valign-bottom {
+      vertical-align: bottom !important;
+      line-height: normal;
+    }
+  
+    .new-page {
+      page-break-before: always;
+    }
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <table class="table border-none">
+  <thead class="border-none">
+  <tr class="border-none">
+  <th colspan="3" class="valign-middle borde-none">
+  <img style="height: 70px" src="https://i.ibb.co/y8Vfhm2/LHDN-logo.png" alt="" />
+  </th>
+  <th colspan="11" rowspan="2" class="text-center bold-header valign-middle">
+  LEMBAGA HASIL DALAM NEGERI MALAYSIA
+  <br />
+  PENYATA SARAAN DARIPADA PENGGAJIAN, TUNTUTAN POTONGAN DAN
+  <br />
+  MAKLUMAT MENGENAI POTONGAN CUKAI DI BAWAH KAEDAH-KAEDAH CUKAI PENDAPATAN
+  <br />
+  (POTONGAN DARIPADA SARAAN) 1994 BAGI TAHUN BERAKHIR 31 DISEMBER <span style="font-size:10px" th:text="${report.rows[0]['year']}">2020</span>
+  </th>
+  <th colspan="6" class="valign-top text-right">C.P.8D-Pin. 2016</th>
+  </tr>
+  <tr class="border-none">
+  <th colspan="10" style="font-weight: bold; font-size: 9px !important;">MAKLUMAT MAJIKAN</th>
+  <th colspan="10" class="text-right">Lembaran :1</th>
+  </tr>
+  <tr>
+  <td colspan="3" class="border-bottom-none border-right-none padding-left-20">No. Majikan E</td>
+  <td colspan="17" class="border-bottom-none border-left-none">No. Fail Cukai Pendapatan Majikan : <span th:text="${report.rows[0]['income_employer']}"></span></td>
+  </tr>
+  <tr class="border-none">
+  <td colspan="3" class="border-bottom-none border-right-none border-top-none padding-left-20" width="15%">Nama Majikan</td>
+  <td colspan="17" class="border-bottom-none border-left-none border-top-none" th:text="${report.rows[0]['tax_employer']}"></td>
+  </tr>
+  <tr class="border-none">
+  <td colspan="3" class="border-right-none border-top-none padding-left-20" width="15%">Saraan Bagi Tahun</td>
+  <td colspan="10" class="border-left-none border-right-none border-top-none text-center text-bold" th:text="${report.rows[0]['year']}">2020</td>
+  <td colspan="7" class="border-left-none border-top-none text-center text-bold"></td>
+  </tr>
+  <tr class="border-none">
+  <td colspan="20" class="border-none" style="font-weight: bold;">
+  MAKLUMAT PEKERJA
+  </td>
+  </tr>
+  <tr class="border-none">
+  <td colspan="20" class="border-none">
+  Majikan dikehendaki mengisi Penyata ini untuk semua pekerja bagi tahun 2016.
+  Majikan yang telah menghantar maklumat melalui e-Data Praisi tidak perlu mengisi
+  dan menghantar Borang C.P.8D
+  </td>
+  </tr>
+  <tr class="border-none">
+  <td colspan="2" rowspan="6" class="border-none valign-top">
+  Nota:
+  </td>
+  <td colspan="1" class="border-none">
+  1
+  </td>
+  <td colspan="17" class="border-none">
+  Kategori Pekeria (Seperti dalam Jadual PCB)
+  </td>
+  </tr>
+  <tr class="border-none">
+  <td colspan="1" class="border-none"> </td>
+  <td colspan="17" class="border-none">
+  Kategori 1 : Bujang
+  </td>
+  </tr>
+  <tr class="border-none">
+  <td colspan="1" class="border-none"> </td>
+  <td colspan="17" class="border-none">
+  Kategori 2 : Berkahwin dan suami atau isteri tidak bekerja
+  </td>
+  </tr>
+  <tr class="border-none">
+  <td colspan="1" class="border-none"> </td>
+  <td colspan="17" class="border-none">
+  Kategori 3 : Berkahwin dan suami atau isteri bekerja,
+  bercerai atau kematian suami atau isteri, atau bujang yang mempunyai anak angkat
+  </td>
+  </tr>
+  <tr class="border-none">
+  <td colspan="1" class="border-none">2</td>
+  <td colspan="17" class="border-none">
+  Termasuk manfaat berupa barangan,
+  manfaat nilai tempat kediaman dan tunggakan saraan kasar tahun-tahun terdahulu
+  </td>
+  </tr>
+  <tr class="border-none">
+  <td colspan="1" class="border-none">3</td>
+  <td colspan="17" class="border-none">
+  Amaun zakat SELAIN yang dibayar melalui potongan gaji bulanan
+  </td>
+  </tr>
+  <tr>
+  <td class="text-center" width="2%">A</td>
+  <td class="text-center" width="20%">B</td>
+  <td class="text-center" width="8%">C</td>
+  <td class="text-center" width="8%">D</td>
+  <td class="text-center" width="4%">E</td>
+  <td class="text-center" width="4%">F</td>
+  <td class="text-center" width="4%">G</td>
+  <td class="text-center" width="4%">H</td>
+  <td class="text-center" width="4%">I</td>
+  <td class="text-center" width="4%">J</td>
+  <td class="text-center" width="4%">K</td>
+  <td class="text-center" width="4%">L</td>
+  <td class="text-center" width="4%">M</td>
+  <td class="text-center" width="4%">N</td>
+  <td class="text-center" width="4%">O</td>
+  <td class="text-center" width="4%">P</td>
+  <td class="text-center" width="4%">Q</td>
+  <td class="text-center" width="4%">R</td>
+  <td class="text-center" width="4%">S</td>
+  </tr>
+  <tr>
+  <td rowspan="2" class="text-center border-bottom-none">Bil</td>
+  <td rowspan="2" class="text-center border-bottom-none">Nama Pekerja</td>
+  <td rowspan="2" class="text-center border-bottom-none">No. Cuka Pendapatan</td>
+  <td rowspan="2" class="text-center border-bottom-none">No. Pengenalan / Pasport</td>
+  <td rowspan="2" class="text-center border-bottom-none">Kategori Pekerja1</td>
+  <td rowspan="2" class="text-center border-bottom-none">Cukai Ditanggung Oleh Majikan (Isikan 1 atau 2) <br> 1 = Ya <br> 2 = Tidak</td>
+  <td colspan="2" class="text-center">Pelepasan Anak Yang Layak</td>
+  <td rowspan="2" class="text-center border-bottom-none">Jumlah Saraan Kasar²</td>
+  <td rowspan="2" class="text-center border-bottom-none">Manfaat Berupa Barangan </td>
+  <td rowspan="2" class="text-center border-bottom-none">Nilai Tempat Kediaman </td>
+  <td rowspan="2" class="text-center border-bottom-none">Manfaat Skim Opsyen Saham Pekerja(ESOS) </td>
+  <td rowspan="2" class="text-center border-bottom-none"> Elaun / Perkuisit / Pemberian / Manfaat Yang Dikecualikan cukai </td>
+  <td colspan="2" class="text-center">Jumlah Potongan Dituntut Melalui Borang <br> TP 1 </td>
+  <td rowspan="2" class="text-center border-bottom-none">Caruman Kumpulan Wang Simpanan Pekerja </td>
+  <td rowspan="2" class="text-center border-bottom-none">Zakat Yang Dibayar Melalui Potongan Gaji </td>
+  <td colspan="2" class="text-center">Jumlah Potongan Cukai</td>
+  </tr>
+  <tr>
+  <td class="text-center border-bottom-none">Bilangan Anak</td>
+  <td class="text-center border-bottom-none">Jumlah Pelepasan</td>
+  <td class="text-center border-bottom-none">Pelepasan</td>
+  <td class="text-center border-bottom-none">Zakat³</td>
+  <td class="text-center border-bottom-none">PCB</td>
+  <td class="text-center border-bottom-none">CP38</td>
+  </tr>
+  <tr>
+  <td class="border-top-none"></td>
+  <td class="border-top-none"></td>
+  <td class="border-top-none"></td>
+  <td class="border-top-none"></td>
+  <td class="border-top-none"></td>
+  <td class="border-top-none"></td>
+  <td class="border-top-none"></td>
+  <td class="text-center border-top-none">(RM)</td>
+  <td class="text-center border-top-none">(RM)</td>
+  <td class="text-center border-top-none">(RM)</td>
+  <td class="text-center border-top-none">(RM)</td>
+  <td class="text-center border-top-none">(RM)</td>
+  <td class="text-center border-top-none">(RM)</td>
+  <td class="text-center border-top-none">(RM)</td>
+  <td class="text-center border-top-none">(RM)</td>
+  <td class="text-center border-top-none">(RM)</td>
+  <td class="text-center border-top-none">(RM)</td>
+  <td class="text-center border-top-none">(RM)</td>
+  <td class="text-center border-top-none">(RM)</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <th colspan="19" style="background-color: yellow;">
+  SENARAI PEKERJA-PEKERJA DIDAFTARKAN PADA TAHUN INI
+  </th>
+  </tr>
+  <tr th:each="row : ${report.rows}" th:if="${row['this_year']}">
+  <td class="text-center" th:text="${custom.counter1.incrementAndGet()}"></td>
+  <td class="text-left" th:text="${row['employee_name']}">lalalallla</td>
+  <td class="text-left" th:text="${row['income_tax_number']}">SG10819813080</td>
+  <td class="text-center" th:text="${row['ic_number']}">760122-10-5081</td>
+  <td class="text-center" th:text="${row['employee_status']}">3</td>
+  <td class="text-center" th:text="${row['tax_borne_by_employer']}">2</td>
+  <td class="text-center" th:text="${row['no_child']}">3</td>
+  <td th:if="${row['no_child_amount'] != 0}" class="text-right" th:text="${#numberFormat.noDecimalFormat(row['no_child_amount'])}">6,000</td>
+  <td th:unless="${row['no_child_amount'] != 0}" class="text-right"></td>
+  <td th:if="${row['jumlah_saraan'] != 0}" th:with="jumlahSaraanThisYear=${custom.context.addTo('jumlahSaraanThisYear', row['jumlah_saraan'])}" class="text-right" th:text="${#numberFormat.noDecimalFormat(row['jumlah_saraan'])}">6,000</td>
+  <td th:unless="${row['jumlah_saraan'] != 0}" class="text-right"></td>
+  <td class="text-center"></td>
+  <td th:if="${row['nilai'] != 0}" class="text-right" th:text="${#numberFormat.noDecimalFormat(row['nilai'])}">6,000</td>
+  <td th:unless="${row['nilai'] != 0}" class="text-right"></td>
+  <td class="text-center"></td>
+  <td th:if="${row['elaun'] != 0}" th:with="elaunThisYear=${custom.context.addTo('elaunThisYear', row['elaun'])}" class="text-right" th:text="${#numberFormat.noDecimalFormat(row['elaun'])}">6,000</td>
+  <td th:unless="${row['elaun'] != 0}" class="text-right"></td>
+  <td class="text-center"></td>
+  <td class="text-center"></td>
+  <td th:if="${row['caruman_kumpulan'] != 0}" class="text-right" th:text="${#numberFormat.format(row['caruman_kumpulan'], valueFormat)}">8,068</td>
+  <td th:unless="${row['caruman_kumpulan'] != 0}" class="text-right"></td>
+  <td th:if="${row['zakat_yang'] != 0}" class="text-right" th:text="${#numberFormat.format(row['zakat_yang'], valueFormat)}">8,068</td>
+  <td th:unless="${row['zakat_yang'] != 0}" class="text-right"></td>
+  <td th:if="${row['jumlah_pcb'] != 0}" th:with="jumlahPcbThisYear=${custom.context.addTo('jumlahPcbThisYear', row['jumlah_pcb'])}" class="text-right" th:text="${#numberFormat.format(row['jumlah_pcb'], valueFormat)}">8,068</td>
+  <td th:unless="${row['jumlah_pcb'] != 0}" class="text-right"></td>
+  <td th:if="${row['jumlah_cp'] != 0}" th:with="jumlahCpThisYear=${custom.context.addTo('jumlahCpThisYear', row['jumlah_cp'])}" class="text-right" th:text="${#numberFormat.format(row['jumlah_cp'], valueFormat)}">8,068</td>
+  <td th:unless="${row['jumlah_cp'] != 0}" class="text-right"></td>
+  </tr>
+  <tr>
+  <th colspan="19" style="background-color: paleturquoise;">
+  SENARAI PEKERJA-PEKERJA DIDAFTARKAN PADA TAHUN LALU
+  </th>
+  </tr>
+  <tr th:each="row : ${report.rows}" th:if="${row['previous_year']}">
+  <td class="text-center" th:text="${custom.counter1.incrementAndGet()}"></td>
+  <td class="text-left" th:text="${row['employee_name']}">Ahmad Imrat Bin Samad</td>
+  <td class="text-left" th:text="${row['income_tax_number']}">SG10819813080</td>
+  <td class="text-center" th:text="${row['ic_number']}">760122-10-5081</td>
+  <td class="text-center" th:text="${row['employee_status']}">3</td>
+  <td class="text-center" th:text="${row['tax_borne_by_employer']}">2</td>
+  <td class="text-center" th:text="${row['no_child']}">3</td>
+  <td th:if="${row['no_child_amount'] != 0}" class="text-right" th:text="${#numberFormat.noDecimalFormat(row['no_child_amount'])}">6,000</td>
+  <td th:unless="${row['no_child_amount'] != 0}" class="text-right"></td>
+  <td th:if="${row['jumlah_saraan'] != 0}" th:with="jumlahSaraanPrevious=${custom.context.addTo('jumlahSaraanPrevious', row['jumlah_saraan'])}" class="text-right" th:text="${#numberFormat.noDecimalFormat(row['jumlah_saraan'])}">6,000</td>
+  <td th:unless="${row['jumlah_saraan'] != 0}" class="text-right"></td>
+  <td class="text-center"></td>
+  <td th:if="${row['nilai'] != 0}" class="text-right" th:text="${#numberFormat.noDecimalFormat(row['nilai'])}">6,000</td>
+  <td th:unless="${row['nilai'] != 0}" class="text-right"></td>
+  <td class="text-center"></td>
+  <td th:if="${row['elaun'] != 0}" th:with="elaunPrevious=${custom.context.addTo('elaunPrevious', row['elaun'])}" class="text-right" th:text="${#numberFormat.noDecimalFormat(row['elaun'])}">6,000</td>
+  <td th:unless="${row['elaun'] != 0}" class="text-right"></td>
+  <td class="text-center"></td>
+  <td class="text-center"></td>
+  <td th:if="${row['caruman_kumpulan'] != 0}" class="text-right" th:text="${#numberFormat.format(row['caruman_kumpulan'], valueFormat)}">8,068</td>
+  <td th:unless="${row['caruman_kumpulan'] != 0}" class="text-right"></td>
+  <td th:if="${row['zakat_yang'] != 0}" class="text-right" th:text="${#numberFormat.format(row['zakat_yang'], valueFormat)}">8,068</td>
+  <td th:unless="${row['zakat_yang'] != 0}" class="text-right"></td>
+  <td th:if="${row['jumlah_pcb'] != 0}" th:with="jumlahPcbPrevious=${custom.context.addTo('jumlahPcbPrevious', row['jumlah_pcb'])}" class="text-right" th:text="${#numberFormat.format(row['jumlah_pcb'], valueFormat)}">8,068</td>
+  <td th:unless="${row['jumlah_pcb'] != 0}" class="text-right"></td>
+  <td th:if="${row['jumlah_cp'] != 0}" th:with="jumlahCpPrevious=${custom.context.addTo('jumlahCpPrevious', row['jumlah_cp'])}" class="text-right" th:text="${#numberFormat.format(row['jumlah_cp'], valueFormat)}">8,068</td>
+  <td th:unless="${row['jumlah_cp'] != 0}" class="text-right"></td>
+  </tr>
+  <tr>
+  <th colspan="19" style="background-color: orange;">
+  SENARAI PEKERJA-PEKERJA BERHENTI PERKHIDMATANNYA </th>
+  </tr>
+  <tr th:each="row : ${report.rows}" th:if="${row['terminated_this_year']}">
+  <td class="text-center" th:text="${custom.counter1.incrementAndGet()}"></td>
+  <td class="text-left" th:text="${row['employee_name']}">Ahmad Imrat Bin Samad</td>
+  <td class="text-left" th:text="${row['income_tax_number']}">SG10819813080</td>
+  <td class="text-center" th:text="${row['ic_number']}">760122-10-5081</td>
+  <td class="text-center" th:text="${row['employee_status']}">3</td>
+  <td class="text-center" th:text="${row['tax_borne_by_employer']}">2</td>
+  <td class="text-center" th:text="${row['no_child']}">3</td>
+  <td th:if="${row['no_child_amount'] != 0}" class="text-right" th:text="${#numberFormat.noDecimalFormat(row['no_child_amount'])}">6,000</td>
+  <td th:unless="${row['no_child_amount'] != 0}" class="text-right"></td>
+  <td th:if="${row['jumlah_saraan'] != 0}" th:with="jumlahSaraanTerminated=${custom.context.addTo('jumlahSaraanTerminated', row['jumlah_saraan'])}" class="text-right" th:text="${#numberFormat.noDecimalFormat(row['jumlah_saraan'])}">6,000</td>
+  <td th:unless="${row['jumlah_saraan'] != 0}" class="text-right"></td>
+  <td class="text-center"></td>
+  <td th:if="${row['nilai'] != 0}" class="text-right" th:text="${#numberFormat.noDecimalFormat(row['nilai'])}">6,000</td>
+  <td th:unless="${row['nilai'] != 0}" class="text-right"></td>
+  <td class="text-center"></td>
+  <td th:if="${row['elaun'] != 0}" th:with="elaunTerminated=${custom.context.addTo('elaunTerminated', row['elaun'])}" class="text-right" th:text="${#numberFormat.noDecimalFormat(row['elaun'])}">6,000</td>
+  <td th:unless="${row['elaun'] != 0}" class="text-right"></td>
+  <td class="text-center"></td>
+  <td class="text-center"></td>
+  <td th:if="${row['caruman_kumpulan'] != 0}" class="text-right" th:text="${#numberFormat.format(row['caruman_kumpulan'], valueFormat)}">8,068</td>
+  <td th:unless="${row['caruman_kumpulan'] != 0}" class="text-right"></td>
+  <td th:if="${row['zakat_yang'] != 0}" class="text-right" th:text="${#numberFormat.format(row['zakat_yang'], valueFormat)}">8,068</td>
+  <td th:unless="${row['zakat_yang'] != 0}" class="text-right"></td>
+  <td th:if="${row['jumlah_pcb'] != 0}" th:with="jumlahPcbTerminated=${custom.context.addTo('jumlahPcbTerminated', row['jumlah_pcb'])}" class="text-right" th:text="${#numberFormat.format(row['jumlah_pcb'], valueFormat)}">8,068</td>
+  <td th:unless="${row['jumlah_pcb'] != 0}" class="text-right"></td>
+  <td th:if="${row['jumlah_cp'] != 0}" th:with="jumlahCpTerminated=${custom.context.addTo('jumlahCpTerminated', row['jumlah_cp'])}" class="text-right" th:text="${#numberFormat.format(row['jumlah_cp'], valueFormat)}">8,068</td>
+  <td th:unless="${row['jumlah_cp'] != 0}" class="text-right"></td>
+  </tr>
+  </tbody>
+  <tfoot class="new-page">
+  <tr>
+  <table class="table border-none">
+  <tr>
+  <td width="50%" class="border-none">
+  RINGKASAN BORANG C.P. BD
+  </td>
+  <td width="50%" class="border-none">
+  No. Fail Cukai Pendapatan Majikan : <span th:text="${report.rows[0]['income_employer']}"></span>
+  </td>
+  </tr>
+  </table>
+  <table class="table border-none">
+  <tr>
+  <td rowspan="2" width="32%" class="border-bottom-none  text-center"></td>
+  <td rowspan="2" width="7%" class="border-bottom-none text-center"></td>
+  <td rowspan="2" width="23%" class="border-bottom-none text-center text valign-bottom">
+  Jumlah Saraan Kasar (termasuk manfaat berupa barangan dan
+  manfaat nilai tempat kediaman tetapi
+  tidak termasuk tunggakan saraan kasar
+  tahun-tahun terdahulu)
+  </td>
+  <td rowspan="2" width="13%" class="border-bottom-none text-center valign-bottom">
+  Elaun/Perkuisit/ Pemberian/ <br> Manfaat Yang
+  </td>
+  <td colspan="2" width="25%" class="border-bottom-none text-center valign-bottom">
+  Jumlah Potongan Cukai
+  </td>
+  </tr>
+  <tr>
+  <td class="border-bottom-none text-center valign-bottom">
+  PCB
+  </td>
+  <td class="border-bottom-none text-center valign-bottom">
+  CP38
+  </td>
+  </tr>
+  <tr>
+  <td class="border-top-none text-center"></td>
+  <td class="border-top-none text-center">Bilangan</td>
+  <td class="border-top-none text-center">RM</td>
+  <td class="border-top-none text-center">Dikecualikan Cukai</td>
+  <td class="border-top-none text-center">RM</td>
+  <td class="border-top-none text-center">RM</td>''
+  </tr>
+  <th:block th:each="row : ${report.rows}">
+  <th:block th:if="${row['this_year']}" th:with="__ = ${custom.counter2.incrementAndGet()}"></th:block>
+  </th:block>
+  <th:block th:each="row : ${report.rows}">
+  <th:block th:if="${row['previous_year']}" th:with="__ = ${custom.counter3.incrementAndGet()}"></th:block>
+  </th:block>
+  <th:block th:each="row : ${report.rows}">
+  <th:block th:if="${row['terminated_this_year']}" th:with="__ = ${custom.counter4.incrementAndGet()}"></th:block>
+  </th:block>
+  <tr>
+  <td>PEKERJA-PEKERJA YANG DIDAFTARKAN PADA TAHUN LALU</td>
+  <td class="text-right" th:text="${custom.counter3.get()}">82</td>
+  <td class="text-right" th:text="${#numberFormat.noDecimalFormat(custom.context.get('jumlahSaraanPrevious'))}"> 12111111</td>
+  <td class="text-right" th:text="${#numberFormat.noDecimalFormat(custom.context.get('elaunPrevious'))}"> 241,810</td>
+  <td class="text-right" th:text="${#numberFormat.format(custom.context.get('jumlahPcbPrevious'), valueFormat)}"> 2,322,135.00</td>
+  <td class="text-right" th:text="${#numberFormat.format(custom.context.get('jumlahCpPrevious'), valueFormat)}"> 2,322,135.00</td>
+  </tr>
+  <tr>
+  <td>PEKERJA-PEKERJA YANG DIDAFTARKAN PADA TAHUN INI</td>
+  <td class="text-right" th:text="${custom.counter2.get()}">27</td>
+  <td class="text-right" th:text="${#numberFormat.noDecimalFormat(custom.context.get('jumlahSaraanThisYear'))}"> 14,770,223</td>
+  <td class="text-right" th:text="${#numberFormat.noDecimalFormat(custom.context.get('elaunThisYear'))}"> 241,810</td>
+  <td class="text-right" th:text="${#numberFormat.format(custom.context.get('jumlahPcbThisYear'), valueFormat)}"> 2,322,135.00</td>
+  <td class="text-right" th:text="${#numberFormat.format(custom.context.get('jumlahCpThisYear'), valueFormat)}"> 2,322,135.00</td>
+  </tr>
+  <tr>
+  <td>PEKERJA-PEKERJA YANG BERHENTI PERKHIDMATANNYA</td>
+  <td class="text-right" th:text="${custom.counter4.get()}">23</td>
+  <td class="text-right" th:text="${#numberFormat.noDecimalFormat(custom.context.get('jumlahSaraanTerminated'))}"> 14,770,223</td>
+  <td class="text-right" th:text="${#numberFormat.noDecimalFormat(custom.context.get('elaunTerminated'))}"> 241,810</td>
+  <td class="text-right" th:text="${#numberFormat.format(custom.context.get('jumlahPcbTerminated'), valueFormat)}"> 2,322,135.00</td>
+  <td class="text-right" th:text="${#numberFormat.format(custom.context.get('jumlahCpTerminated'), valueFormat)}"> 2,322,135.00</td>
+  </tr>
+  <tr>
+  <td></td>
+  <td class="text-right" th:text="${custom.counter1.get()}">132</td>
+  <td class="text-right" th:text="${#numberFormat.noDecimalFormat(report.grand_total.jumlah_saraan)}">17,417,778</td>
+  <td class="text-right" th:text="${#numberFormat.noDecimalFormat(report.grand_total.elaun)}">273,837</td>
+  <td class="text-right" th:text="${#numberFormat.format(report.grand_total.jumlah_pcb, valueFormat)}">2,599,306.05</td>
+  <td class="text-right" th:text="${#numberFormat.format(report.grand_total.jumlah_cp, valueFormat)}">30,180.76</td>
+  </tr>
+  </table>
+  </tr>
+  </tfoot>
+  </table>
+  

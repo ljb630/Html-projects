@@ -1,0 +1,570 @@
+<style type="text/css">
+    * {
+        font-size: 10px !important;
+    }
+
+    table {
+        margin-bottom: 20px;
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    table:last-child {
+        margin-bottom: 0;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    table tbody tr td:before,
+    table tbody tr td:after,
+    table tfoot tr th:before,
+    table tfoot tr th:after {
+        content: "";
+        height: 1px;
+        display: block;
+    }
+
+    table > thead > tr.caption > td {
+        font-size: 9px;
+        font-weight: bold;
+        padding: 3px;
+        text-align: center;
+    }
+
+    .table {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .table > thead > tr > th,
+    .table > tbody > tr > th,
+    .table > tfoot > tr > th {
+        text-align: left;
+    }
+
+    .table > tbody > tr > td,
+    .table > tbody > tr > th,
+    .table > tfoot > tr > th,
+    .table > thead > tr > th {
+
+        vertical-align: top;
+        padding: 4px;
+    }
+
+    .table > thead > tr > th {
+        font-weight: bold;
+    }
+
+    .table > tbody > tr.important > td {
+        background-color: #f8f8f8;
+        font-weight: bold;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .text-right {
+        text-align: right !important;
+    }
+
+    .text-left {
+        text-align: left !important;
+    }
+
+    .document-footer {
+        margin-top: 20px;
+    }
+
+    .document-footer p {
+        font-size: 9px;
+        text-align: center;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+        max-height: 50px !important;
+    }
+
+    thead > tr > th,
+    tbody > tr > th,
+    tfoot > tr > th {
+        font-size: 9px;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .text-right {
+        text-align: right !important;
+    }
+
+    .text-left {
+        text-align: left !important;
+    }
+
+    .border-none > tr > th {
+        border: none !important;
+    }
+
+    .border-none > th {
+        border: none !important;
+    }
+
+    .border-none {
+        border: none !important;
+    }
+
+    span {
+        font-size: 12px;
+        margin-right: 2px;
+    }
+
+    .valign-middle {
+        vertical-align: middle !important;
+        line-height: normal;
+    }
+
+    table {
+        width: 90%;
+        margin-bottom: 20px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .padding-5 > tr > td {
+        padding: 5px;
+    }
+
+    .border-none {
+        border: none !important;
+    }
+
+    td.width-10 {
+        width: 10%;
+    }
+
+
+    img.logo {
+        height: 100px;
+        width: 80px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .padding-bottom {
+        padding: 0 5px 10px 5px;
+    }
+
+    .padding-left-15 {
+        padding-left: 15px;
+    }
+
+    .text-center {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .text-left {
+        text-align: left;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+
+    .content-center {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .content-top {
+        text-align: center;
+        vertical-align: top;
+    }
+
+    .content-center-height {
+        text-align: center;
+        vertical-align: middle;
+        line-height: 100px;
+    }
+
+    .text-bold {
+        font-weight: bold;
+    }
+
+    .text-light {
+        font-weight: lighter;
+    }
+
+    .rotate {
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        width: 1em;
+        height: 13em;
+        padding: 10px;
+    }
+
+    .rotate div {
+        -moz-transform: rotate(-90.0deg); /* FF3.5+ */
+        -o-transform: rotate(-90.0deg); /* Opera 10.5 */
+        -webkit-transform: rotate(-90.0deg); /* Saf3.1+, Chrome */
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083); /* IE6,IE7 */
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
+        margin-left: -10em;
+        margin-right: -10em;
+    }
+
+    .rotate-second {
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        width: 1em;
+        height: 10em;
+        padding: 10px;
+    }
+
+    .rotate-second div {
+        -moz-transform: rotate(-90.0deg); /* FF3.5+ */
+        -o-transform: rotate(-90.0deg); /* Opera 10.5 */
+        -webkit-transform: rotate(-90.0deg); /* Saf3.1+, Chrome */
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083); /* IE6,IE7 */
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
+        margin-left: -10em;
+        margin-right: -10em;
+    }
+
+    .rotate-third {
+        text-align: left;
+        white-space: nowrap;
+        vertical-align: middle;
+        width: 1em;
+        height: 5em;
+        padding: 15px;
+        border-left: none;
+        border-right: none;
+    }
+
+    .rotate-third div {
+        -moz-transform: rotate(-90.0deg); /* FF3.5+ */
+        -o-transform: rotate(-90.0deg); /* Opera 10.5 */
+        -webkit-transform: rotate(-90.0deg); /* Saf3.1+, Chrome */
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083); /* IE6,IE7 */
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
+        margin-left: -10em;
+        margin-right: -10em;
+    }
+
+    .rotate-fourth {
+        text-align: left;
+        white-space: nowrap;
+        vertical-align: middle;
+        width: 1em;
+        height: 18em;
+        padding: 10px;
+    }
+
+    .rotate-fourth div {
+        -moz-transform: rotate(-90.0deg); /* FF3.5+ */
+        -o-transform: rotate(-90.0deg); /* Opera 10.5 */
+        -webkit-transform: rotate(-90.0deg); /* Saf3.1+, Chrome */
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083); /* IE6,IE7 */
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
+        margin-left: -10em;
+        margin-right: -10em;
+        margin-top: -2em;
+        margin-bottom: 3em;
+    }
+
+    .text-italic {
+        font-style: italic;
+    }
+
+    .padding-top-bottom-5 {
+        padding: 5px;
+    }
+
+    .border-black th, .border-black td {
+        border: 1px solid black !important;
+        color: black !important;
+        font-size: 8px !important;
+    }
+
+    .color-black span {
+        color: black !important;
+        font-size: 8px !important;
+    }
+
+    .color-black th {
+        color: black !important;
+        border: none !important;
+        font-size: 8px !important;
+    }
+
+    img.logo {
+        height: 80px;
+        width: 60px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .text-small-left {
+        font-size: 7px !important;
+        text-align: left;
+    }
+
+    .underline {
+        border-bottom: 1px solid black;
+    }
+
+    .margin-left-20 {
+        padding-left: 20px !important;
+    }
+
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<th:block th:with="noEl = 1,totalSize = ${#lists.size(report.rows)} - 1">
+<th:block th:each=" listIndex: ${#numbers.sequence(0, totalSize, noEl)}">
+<div th:with="maxValue = ${ totalSize lt (listIndex + noEl -1) ? totalSize : listIndex + noEl -1}">
+<tr class="border-none" th:each="index : ${#numbers.sequence(listIndex, maxValue)}" th:with="row = ${report.rows[index]}">
+<table style=" max-height: 1200px !important;">
+<table style="height: 10%">
+<tr>
+<td class="text-center" style="font-size: 14px !important;">Certificate of Collection or
+Deduction of Income Tax <span style="font-size: 14px !important;" class="text-bold">&nbsp; (including salary) <br> (under rule 42)</span>
+</td>
+</tr>
+</table>
+<table style="height: 8%">
+<tr>
+<td colspan="2" class="text-left">S.No.</td>
+<td colspan="2" class="text-center">Original/Duplicate</td>
+<td colspan="2" class="text-left">Date of issue. <span class="underline" th:text="${#dates.format(#dates.createNow(), 'dd-MMMM-yyyy')}"> </span>
+</td>
+</tr>
+<tr>
+<td colspan="2" class="text-left">Certified that the sum of Rupees</td>
+<td colspan="2" class="text-center underline" th:text="${#numberFormat.format(row['tax_deducted'], valueFormat)}"></td>
+<td colspan="2" class="text-small-left">(Amount of tax collected/deducted in figures)
+</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="3" class="text-center underline" th:text="${#numberFormat.formatIntegerPartToWords(row['tax_deducted'])  + ' Pakistani Rupees Only'}"></td>
+<td colspan="2" class="text-small-left">(amount in words)</td>
+</tr>
+</table>
+<table style="height: 8%">
+<col width="40%">
+<col width="60%">
+<tr>
+<td class="text-left">on account of income tax has been deducted/collected from</td>
+<td class="text-center underline" th:text="${row['employee_name']} + '(' + ${row['employee_id']} + ')' ">
+null(null1)
+</td>
+</tr>
+<tr>
+<td class="text-left">(Name and Address of the person from whom tax
+collected/deducted)
+</td>
+<td class="text-center underline" th:text="${row['employee_address']}"></td>
+</tr>
+<tr>
+<td></td>
+<td class="text-left" style="font-size: 8px !important;">in case of an individual,
+his/her name in full and in case of an association of persons / company, name and
+style of the association of persons/company
+</td>
+</tr>
+</table>
+<table>
+<col width="25%">
+<col width="45%">
+<col width="30%">
+<tr>
+<td class="text-left">having National Tax Number</td>
+<td class="underline" th:text="${row['employee_national_tax_number']}"></td>
+<td class="text-small-left">(if any) and</td>
+</tr>
+<tr>
+<td class="text-left">holder of CNIC No.</td>
+<td class="text-center underline" th:text="${row['national_id']}"></td>
+<td class="text-small-left">(In case of an individual)</td>
+</tr>
+<tr>
+<td class="text-left">on</td>
+<td class="text-center underline">
+</td>
+<td class="text-small-left">(Date of collection/ deduction)</td>
+</tr>
+<tr>
+<td class="text-left">Or during the period</td>
+<td class="text-center">From <span class="underline" th:text="'01/07/' + ${row['period_begin']}">7/1/2018</span>
+To
+<span class="underline" th:if="${row['last_working_date']} != ''" th:text="${#dateUtil.formatDate(row['last_working_date'], 'dd/MM/yyyy')}"></span>
+<span class="underline" th:if="${row['last_working_date']} == ''" th:text="${#dateUtil.formatDate(period.end_date, 'dd/MM/yyyy')}"></span>
+</td>
+<td class="text-small-left">(Period of collection/deduction)</td>
+</tr>
+<tr>
+<td class="text-left">under section</td>
+<td class="text-center underline">149</td>
+<td class="text-small-left">(specify the Section of Income Tax Ordinance,2001)</td>
+</tr>
+<tr>
+<td class="text-left">On account of</td>
+<td class="text-center underline">Salary</td>
+<td class="text-small-left">(specify nature)</td>
+</tr>
+<tr>
+<td class="text-left">vide</td>
+<td class="text-center underline">Credit To Account</td>
+<td class="text-small-left">(particulars of LC, Contract etc.)</td>
+</tr>
+<tr>
+<td class="text-left">on the value/amount of Rupee</td>
+<td class="text-center underline" th:text="${#numberFormat.format(row['taxable_salary'], valueFormat)}">1237013
+</td>
+<td class="text-small-left">(Gross amount on which tax deducted/collected in figures)
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td class="text-left">This is to further certify that the tax collected/deducted has
+been deposited in the Fedral Government Account as per the following details:
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td class="text-center">Date of deposit.</td>
+<td class="text-center">SBP/NBP/Treasury.</td>
+<td class="text-center">Branch/City.</td>
+<td class="text-center">Account (Rupees)</td>
+<td class="text-center">Challan/Treasury <br> No/CPR No.</td>
+</tr>
+<tr>
+<td class="text-center underline">
+<span th:text="'July-' + ${row['period_begin']}"></span>
+-
+<span th:if="${row['last_working_date']} != ''" th:text="${#dateUtil.formatDate(row['last_working_date'], 'MMMM-yyyy')}"></span>
+<span th:if="${row['last_working_date']} == ''" th:text="${#dateUtil.formatDate(period.end_date, 'MMMM-yyyy')}"></span>
+</td>
+<td class="text-center underline" th:text="${row['employee_bank']}">National Bank
+Pakistan
+</td>
+<td class="text-center underline" th:text="${row['office']}">Head Office Lahore</td>
+<td class="text-center underline" th:text="${#numberFormat.format(row['tax_deducted'], valueFormat)}"></td>
+<td class="text-center underline"></td>
+</tr>
+<tr>
+<td class="text-center underline">&nbsp;</td>
+<td class="text-center underline"></td>
+<td class="text-center underline"></td>
+<td class="text-center underline"></td>
+<td class="text-center underline"></td>
+</tr>
+<tr>
+<td class="text-center underline">&nbsp;</td>
+<td class="text-center underline"></td>
+<td class="text-center underline"></td>
+<td class="text-center underline"></td>
+<td class="text-center underline"></td>
+</tr>
+<tr>
+<td class="text-center underline">&nbsp;</td>
+<td class="text-center underline"></td>
+<td class="text-center underline"></td>
+<td class="text-center underline"></td>
+<td class="text-center underline"></td>
+</tr>
+<tr>
+<td class="text-center underline">&nbsp;</td>
+<td class="text-center underline"></td>
+<td class="text-center underline"></td>
+<td class="text-center underline"></td>
+<td class="text-center underline"></td>
+</tr>
+<tr>
+<td class="text-center underline">&nbsp;</td>
+<td class="text-center underline"></td>
+<td class="text-center underline"></td>
+<td class="text-center underline"></td>
+<td class="text-center underline"></td>
+</tr>
+</table>
+<table>
+<tr>
+<td class="text-left" colspan="5">Company / office etc. collecting/deducting the tax:
+</td>
+</tr>
+</table>
+<table>
+<col width="20%">
+<col width="50%">
+<col width="20%">
+<col width="30%">
+<tr>
+<td class="text-left">Name.</td>
+<td class="text-center underline" th:text="${legal_entity.legal_name}">Akzo Nobel
+Chemicals (SMC-Private) Limited (LegalName)
+</td>
+<td class="margin-left-20">Signature</td>
+<td class="text-center underline"></td>
+</tr>
+<tr>
+<td class="text-left"></td>
+<td class="text-center underline"></td>
+<td class="margin-left-20">Name</td>
+<td class="text-center underline"></td>
+</tr>
+<tr>
+<td class="text-left">Address.</td>
+<td class="text-center underline" th:text="${row['employee_address']}">2nd Floor, 90-B,
+Hali Road, Gulberg II, Lahore Gulberg Town.
+</td>
+<td class="margin-left-20"></td>
+<td class="text-center underline"></td>
+</tr>
+<tr>
+<td></td>
+<td class="text-center underline" th:text="${row['office']}">Head Office Lahore</td>
+<td class="margin-left-20">Designation</td>
+<td class="text-center underline">HR Manager</td>
+</tr>
+<tr>
+<td class="text-left">NTN (if any)</td>
+<td class="text-center underline" th:text="${row['company_national_tax_number']}">
+8932193-8
+</td>
+<td class="margin-left-20">Seal</td>
+<td class="text-center underline"></td>
+</tr>
+<tr>
+<td class="text-left">Date.</td>
+<td class="underline"></td>
+<td class="margin-left-20"></td>
+<td class="text-center underline"></td>
+</tr>
+</table>
+</tr>
+</table>
+</th:block>
+</th:block>

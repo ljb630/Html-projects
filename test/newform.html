@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Form Example</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    label{
+      font-size: 12px;
+    }
+    h6{
+      font-size: 13px;
+    }
+    @page {
+      size: 210mm 297mm; /* Set the page size to A4 portrait */
+      margin: 0; /* Remove default page margins */
+    }
+    body {
+      margin: 20mm; /* Add margins to body content */
+    }
+    /* Other CSS styles from your code remain unchanged */
+
+    /* Adjust the width of form fields */
+    .form-control {
+      width: 100%;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <form style="margin-bottom: 100px;">
+    <div class="form-row ">
+        <fieldset class="border p-2 border border-dark" style="display: flex;">
+            <legend style="border: 2px solid black; font-size: 12px; padding: 2px 2px;" class="w-auto">Datos identifcativos de esta hoja interior</legend>
+            <div class="form-group col-md-6">
+        <label for="inputName">NIF del declarante</label>
+        <input type="text" class="form-control border border-dark"  id="inputName" >
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputEmail">Ejercicio</label>
+        <input type="text" class="form-control border border-dark" id="inputEmail" >
+      </div>
+    </fieldset>
+      <div class="form-group col-md-6" style="margin-left: 30px; margin-top: 30px;">
+        <label for="inputPhone">Nº de justifcante:</label>
+        <input type="text" class="form-control border border-dark" id="inputPhone" >
+      </div>
+
+    </div>
+    <br><br>
+    <fieldset class="border p-2 border border-dark">
+        <legend style="border: 2px solid black; font-size: 12px; padding: 2px 2px;" class="w-auto">Percepción 1</legend>
+    <div class="form-row">
+      <div class="form-group col-md-2">
+        <label for="inputCity">NIF del perceptor</label>
+        <input type="text" class="form-control border border-dark" id="inputCity" >
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputState">NIF del representante legal</label>
+        <input type="text" class="form-control border border-dark" id="inputState" >
+      </div>
+      <div class="form-group col-md-7">
+        <label for="inputCountry">Apellidos y nombre del perceptor o denominación de la entidad perceptora</label>
+        <input type="text" class="form-control border border-dark" id="inputCountry" >
+      </div>
+      <div class="form-group col-md-1">
+        <label for="inputZip">Provincia</label>
+        <input type="text" class="form-control border border-dark" id="inputZip" >
+      </div>
+    </div>
+
+    <h6><u>Datos de la percepción</u></h6>
+    <div class="form-row">
+        <div class="form-group col-md-1">
+          <label for="inputCity">Clave</label>
+          <input type="text" class="form-control border border-dark" id="inputCity" >
+        </div>
+        <div class="form-group col-md-1">
+          <label for="inputState">Subclave:</label>
+          <input type="text" class="form-control border border-dark" id="inputState" >
+        </div>
+    </div>
+
+    <div class="form-row">
+        <h6 style="padding-right: 10px; padding-top: 30px;">Percepciones dinerarias NO derivadas <br>de
+          incapacidad laboral:</h6>
+        <div class="form-group col-md-2">
+          <label for="inputCity">Percepción íntegra</label>
+          <input type="text" class="form-control border border-dark" id="inputCity" >
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputState">Retenciones practicadas</label>
+          <input type="text" class="form-control border border-dark" id="inputState" >
+        </div>
+        <div class="form-group col-md-2" style="margin-left: 250px;">
+            <label for="inputState">Ejercicio de
+              devengo</label>
+            <input type="text" class="form-control border border-dark" id="inputState" >
+          </div>
+    </div>
+
+    <div class="form-row">
+        <h6 style="padding-right: 10px; padding-top: 30px;">Percepciones en especie NO derivadas <br>de
+          incapacidad laboral:</h6>
+        <div class="form-group col-md-2">
+          <label for="inputCity">Valoración</label>
+          <input type="text" class="form-control border border-dark" id="inputCity" >
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputState">Ingresos a cuenta efectuados</label>
+          <input type="text" class="form-control border border-dark" id="inputState">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputState">Ingresos a cuenta repercutidos</label>
+          <input type="text" class="form-control border border-dark" id="inputState" >
+        </div>
+        <div class="form-group col-md-1" style="margin-left: 120px;">
+            <label for="inputState">go
+              Ceuta o Melilla</label>
+            <input type="text" class="form-control border border-dark" id="inputState">
+          </div>
+    </div>
+
+    <div class="form-row">
+        <h6 style="padding-right: 10px; padding-top: 30px;">Percepciones dinerarias derivadas de<br>
+          incapacidad laboral:</h6>
+        <div class="form-group col-md-2">
+          <label for="inputCity">Percepción íntegra</label>
+          <input type="text" class="form-control border border-dark" id="inputCity" >
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputState">Retenciones practicadas</label>
+          <input type="text" class="form-control border border-dark" id="inputState" >
+        </div>
+        <!-- <div class="form-group col-md-2" style="margin-left: 260px;">
+            <label for="inputState">Title</label>
+            <input type="text" class="form-control border border-dark" id="inputState" placeholder="Enter your state">
+          </div> -->
+    </div>
+
+    <div class="form-row">
+        <h6 style="padding-right: 10px; padding-top: 30px;">Percepciones en especie derivadas de<br>
+          incapacidad laboral:</h6>
+        <div class="form-group col-md-2">
+          <label for="inputCity">Valoración</label>
+          <input type="text" class="form-control border border-dark" id="inputCity"   >
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputState">Ingresos a cuenta efectuados</label>
+          <input type="text" class="form-control border border-dark" id="inputState"  >
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputState">Ingresos a cuenta repercutidos</label>
+            <input type="text" class="form-control border border-dark" id="inputState">
+          </div>
+    </div>
+
+    <br>
+    <h6><u>Datos adicionales (sólo en percepciones de las claves A, B.01, B.03, C y L.29)</u></h6>
+
+    <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="inputCity">Año de nacimiento
+            del perceptor</label>
+          <input type="text" class="form-control border border-dark" id="inputCity"       >
+        </div>
+        <div class="form-group col-md-1">
+          <label for="inputState">Situación
+            familiar</label>
+          <input type="text" class="form-control border border-dark" id="inputState"      >
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputState">NIF del cónyuge/
+              NIF del titular de la
+              unidad de convivencia</label>
+            <input type="text" class="form-control border border-dark" id="inputState"    >
+          </div>
+          <div class="form-group col-md-1">
+            <label for="inputCity">Titular unidad
+              convivencia</label>
+            <input type="text" class="form-control border border-dark" id="inputCity"     >
+          </div>
+          <div class="form-group col-md-1">
+            <label for="inputState">Discapacidad
+              del perceptor</label>
+            <input type="text" class="form-control border border-dark" id="inputState"    >
+          </div>
+          <div class="form-group col-md-1">
+              <label for="inputState">Contrato o
+                relación</label>
+              <input type="text" class="form-control border border-dark" id="inputState"  >
+            </div>
+            <div class="form-group col-md-1">
+                <label for="inputCity">Movilidad
+                  geográfca</label>
+                <input type="text" class="form-control border border-dark" id="inputCity" >
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputState">Comunicación por el perceptor que ha destinado cantidades
+                  para la adquisición o rehabilitación de su vivienda habitual
+                  utilizando fnanciación ajena</label>
+                <input type="text" class="form-control border border-dark" id="inputState">
+              </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="inputCity">Reducciones aplicables</label>
+          <input type="text" class="form-control border border-dark" id="inputCity"   >
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputState">Gastos deducibles
+            (también con clave E.01 y E.02)</label>
+          <input type="text" class="form-control border border-dark" id="inputState"  >
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputState">Pensiones compensatorias</label>
+            <input type="text" class="form-control border border-dark" id="inputState">
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputCity">Anualidades por alimentos</label>
+            <input type="text" class="form-control border border-dark" id="inputCity" >
+          </div>
+          <div class="form-group col-md-1" style="margin-left: 230px;">
+            <label for="inputState">Complemento ayuda infancia (solo clave L.29)</label>
+            <input type="text" class="form-control border border-dark" id="inputState">
+          </div>
+    </div>
+</fieldset>
+
+    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+  </form>
+</div>
+
+<!-- Include Bootstrap JS (Optional if you don't need any JS functionality) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1468 @@
+<style type="text/css" xmlns:th="http://www.w3.org/1999/xhtml" th:fragment="payslip_styles">
+    * {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 8px;
+    }
+
+    body,
+    html {
+        margin: 0 !important;
+        padding: 0 !important;
+
+    }
+
+    small {
+        font-size: 8px;
+    }
+
+    hr {
+        height: 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    table {
+        margin-bottom: 20px;
+        page-break-after: auto;
+    }
+
+    table:last-child {
+        margin-bottom: 0;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr.title>td,
+    tr.title>td>div,
+    tr.title>td>div>span {
+        font-size: 10px;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    table tbody tr td:before,
+    table tbody tr td:after,
+    table tfoot tr th:before,
+    table tfoot tr th:after {
+        content: "";
+        height: 1px;
+        display: block;
+    }
+
+    table>thead>tr.caption>td {
+        background: #aaa;
+        border-bottom: 1px solid #000;
+        font-size: 9px;
+        font-weight: bold;
+        padding: 3px;
+        text-align: center;
+    }
+
+    .table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .table-check {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        width: 30%;
+    }
+
+    .table>thead>tr>th,
+    .table>tfoot>tr>th {
+        background: #ddd;
+        text-align: left;
+    }
+
+    .table>tbody>tr>td,
+    .table>tfoot>tr>th,
+    .table>thead>tr>th {
+        vertical-align: top;
+        border-bottom: 1px solid #000;
+        padding: 4px;
+    }
+
+    .table>tbody>tr>td,
+    .table>tfoot>tr>th {
+        border: 1px solid black;
+    }
+
+    .table>thead>tr>th {
+        font-weight: bold;
+    }
+
+    .table>tbody>tr.important>td {
+        background-color: #f8f8f8;
+        font-weight: bold;
+    }
+
+    .infobox {
+        border: 1px solid #ccc;
+    }
+
+    .table-2col>tbody>tr>td {
+        width: 50%;
+    }
+
+    .table-3col>tbody>tr>td {
+        width: 33%;
+    }
+
+    .table-4col>tbody>tr>td {
+        width: 25%;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .text-right {
+        text-align: right !important;
+    }
+
+    .text-left {
+        text-align: left !important;
+    }
+
+    .text-bold {
+        font-weight: bold;
+    }
+
+    .bg-attention {
+        background-color: #f2dede;
+    }
+
+    .document-footer {
+        margin-top: 10px;
+    }
+
+    .document-footer p {
+        font-size: 8px;
+        text-align: center;
+    }
+
+    .document-footer-ref {
+        font-size: 8px;
+        vertical-align: bottom;
+    }
+
+    .document-footer-copy {
+        font-size: 8px;
+        text-align: center;
+    }
+
+    .panel {
+        border: 1px solid #000;
+    }
+
+    .panel>.panel-heading {
+        background: #aaa;
+        border-bottom: 1px solid #000;
+        font-size: 9px;
+        font-weight: bold;
+        padding: 6px;
+        text-align: center;
+    }
+
+    .panel>.panel-body {
+        padding: 10px;
+    }
+
+    table {
+        width: 100%;
+        table-layout: fixed;
+        max-width: 0;
+        word-wrap: break-word;
+    }
+
+    .table-height {
+        height: 200px !important;
+    }
+
+    .table-left {
+        width: 50%;
+        float: left;
+    }
+
+    .table-right {
+        width: 50%;
+        float: right;
+    }
+
+    .key {
+        width: 100px !important;
+    }
+
+    .infobox {
+        border: 1px solid #000;
+    }
+
+    .header-table {
+        font-weight: bold;
+        text-align: right;
+    }
+
+    .header-table td:first-child {
+        text-align: left;
+    }
+
+    img.logo {
+        max-height: 90px;
+        max-width: 300px;
+    }
+
+    .details-table {
+        border: 1px solid #000;
+        border-spacing: 0;
+        padding: 0;
+    }
+
+    .info-table {
+        border: 1px solid #000;
+        border-spacing: 0;
+
+    }
+
+    .main-header {
+        background: #aaa;
+    }
+
+    .vertical-align-middle {
+        vertical-align: middle !important;
+    }
+
+    .info-table>tbody>tr>td {
+        border-right: 1px solid #000;
+        border-left: 1px solid #000;
+        padding: 4px;
+        vertical-align: top;
+    }
+
+    .info-table>tbody>tr>td:first-child {
+        border-left: 0;
+    }
+
+    .info-table>tbody>tr>td:last-child {
+        border-right: 0;
+    }
+
+    .details-table>tbody>tr>td {
+        border-right: 1px solid #000;
+        border-left: 1px solid #000;
+        padding: 0;
+        vertical-align: top;
+    }
+
+    .details-table>tbody>tr>td:first-child {
+        border-left: 0;
+    }
+
+    .details-table>tbody>tr>td:last-child {
+        border-right: 0;
+    }
+
+    .details-row-key {
+        width: 40% !important;
+        background: #ddd;
+        border-left: 1px solid #000;
+        border-right: 1px solid #000;
+        font-weight: bold;
+    }
+
+    .details-row-key-arabic {
+        width: 20% !important;
+        background: #ddd;
+        border-left: 1px solid #000;
+        border-right: 1px solid #000;
+        font-weight: bold;
+    }
+
+    .details-row-table {
+        border-spacing: 0;
+        border: 1px solid #000;
+        padding: 0;
+    }
+
+    .details-row-table>tbody>tr>td {
+        padding: 4px;
+        border-spacing: 0;
+        width: 50%;
+    }
+
+    .details-row-table>tbody>tr>td:first-child {
+        background: #ddd;
+        width: 40%;
+        border-right: 1px solid #000;
+        border-left: none;
+        font-weight: bold;
+    }
+
+    .detail-row-table>tbody>tr>td:last-child {
+        text-align: left;
+    }
+
+    .general-ledger-table,
+    .general-ledger-table>caption,
+    .general-ledger-table>tbody>tr>td {
+        border: 0;
+    }
+
+    .leave-balance {
+        margin-top: -10px;
+        margin-bottom: 20px;
+        float: left;
+        list-style: none;
+        width: 100%;
+    }
+
+    .leave-balance li {
+        margin-left: -35px;
+    }
+
+    .border-right {
+        border-right: 1px solid black !important;
+    }
+
+    .border-none {
+        border: none !important;
+    }
+
+    .border-rgiht-none {
+        border-right: none !important;
+    }
+
+    .border-left-none {
+        border-left: none !important;
+    }
+
+    .margin-bottom-0 {
+        margin-bottom: 0 !important;
+    }
+
+    .margin-top-0 {
+        margin-top: 0 !important;
+    }
+
+    .solid-border {
+        border: 1px solid #000000 !important;
+    }
+
+
+    .infobox-3-row {
+        float: right;
+        width: 32%;
+        padding: 22px 10px 23px 10px;
+    }
+
+    .infobox-4-row {
+        float: right;
+        width: 28%;
+        padding: 32px 10px 33px 10px;
+    }
+
+    .infobox-5-row {
+        float: right;
+        width: 32%;
+        padding: 42px 10px 43px 10px;
+    }
+
+    .page-break-inside-avoid {
+        page-break-inside: avoid;
+    }
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<table class="table-3col header-table">
+    <tr class="title">
+        <td th:if="${logo_uri == null}">
+            <div th:text="${legalEntity.getLegalName()}"></div>
+        </td>
+        <td th:if="${logo_uri != null}">
+            <img th:src="${logo_uri}" th:alt="${legalEntity.getLegalName()}" class="logo" /><br><br>
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+<table class="margin-bottom-0">
+    <tr>
+        <td colspan="2"></td>
+        <td class="text-center">
+            <small><strong>Til lønnskonto:</strong></small>
+        </td>
+    </tr>
+</table>
+<table class="table-col details-row-table table-left">
+    <tr valign="top">
+        <td>Avsender</td>
+        <td th:text="${legalEntity.getLegalName() + ' ' + reportRow.organisation_number}"></td>
+    </tr>
+    <tr valign="top">
+        <td>Avsenderadresse</td>
+        <td th:text="${employerAddressString}"></td>
+    </tr>
+    <tr valign="top">
+        <td>Land</td>
+        <td>Norge</td>
+    </tr>
+    <tr valign="top">
+        <td>Melding</td>
+        <td th:text="${'Lønn ' + period.getName() + ' ' +legalEntity.getLegalName()}"></td>
+    </tr>
+    <tr valign="top">
+        <td>Utbetalingsdato</td>
+        <td th:text="${reportRow.get('pay_date')}"></td>
+    </tr>
+</table>
+<table class="infobox infobox-4-row">
+    <tr valign="middle" class="text-center text-bold">
+        <td th:text="${currency}"></td>
+        <td class="key" th:text="${#numberFormat.format(transferable_amount, valueFormat)}"></td>
+    </tr>
+</table>
+<table class="table-col details-row-table">
+    <tr valign="top">
+        <td class="details-row-key">Lønnsmottaker</td>
+        <td th:text="${employeeDisplayName}"></td>
+        <td class="details-row-key">Fast avdeling</td>
+        <td th:text="${reportRow.primary_cost_center}"></td>
+    </tr>
+    <tr valign="top">
+        <td class="details-row-key">Arbeidstaker nr</td>
+        <td th:text="${employee.getReferenceCode()}"></td>
+        <td class="details-row-key">Fast prosjekt</td>
+        <td th:text="${reportRow.fast_prosjekt}"></td>
+    </tr>
+    <tr valign="top">
+        <td class="details-row-key">Ansattes adresse</td>
+        <td th:text="${reportRow.employee_address}"></td>
+        <td class="details-row-key"></td>
+        <td></td>
+    </tr>
+</table>
+<table class="table page-break-inside-avoid" th:if="${show_bank_account_info}">
+    <thead>
+        <tr class="caption">
+            <td colspan="5">Bankopplysninger</td>
+        </tr>
+    </thead>
+    <thead>
+        <tr>
+            <th class="text-center">Bank navn</th>
+            <th class="text-center">SWIFT</th>
+            <th class="text-center">Navn på mottaker</th>
+            <th class="text-center">Lønnskonto</th>
+            <th class="text-center">Kontovaluta</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="bank_account : ${bank_accounts}">
+            <td class="text-center" th:text="${reportRow.bank_name}"></td>
+            <td class="text-center" th:text="${reportRow.bank_swift}"></td>
+            <td class="text-center" th:text="${bank_account.getBeneficiaryName()}"></td>
+            <td class="text-center" th:text="${reportRow.bank_account}"></td>
+            <td class="text-center" th:text="${bank_account.getAccountCurrency()}"></td>
+        </tr>
+    </tbody>
+</table>
+<table class="table">
+    <thead>
+        <tr>
+            <th colspan="3" rowspan="2" class="text-center border-right">Lønn/trekk</th>
+            <th colspan="2" class="text-center border-right">Grunnlag</th>
+            <th colspan="3" class="text-center border-right">Denne kjøringen</th>
+            <th colspan="2" class="text-center">Hittiliår</th>
+        </tr>
+        <tr>
+            <th class="text-center border-right">Fer.p.</th>
+            <th class="text-center border-right">Skatt</th>
+            <th class="text-center border-right">Antall</th>
+            <th class="text-center border-right">Sats</th>
+            <th class="text-center border-right">Beløp</th>
+            <th class="text-center border-right">Antall</th>
+            <th class="text-center border-right">Beløp</th>
+        </tr>
+        <tr class="caption">
+            <td colspan="10" class="solid-border">Lønn</td>
+        </tr>
+    </thead>
+    <tbody>
+        <th:block th:with="accounts=${custom.set1.addAll(ytd_entitlements.keys, entitlements_elements.keys)}">
+            <tr th:each="account : ${accounts}"
+                th:if="${entitlements_elements.containsKey(account)} or ${ytd_entitlements.containsKey(account)}"
+                th:with="month=${entitlements_elements.get(account)}, ytd=${ytd_entitlements.get(account)}">
+                <td colspan="3"
+                    th:text="${legal_entity_pay_elements.get(account).getAccount() + ' - ' + legal_entity_pay_elements.get(account).getLocalName()}">
+                </td>
+                <td class="text-center vertical-align-middle"
+                    th:if="${#strings.contains(reportRow.HOLIDAY_ACCOUNT, account)}">
+                    <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                        <tr>
+                            <td class="text-center" height="15px">X</td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="text-center vertical-align-middle"
+                    th:unless="${#strings.contains(reportRow.HOLIDAY_ACCOUNT, account)}">
+                    <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                        <tr>
+                            <td class="text-center" height="15px"> </td>
+                        </tr>
+                    </table>
+                </td>
+                <th:block th:if="${reportRow.tab_or_percentage == 'yes'}">
+                    <td class="text-center vertical-align-middle"
+                        th:if="${#strings.contains(reportRow.TAB_ACCOUNTS, account)}">Tab.</td>
+                    <td class="text-center vertical-align-middle"
+                        th:if="${#strings.contains(reportRow.PRECENT_ACCOUNTS, account)}">%</td>
+                    <td class="text-center vertical-align-middle"
+                        th:unless="${#strings.contains(reportRow.TAB_ACCOUNTS, account) or #strings.contains(reportRow.PRECENT_ACCOUNTS, account)}">
+                    </td>
+                </th:block>
+                <th:block th:unless="${reportRow.tab_or_percentage == 'yes'}">
+                    <td th:if="${#strings.contains(reportRow.PERCENTAGE_ACC, account)}"
+                        class="text-center vertical-align-middle">%</td>
+                    <td th:unless="${#strings.contains(reportRow.PERCENTAGE_ACC, account)}"
+                        class="text-center vertical-align-middle"></td>
+                </th:block>
+                <td class="text-right vertical-align-middle"></td>
+                <td class="text-right vertical-align-middle"></td>
+                <td class="text-right vertical-align-middle" th:if="${month} != null"
+                    th:text="${#numberFormat.format(month.getValue(), valueFormat)}"></td>
+                <td class="text-right vertical-align-middle" th:unless="${month} != null"></td>
+                <td class="text-right vertical-align-middle"></td>
+                <td class="text-right vertical-align-middle" th:if="${ytd} != null"
+                    th:text="${#numberFormat.format(ytd.getValue(), valueFormat)}"></td>
+                <td class="text-right vertical-align-middle" th:unless="${ytd} != null"></td>
+            </tr>
+        </th:block>
+        <tr th:if="${reportRow.timelonn_pay or reportRow.ytd_timelonn_pay}">
+            <td colspan="3">62110 - Timelønn</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px">X</td>
+                    </tr>
+                </table>
+            </td>
+            <th:block th:if="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">Tab.</td>
+            </th:block>
+            <th:block th:unless="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.timelonn_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.timelonn_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.timelonn_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.timelonn_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.ytd_timelonn_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62111_pay or reportRow.pay_element_ytd_62111_pay}">
+            <td colspan="3">62111 - Lønn Ekstrahjelp/Student</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px">X</td>
+                    </tr>
+                </table>
+            </td>
+            <th:block th:if="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">Tab.</td>
+            </th:block>
+            <th:block th:unless="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62111_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62111_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62111_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62111_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62111_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62112_pay or reportRow.pay_element_ytd_62112_pay}">
+            <td colspan="3">62112 - Timelønn Adm.</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px">X</td>
+                    </tr>
+                </table>
+            </td>
+            <th:block th:if="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">Tab.</td>
+            </th:block>
+            <th:block th:unless="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62112_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62112_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62112_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62112_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62112_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62147_pay or reportRow.pay_element_ytd_62147_pay}">
+            <td colspan="3">62147 - Red. fastlønn v/fravær</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px">X</td>
+                    </tr>
+                </table>
+            </td>
+            <th:block th:if="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">Tab.</td>
+            </th:block>
+            <th:block th:unless="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62147_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62147_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62147_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62147_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62147_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62160_pay or reportRow.pay_element_ytd_62160_pay}">
+            <td colspan="3">62160 - Feriepenger over 60 år</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px">X</td>
+                    </tr>
+                </table>
+            </td>
+            <th:block th:if="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">Tab.</td>
+            </th:block>
+            <th:block th:unless="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62160_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62160_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62203_pay or reportRow.pay_element_ytd_62203_pay}">
+            <td colspan="3">62203 - Utkjøp fleksitid</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px">X</td>
+                    </tr>
+                </table>
+            </td>
+            <th:block th:if="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <th:block th:unless="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62203_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62203_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62203_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62203_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62203_pay, valueFormat)}"></td>
+        </tr>
+        <!-- <tr th:if="${reportRow.overtime_50_pay or reportRow.ytd_overtime_50_pay}">
+            <td colspan="3">62207 - Overtid 50%</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px">X</td>
+                    </tr>
+                </table>
+            </td>
+            <th:block th:if="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <th:block th:unless="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.overtime_50_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.overtime_50_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.overtime_50_pay, valueFormat)}"> SUM('62207')</td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.overtime_50_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.ytd_overtime_50_pay, valueFormat)}"> SUM('62207')</td>
+        </tr> -->
+        <!-- <tr th:if="${reportRow.overtime_100_pay or reportRow.ytd_overtime_100_pay}">
+            <td colspan="3"></td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px">X</td>
+                    </tr>
+                </table>
+            </td>
+            <th:block th:if="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <th:block th:unless="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.overtime_100_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.overtime_100_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.overtime_100_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.overtime_100_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.ytd_overtime_100_pay, valueFormat)}"></td>
+        </tr> -->
+        <tr th:if="${reportRow.overtime_50_bonus_pay or reportRow.ytd_overtime_50_bonus_pay}">
+            <td colspan="3">62209 - Overtidstillegg 50%</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px">X</td>
+                    </tr>
+                </table>
+            </td>
+            <th:block th:if="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <th:block th:unless="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.overtime_50_bonus_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.overtime_50_bonus_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.overtime_50_bonus_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.overtime_50_bonus_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.ytd_overtime_50_bonus_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.overtime_100_bonus_pay or reportRow.ytd_overtime_100_bonus_pay}">
+            <td colspan="3">62210 - Overtidsstillegg 100%</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px">X</td>
+                    </tr>
+                </table>
+            </td>
+            <th:block th:if="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <th:block th:unless="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.overtime_100_bonus_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.overtime_100_bonus_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.overtime_100_bonus_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.overtime_100_bonus_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.ytd_overtime_100_bonus_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62211_pay or reportRow.pay_element_ytd_62211_pay}">
+            <td colspan="3">62211 - Turnus- tillegg (arb.tid)</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px">X</td>
+                    </tr>
+                </table>
+            </td>
+            <th:block th:if="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <th:block th:unless="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62211_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62211_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62211_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62211_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62211_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62225_pay or reportRow.pay_element_ytd_62225_pay}">
+            <td colspan="3">62225 - Etterbetaling timer</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <th:block th:if="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <th:block th:unless="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62225_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62225_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62225_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62225_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62225_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62501_pay or reportRow.pay_element_ytd_62501_pay}">
+            <td colspan="3">62501 - Trekkpl. bilgodtgjørelse</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <th:block th:if="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <th:block th:unless="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62501_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62501_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62501_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62501_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62501_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62502_pay or reportRow.pay_element_ytd_62502_pay}">
+            <td colspan="3">62502 - Trekkpl bilgodtgj Tromsø</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <th:block th:if="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <th:block th:unless="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62502_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62502_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62502_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62502_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62502_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62503_pay or reportRow.pay_element_ytd_62503_pay}">
+            <td colspan="3">62503 - Trekkpl. bilgodgj. El-bil</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <th:block th:if="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <th:block th:unless="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62503_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62503_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62503_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62503_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62503_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62800_pay or reportRow.pay_element_ytd_62800_pay}">
+            <td colspan="3">62800 - Bilgodgjørelse El-bil</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62800_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62800_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62800_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62800_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62800_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62801_pay or reportRow.pay_element_ytd_62801_pay}">
+            <td colspan="3">62801 - Passasjertillegg</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62801_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62801_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62801_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62801_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62801_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62803_pay or reportRow.pay_element_ytd_62803_pay}">
+            <td colspan="3">62803 - Pendlerreise</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62803_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62803_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62803_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62803_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62803_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62805_pay or reportRow.pay_element_ytd_62805_pay}">
+            <td colspan="3">62805 - Refusjon utlegg pendler</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62805_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62805_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62805_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62805_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62805_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62811_pay or reportRow.pay_element_ytd_62811_pay}">
+            <td colspan="3">62811 - Bilgodtgjørelse Tromsø</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62811_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62811_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62811_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62811_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62811_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62821_pay or reportRow.pay_element_ytd_62821_pay}">
+            <td colspan="3">62821 - Diett pensjonat</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62821_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62821_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62821_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62821_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62821_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62835_pay or reportRow.pay_element_ytd_62835_pay}">
+            <td colspan="3">62835 - Feriepenger trekkfrie</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62835_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62835_pay, valueFormat)}"></td>
+        </tr>
+        <!-- <tr th:if="${reportRow.pay_element_62836_pay or reportRow.pay_element_ytd_62836_pay}">
+            <td colspan="3"></td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62836_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62836_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62836_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62836_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62836_pay, valueFormat)}"></td>
+        </tr> -->
+        <tr th:if="${reportRow.pay_element_62838_pay}">
+            <td colspan="3">62838 - Adm. forpleining</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62838_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62838_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62838_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62838_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62838_pay, valueFormat)}"></td>
+        </tr>
+    </tbody>
+    <thead>
+        <tr class="caption">
+            <td colspan="10" class="solid-border">Trekk</td>
+        </tr>
+    </thead>
+    <tbody>
+        <th:block th:with="accounts=${custom.set2.addAll(ytd_deductions.keys, deductions_elements.keys)}">
+            <tr th:each="account : ${accounts}"
+                th:if="${deductions_elements.containsKey(account)} or ${ytd_deductions.containsKey(account)}"
+                th:with="month=${deductions_elements.get(account)}, ytd=${ytd_deductions.get(account)}">
+                <td colspan="3"
+                    th:text="${legal_entity_pay_elements.get(account).getAccount() + ' - ' + legal_entity_pay_elements.get(account).getLocalName()}">
+                </td>
+                <td class="text-center vertical-align-middle"
+                    th:if="${#strings.contains(reportRow.HOLIDAY_ACCOUNT, account)}">
+                    <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                        <tr>
+                            <td class="text-center" height="15px">X</td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="text-center vertical-align-middle"
+                    th:unless="${#strings.contains(reportRow.HOLIDAY_ACCOUNT, account)}">
+                    <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                        <tr>
+                            <td class="text-center" height="15px"> </td>
+                        </tr>
+                    </table>
+                </td>
+                <th:block th:if="${reportRow.tab_or_percentage == 'yes'}">
+                    <td class="text-center vertical-align-middle"
+                        th:if="${#strings.contains(reportRow.TAB_ACCOUNTS, account)}">Tab.</td>
+                    <td class="text-center vertical-align-middle"
+                        th:if="${#strings.contains(reportRow.PRECENT_ACCOUNTS, account)}">%</td>
+                    <td class="text-center vertical-align-middle"
+                        th:unless="${#strings.contains(reportRow.TAB_ACCOUNTS, account) or #strings.contains(reportRow.PRECENT_ACCOUNTS, account)}">
+                    </td>
+                </th:block>
+                <th:block th:unless="${reportRow.tab_or_percentage == 'yes'}">
+                    <td th:if="${#strings.contains(reportRow.PERCENTAGE_ACC, account)}"
+                        class="text-center vertical-align-middle">%</td>
+                    <td th:unless="${#strings.contains(reportRow.PERCENTAGE_ACC, account)}"
+                        class="text-center vertical-align-middle"></td>
+                </th:block>
+                <td class="text-right vertical-align-middle"></td>
+                <td class="text-right vertical-align-middle"></td>
+                <td class="text-right vertical-align-middle" th:if="${month} != null"
+                    th:text="${#numberFormat.format(month.getValue(), valueFormat)}"></td>
+                <td class="text-right vertical-align-middle" th:unless="${month} != null"></td>
+                <td class="text-right vertical-align-middle"></td>
+                <td class="text-right vertical-align-middle" th:if="${ytd} != null"
+                    th:text="${#numberFormat.format(ytd.getValue(), valueFormat)}"></td>
+                <td class="text-right vertical-align-middle" th:unless="${ytd} != null"></td>
+            </tr>
+        </th:block>
+    </tbody>
+    <thead th:if="${employer_contributions != null}">
+        <tr class="caption">
+            <td colspan="10" class="solid-border">Ytelser</td>
+        </tr>
+    </thead>
+    <tbody>
+        <th:block th:with="accounts=${custom.set2.addAll(ytd_elements.keys, employer_contributions_elements.keys)}">
+            <tr th:each="account : ${accounts}"
+                th:if="${employer_contributions_elements.containsKey(account)} or ${ytd_elements.containsKey(account)}"
+                th:with="month=${employer_contributions_elements.get(account)}, ytd=${ytd_elements.get(account)}">
+                <td colspan="3"
+                    th:text="${legal_entity_pay_elements.get(account).getAccount() + ' - ' + legal_entity_pay_elements.get(account).getLocalName()}">
+                </td>
+                <td class="text-center vertical-align-middle"
+                    th:if="${#strings.contains(reportRow.HOLIDAY_ACCOUNT, account)}">
+                    <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                        <tr>
+                            <td class="text-center" height="15px">X</td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="text-center vertical-align-middle"
+                    th:unless="${#strings.contains(reportRow.HOLIDAY_ACCOUNT, account)}">
+                    <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                        <tr>
+                            <td class="text-center" height="15px"> </td>
+                        </tr>
+                    </table>
+                </td>
+                <th:block th:if="${reportRow.tab_or_percentage == 'yes'}">
+                    <td class="text-center vertical-align-middle"
+                        th:if="${#strings.contains(reportRow.TAB_ACCOUNTS, account)}">Tab.</td>
+                    <td class="text-center vertical-align-middle"
+                        th:if="${#strings.contains(reportRow.PRECENT_ACCOUNTS, account)}">%</td>
+                    <td class="text-center vertical-align-middle"
+                        th:unless="${#strings.contains(reportRow.TAB_ACCOUNTS, account) or #strings.contains(reportRow.PRECENT_ACCOUNTS, account)}">
+                    </td>
+                </th:block>
+                <th:block th:unless="${reportRow.tab_or_percentage == 'yes'}">
+                    <td th:if="${#strings.contains(reportRow.PERCENTAGE_ACC, account)}"
+                        class="text-center vertical-align-middle">%</td>
+                    <td th:unless="${#strings.contains(reportRow.PERCENTAGE_ACC, account)}"
+                        class="text-center vertical-align-middle"></td>
+                </th:block>
+                <td class="text-right vertical-align-middle"></td>
+                <td class="text-right vertical-align-middle"></td>
+                <td class="text-right vertical-align-middle" th:if="${month} != null"
+                    th:text="${#numberFormat.format(month.getValue(), valueFormat)}"></td>
+                <td class="text-right vertical-align-middle" th:unless="${month} != null"></td>
+                <td class="text-right vertical-align-middle"></td>
+                <td class="text-right vertical-align-middle" th:if="${ytd} != null"
+                    th:text="${#numberFormat.format(ytd.getValue(), valueFormat)}"></td>
+                <td class="text-right vertical-align-middle" th:unless="${ytd} != null"></td>
+            </tr>
+        </th:block>
+        <tr th:if="${reportRow.pay_element_23671_pay or reportRow.pay_element_ytd_23671_pay}">
+            <td colspan="3">23671 - Koll. pensjonsforsikring</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_23671_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_23671_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62224_pay or reportRow.pay_element_ytd_62224_pay}">
+            <td colspan="3">62224 - Trekkpl. kostgodtgjørelse</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <th:block th:if="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <th:block th:unless="${reportRow.tab_or_percentage == 'yes'}">
+                <td class="text-center vertical-align-middle">%</td>
+            </th:block>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62224_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62224_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62224_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62224_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62224_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62808_pay or reportRow.pay_element_ytd_62808_pay}">
+            <td colspan="3">62808 - Fri bolig pendler utl.</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62808_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62808_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62808_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62808_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62808_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.car_allowance or reportRow.car_allowance_ytd}">
+            <td colspan="3">62810 - Bilgodtgjørelse</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.car_allowance_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.car_allowance_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.car_allowance, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.car_allowance_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.car_allowance_ytd, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62839_pay}">
+            <td colspan="3">62839 - Diett utland m/overn.</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62839_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62839_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62839_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62839_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62839_pay, valueFormat)}"></td>
+        </tr>
+        <tr th:if="${reportRow.pay_element_62820_pay or reportRow.pay_element_ytd_62820_pay}">
+            <td colspan="3">62820 - Diett hotell innland</td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62820_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62820_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62820_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62820_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62820_pay, valueFormat)}"></td>
+        </tr>
+        <!-- <tr th:if="${reportRow.pay_element_62837_pay or reportRow.pay_element_ytd_62837_pay}">
+            <td colspan="3"></td>
+            <td class="text-center vertical-align-middle">
+                <table class="table-check" style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td class="text-center" height="15px"></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62837_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62837_rate, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62837_pay, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_62837_unit, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.pay_element_ytd_62837_pay, valueFormat)}"></td>
+        </tr> -->
+    </tbody>
+    <thead>
+        <tr class="caption">
+            <td colspan="10" class="solid-border">Annet</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="3">Refusjon sykepenger mm</td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.reimbursement_of_sickness_benefits, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+        </tr>
+        <tr>
+            <td colspan="3">Feriepenger over 60 år</td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.ytd_over_sixty_year, valueFormat)}"></td>
+        </tr>
+        <tr>
+            <td colspan="3">Feriepenger til utbetaling</td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.ytd_holiday_pay, valueFormat)}"></td>
+        </tr>
+        <tr>
+            <td colspan="3">Feriepengegrunnlag</td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.holiday_pay_basis, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.ytd_holiday_pay_basis, valueFormat)}"></td>
+        </tr>
+        <tr>
+            <td colspan="3">Forskuddstrekk</td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-center vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.income_tax, valueFormat)}"></td>
+            <td class="text-right vertical-align-middle"></td>
+            <td class="text-right vertical-align-middle"
+                th:text="${#numberFormat.format(reportRow.ytd_income_tax, valueFormat)}"></td>
+        </tr>
+    </tbody>
+</table>
+<table class="table">
+    <thead>
+        <tr class="caption">
+            <td colspan="5">Sammendrag</td>
+        </tr>
+    </thead>
+    <thead>
+        <tr>
+            <th>Betal valuta</th>
+            <th class="text-center">Inntjening</th>
+            <th class="text-center">Fradrag</th>
+            <th class="text-center">Ytelser</th>
+            <th class="text-center">Til lønnskonto</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td th:text="${currency}"></td>
+            <td class="text-right" th:text="${#numberFormat.format(entitlements_amount, valueFormat)}"></td>
+            <td class="text-right" th:text="${#numberFormat.format(deductions_amount, valueFormat)}"></td>
+            <td class="text-right" th:text="${#numberFormat.format(total_employer_contributions, valueFormat)}"></td>
+            <td class="text-right" th:text="${#numberFormat.format(net_pay_amount, valueFormat)}"></td>
+        </tr>
+    </tbody>
+</table>

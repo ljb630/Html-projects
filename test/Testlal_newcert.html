@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweden: Employer certificate</title>
+</head>
+
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+        font-family: Verdana, Arial, sans-serif;
+        color: black;
+    }
+
+    /* Page */
+    page {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 0.5cm;
+        background: white;
+        /*box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);*/
+    }
+
+    page[size="A4"] {
+        width: 21cm;
+        height: 29.7cm;
+    }
+
+    page[size="A4"][layout="landscape"] {
+        width: 29.7cm;
+        height: 21cm;
+    }
+
+    page[size="A3"] {
+        width: 29.7cm;
+        height: 42cm;
+    }
+
+    page[size="A3"][layout="landscape"] {
+        width: 42cm;
+        height: 29.7cm;
+    }
+
+    page[size="A5"] {
+        width: 14.8cm;
+        height: 21cm;
+    }
+
+    page[size="A5"][layout="landscape"] {
+        width: 21cm;
+        height: 14.8cm;
+    }
+
+    #all-page {
+        margin: 5px;
+        padding: 5px;
+        font-size: 11px;
+        /* height: 950px; */
+    }
+
+    #Sec-1 {
+        padding: 5px;
+        border-collapse: collapse !important;
+    }
+
+    h3 {
+        margin: 10px;
+    }
+
+    #tb-1 #p3-empty {
+        height: 20px;
+        width: 15px;
+        border: 1px solid black;
+
+    }
+
+    .diff table {
+        margin-left: 5px;
+        height: 24px;
+        width: 150px;
+    }
+
+    #Sec-1 .tddd-s .cc-td-chb {
+        width: 10px;
+        height: 1px;
+        border: 1px solid black;
+        margin-left: 10px;
+    }
+
+    #he-2 {
+        height: 5px;
+    }
+
+    .cell-sp {
+        padding-left: 10px;
+    }
+
+    #tb-1 .pp-f {
+        padding-left: 5px;
+    }
+
+    #Sec-1 .tddd-s td {
+        padding-left: 5px;
+    }
+
+    #tb-1 #p3-empty p {
+        text-align: center;
+    }
+
+    #Sec-2 {
+        border: 1px solid black;
+        padding: 4px;
+        width: 100%;
+    }
+
+    #tb-2 {
+        margin: 15px;
+
+    }
+
+    #tb-2 #p4-empty {
+        border: 1px solid black;
+        height: 5px;
+
+    }
+
+    #pempty {
+        height: 5px;
+        border-collapse: collapse;
+    }
+
+    #empty {
+        height: 5px;
+        width: 150px;
+        border: 1px solid black;
+
+    }
+
+    #p88-empty {
+        width: 20%;
+        border: 1px solid black;
+        height: 25px;
+    }
+
+
+
+    /* page2*/
+    #Sec {
+        margin-left: 60px;
+        text-align: center;
+    }
+
+    #tb-1 #tb {
+        margin-left: 60px;
+
+    }
+
+    #Sec h2 {
+
+        margin-left: 100px;
+
+
+    }
+
+    #secc-2 {
+        border-collapse: collapse;
+        text-align: center;
+    }
+
+    #secc-2 tr td {
+        border: 1px solid black;
+        margin: 1px;
+        padding: 2px;
+
+    }
+
+    #secc-22 {
+        border-collapse: collapse;
+    }
+
+    #secc-22 tr td {
+        border: 1px solid black;
+        padding: 10px;
+    }
+
+    .ss-22 tr td {
+        margin: 2px;
+    }
+
+    #jan_man_vai{
+        padding-left: 150px;
+        font-size: 12px;
+        text-align: center;
+        height: 30px;
+    }
+    .jan_man_vai_2{
+        background-color: blue;
+        width: 50px;
+        font-size: 10px;
+    }
+</style>
+
+<body>
+    <br>
+    <!-- First page start -->
+    <th:block th:each="row : ${report.rows}">
+
+        <page size="A4">
+
+            <div id="all-page">
+                <table id="Sec-1" width="100%">
+                    <tr id="tb-1">
+                        <td width="5%"><img style="width: 30px; Height: 30px;" src="./logo.png" alt="Error"></td>
+                        <td width="15%">Agencia Tributaria</td>
+                        <td width="60%">
+                            <table style="background-color: blue;" id="Sec" width="100%">
+                                <tr id="tb">
+                                    <td id="p3-empty">Retenciones e ingresos a cuenta del IRPF Relación de percepciones</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td id="jan_man_vai"  width="20%">
+                            <h2 class="jan_man_vai_2" style="background-color: blue;">Modelo 190</h2>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- sec-1 -->
+                <table id="Sec-1" width="100%">
+                    <h3>1 Personupgifter</h3>
+                    <tr id="tb-1">
+                        <td width="33%"> Arbetstagarens eftamamn </td>
+                        <td width="33%"> Fornamn </td>
+                        <td width="33%"> Personnummer (10 siffror) </td>
+                    </tr>
+                    <tr id="tb-1">
+                        <td id="p3-empty" th:text="${row['person_lastname']}" style="text-align: center;"></td>
+                        <td id="p3-empty" th:text="${row['person_firstname']}" style="text-align: center;"></td>
+                        <td id="p3-empty" th:text="${row['person_nationalid']}" style="text-align: center;"></td>
+                    </tr>
+                </table>
+                <!-- sec-2 -->
+                <table cellspacing="0" id="Sec-2">
+                    <h3>2 Uppgifter om anstallning</h3>
+                    <tr id="tb-1">
+                        <td width="20%">Anstalningstid (from)</td>
+                        <td id="p3-empty" width="20%" style="border-bottom: none;" th:text="${row['hire_date']}"></td>
+                        <td style="text-align: center;" width="20%">tom </td>
+                        <td id="p3-empty" width="20%" style="border-bottom: none;"></td>
+                        <td class="pp-f" width="20%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td> fortfarande anstalld</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Befattning (anstalld som)</td>
+                        <td colspan="3" id="p88-empty" th:text="${row['position']}"> </td>
+                        <td class="cell-sp">Omfattning i %</td>
+                    </tr>
+                    <tr id="tb-1">
+                        <td>Tjanstledig from</td>
+                        <td id="p3-empty" style="border-top: none;"></td>
+                        <td style="text-align: center;">tom </td>
+                        <td id="p3-empty" style="border-top: none;"></td>
+                        <td class="diff">
+                            <table style="border: 1px solid black ;">
+                                <tr>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!-- 3 -->
+                <table id="Sec-2" width="100%">
+                    <h3 th:text="${row['anstallningsform']}">3 Anstallningsform</h3>
+                    <tr id="tb-1" width="100%">
+                        <td width="33%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td> Tillsvidareanstallning</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="33%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb">lal</td>
+                                    <td> Provanstallning</td>
+                                </tr>
+                            </table>
+
+                        </td>
+                        <td id="p3-empty" width="33%"> </td>
+                    </tr>
+                    <tr id="tb-1" width="100%">
+                        <td width="33%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Intermittent anstallning
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="33%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Tillfällig anställning - avtalat slutdatum</td>
+                                </tr>
+                            </table>
+
+
+                        </td>
+                        <td id="p3-empty" width="33%"></td>
+                    </tr>
+                </table>
+
+                <!-- 4 -->
+                <table id="Sec-2" width="100%">
+                    <h3>4 Arbetstid</h3>
+                    <tr id="tb-1" width="100%">
+                        <td width="30%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"> 100 </td>
+                                    <td>Heltid - ange timmar per vecka</td>
+                                </tr>
+                            </table>
+
+                        </td>
+                        <td id="p3-empty" width="30%">
+
+                        </td>
+                    </tr>
+                    <tr id="tb-1" width="100%">
+                        <td width="20%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Deltid - ange timmar per vecka</td>
+                                </tr>
+                            </table>
+
+                        </td>
+                        <td id="p3-empty" width="20%">
+
+                        </td>
+                        <td width="20%" style="text-align: center;"> Vilket utgor </td>
+                        <td id="p3-empty" width="20%" th:text="${row['heltidstjanst']}">
+
+                        </td>
+                        <td width="20%"> % av heltidstjanst </td>
+                    </tr>
+                    <tr id="tb-2" width="100%">
+                        <td>
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Varierande arbetstid</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- 5 -->
+                <table id="Sec-2" width="100%">
+                    <h3>5 Sarskilda upplysningar om anstallningen</h3>
+                    <tr id="tb-2">
+                        <td>Anstalld I bemanningsforetag for uthyrning </td>
+                        <td>
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Ja</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Nej</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!-- 6 -->
+                <table id="Sec-2" width="100%">
+                    <h3>6 Anledning til att anstallningen har upphort helt eller delvis</h3>
+                    <tr id="tb-1" width="100%">
+                        <td width="70%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Uppsagning p.g.a arbetsbrist - Besked om uppsagning lamnades till den anstallde
+                                        den
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td id="p3-empty" width="30%">
+
+                        </td>
+                    </tr>
+                    <tr id="tb-1" width="100%">
+                        <td width="50%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Tillfälligt avslutad - Notera om anställningen inte fortsätter</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td id="p3-empty" width="50%">
+
+                        </td>
+                    </tr>
+                    <tr id="tb-2" width="100%">
+                        <td>
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Den anstalides egen begäran</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr id="tb-2" width="100%">
+                        <td>
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Annan orsak ange Verdana</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <input type="text" style="width: 100%; padding:3px;"
+                                placeholder="Välj i listan eller skriv egen text">
+                        </td>
+                    </tr>
+                </table>
+                <!-- 7 -->
+                <table id="Sec-2" width="100%">
+                    <h3>7 Ersättning med anledning av anstaltningens upphörande</h3>
+                    <tr id="tb-2" width="100%">
+                        <td>Har avtal om avgångsvederlag eller annan ersättning ingatts </td>
+                        <td>
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Ja</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Nej</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!-- 8 -->
+                <table id="Sec-2" width="100%">
+                    <h3>8 Erbjudande om fortsatt arbete</h3>
+                    <tr id="tb-1" width="100%">
+                        <td width="16%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Ja</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="16%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Nej from</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td id="p3-empty" width="16%"></td>
+                        <td width="16%"> tom</td>
+                        <td width="16%" id="p3-empty"></td>
+                        <td width="16%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>tillsvidare</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr id="tb-1" width="100%">
+                        <td width="10%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Heltid</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="10%"> Ange timmar per vecka</td>
+                        <td id="p3-empty">
+
+                        </td>
+                    </tr>
+                    <tr id="tb-1" width="100%">
+                        <td>
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Deltid</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td> ange timmar per vecka</td>
+                        <td id="p3-empty">
+
+                        </td>
+                        <td>Vilket ar</td>
+                        <td id="p3-empty">
+
+                        </td>
+                        <td> % av heltidstjänst</td>
+                    </tr>
+                    <tr id="tb-2" width="100%">
+                        <td width="25%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>varierande arbetstider</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr id="tb-1" width="100%">
+                        <td> Har arbetstagaren accepter? </td>
+                        <td>
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Ja</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Nej</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td> ange når han/hion tackade nej</td>
+                        <td id="p3-empty">
+
+                        </td>
+                    </tr>
+                </table>
+                <!-- 9 -->
+                <table id="Sec-1" width="100%">
+                    <h3>9 Arbetsgivarens (eller representants) underskrift-observera att blanketten fortsätter på nästa
+                        sida
+                    </h3>
+                    <tr id="tb-1">
+                        <td with="20%"></td>
+                        <td width="30%"></td>
+                        <td width="20%"></td>
+                        <td width="30%"></td>
+                    </tr>
+                    <tr id="tb-1">
+                        <td id="p3-empty">
+                            <p>Underskrift</p>
+                        </td>
+                        <td id="p3-empty"></td>
+                        <td id="p3-empty">
+                            <p>Namnfortydligande</p>
+                        </td>
+                        <td id="p3-empty"></td>
+                    </tr>
+                </table>
+            </div>
+        </page>
+        <!-- First page end -->
+
+        <!-- Second page start -->
+        <page size="A4">
+            <div id="all-page">
+                <!-- sec-10 -->
+                <table id="Sec-1" width="100%">
+                    <tr id="tb-1">
+                        <h3>10 Personnummer (10 siffror)</h3>
+                        <td id="p3-empty" width="33%"
+                            th:text="${row['person_nationalid']}" style="text-align: center;"></td>
+                        <td width="33%">
+                            <table id="Sec" width="50%">
+                                <tr id="tb">
+                                    <td id="p3-empty">1080052302</td>
+                                </tr>
+                                <tr id="tb">
+                                    <td>SO 10 (2012-05-04)</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td id="Sec" width="33%">
+                            <h2>Arbetsgivarintyg</h2>
+                        </td>
+                    </tr>
+                </table>
+                <!-- sec-11 -->
+                <table id="Sec-2" width="100%">
+                    <h3>11 Arbetab tid</h3>
+                    <tr id="tb-1" width="100%">
+                        <td width="30%">Den redovisade tiden nedan avser </td>
+                        <td width="15%"> from</td>
+                        <td width="20%" id="p3-empty">
+
+                        </td>
+                        <td style="text-align: center;" width="15%"> tom</td>
+                        <td width="20%" id="p3-empty">
+
+                        </td>
+                    </tr>
+                    <table id="secc-2" width="100%">
+                        <tr width="100%">
+                            <td width="10%">Ar</td>
+                            <td width="10%">Arbetade timmar (ej över, mer eller fyllnadstid)</td>
+                            <td width="10%">Overtid</td>
+                            <td width="10%">Frånvaro</td>
+                            <td width="10%">Mertid Fyllnadstid</td>
+                            <td width="10%">Ar</td>
+                            <td width="10%">Arbetade timmar (ej över, mer eller fyllnadstid)</td>
+                            <td width="10%">Frånvaro</td>
+                            <td width="10%">Overtid</td>
+                            <td width="10%">Mertid Fyllnadstid</td>
+                        </tr>
+                        <tr>
+                            <td>Jan</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Jan</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Fed</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Fed</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Mar</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Mar</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Apr</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Apr</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Maj</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Maj</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Jun</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Jun</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Jul</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Jul</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Aug</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Aug</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Sep</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Sep</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Okt</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Okt</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Nov</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Nov</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Dec</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Dec</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </table>
+                <table id="Sec-2" width="100%">
+                    <tr id="tb-1" width="100%">
+                        <td width="40%">Arbetstiden ovan har angivits i undervisningstimmar</td>
+                        <td width="10%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Nej</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="40%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Om ja, ange heltidsundervisningstimmar/vecka</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="15%" id="p3-empty">
+
+                        </td>
+                    </tr>
+                    <tr id="tb-2" width="100%">
+                        <td colspan="3">Om arbetet avser konstnarligt arbet ska aven antal arbetade dagar i respektive
+                            manad
+                            anges i faltet for arbetade dagar pa blanketten "Komplettering till arbetsgivarintyg".</td>
+                    </tr>
+                </table>
+                <!-- Sec-12 -->
+                <table class="ss-22" id="Sec-2" width="100%">
+                    <h3>12 Uppgifter om lönen</h3>
+                    <tr id="tb-1" width="100%">
+                        <td colspan="1">Lon avser är</td>
+                        <td colspan="6" id="p3-empty"></td>
+                    </tr>
+                    <tr id="tb-1" width="100%">
+
+                        <td width="15%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Månadsion</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="15%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Veckoton</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="15%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Dagion</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="15%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Timlon</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="width: 25%;" id="p3-empty"></td>
+                        <td width="20%">Belopp I kronor</td>
+                    </tr>
+
+                    <tr id="tb-2" width="100%">
+                        <td colspan="2">Har timlönen for overtids-, mertids eller fyllnadsarbetet varierat?</td>
+                        <td colspan="2">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Nej</td>
+                                    <td>Ange ditt timpris nedan</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td colspan="3">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Ja-visa månadslön Blankett "Tillägg till arbetsintyget"</td>
+                                </tr>
+                            </table>
+                        </td>
+
+                    </tr>
+
+                    <tr id="tb-1" width="100%">
+                        <td colspan="1">Overtid, ange</td>
+                        <td colspan="1" id="p3-empty">
+
+                        </td>
+                        <td style="text-align: center;" colspan="3"> kronor/tim Mertid/fyllnadstid, ange</td>
+                        <td colspan="1" id="p3-empty">
+
+                        </td>
+                        <td>kronor/tim</td>
+                    </tr>
+                    <tr id="tb-2">
+                        <td colspan="3">Lon utöver månads-, vecko-, dag- eller fimión (ex jour- eller OB ersättning,
+                            gage ei
+                            dyl) och andra skattepliktiga ersättningar som inte ingår den ovan angivna lönen?</td>
+                        <td>
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Nej</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td colspan="4">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Ja-Anmäl den månadslönen i form av "Fullt anställningsbevis"</td>
+                                </tr>
+                            </table>
+                        </td>
+
+                    </tr>
+                </table>
+                <!-- sec-13 -->
+                <table id="Sec-2" width="100%">
+                    <h3>13 Uppehällstön och fertelön (endast vid läsårsanknuten verksamhet)</h3>
+                    <tr id="tb-2" width="100%">
+                        <td width="18%">Anställd med ferielon</td>
+                        <td width="0%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Nej</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="0%">
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Ja</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="20%">Om ja ange intjanad uppehallslon i kronor</td>
+                        <td width="10%" id="p3-empty" style="border: 1px solid black;"></td>
+                        <td width="18%">Ange betald ferielon i kronor</td>
+                        <td width="14%" id="p3-empty" style="border: 1px solid black;"></td>
+                    </tr>
+                    <tr id="tb-1">
+                        <td colspan="2">Anställd med uppehällision </td>
+                        <td>
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Nej</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table id="Sec-1" width="100%">
+                                <tr class="tddd-s">
+                                    <td class="cc-td-chb"></td>
+                                    <td>Ja</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td colspan="2">Om ja ange intjanad uppehallslon i kronor</td>
+                        <td id="p3-empty">
+
+                        </td>
+                    </tr>
+                </table>
+                <!-- Sec-14 -->
+                <table id="Sec-2" width="100%">
+                    <h3>14 Övriga upplysningar</h3>
+                    <tr id="tb-2" width="100%">
+                        <td>100 % provisionsbaserad lön</td>
+                    </tr>
+                </table>
+                <!-- Sec-15 -->
+                <table id="Sec-2" width="100%">
+                    <h3>15 Arbetsgivarens (eller representants) underskrift</h3>
+                    <tr id="tb-2" width="100%">
+                        <td width="15%">Arbetsgivarens</td>
+                        <td width="20%" id="p3-empty">
+                            <table id="Sec-1" width="100%">
+                                <tr id="tb-1">
+                                    <td id="p3-empty"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr id="tb-1" width="100%">
+                        <td width="10%">Organisationsnummer</td>
+                        <td width="50%" id="p3-empty">
+
+                        </td>
+                    </tr>
+                </table>
+                <table id="secc-22" width="100%">
+                    <tr width="100%">
+                        <td width="20%">Datum</td>
+                        <td width="20%">Underskrift</td>
+                        <td width="20%">Namnfortydligande</td>
+                        <td width="20%">Telefonnummber till uppgiftslamnaren</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </page>
+        <!-- Second page end -->
+
+        <!-- third page start -->
+        <!-- page3 -->
+        <page size="A4">
+            <div id="all-page">
+                <table id="Sec-1" width="100%">
+                    <tr id="tb-1">
+                        <td width="20%">
+                        </td>
+                        <td id="Sec" width="50%">
+                            <h2>Komplettering av Arbetsgivarintyg</h2>
+                        </td>
+                    </tr>
+                </table>
+                <h3>OBS! Denna komplettering ska endast fyllas i och skickas med om det behövs!</h3>
+                <p>Här ska anges ersättningar som inte anges på huvudblanketten "Arbetsgivarintyg". Endast ersättningar
+                    som beskattas som
+                    inkomst av tjänst ska tas upp.
+                </p>
+                <table id="secc-2" width="100%">
+                    <h3> 1 Personuppgifter</h3>
+                    <tr width="100%">
+                        <td width="33%">Arbetstagarens efternamn</td>
+                        <td width="33%">Förnamn</td>
+                        <td width="33%">Personnummer (10 siffror)</td>
+                    </tr>
+                    <tr>
+                        <td th:text="${row['person_lastname']}">&nbsp;</td>
+                        <td th:text="${row['person_firstname']}">&nbsp;</td>
+                        <td th:text="${row['person_nationalid']}">&nbsp;</td>
+                    </tr>
+                </table>
+                <table id="secc-2" width="100%">
+                    <h3> 2 Ersättningar som beskattas som inkomst av tjänst</h3>
+                    <tr width="100%">
+                        <td rowspan="2">Ar/manad(AAAAMM)</td>
+                        <td rowspan="2">Antal arbetade dagar</td>
+                        <td colspan="2">Beredskap/Jourtid</td>
+                        <td colspan="2"> Annan ersättning</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;Timmar</td>
+                        <td>&nbsp;Kr/manad</td>
+                        <td>&nbsp;Ange art</td>
+                        <td>&nbsp;Kr/manad</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+                <table id="secc-2" width="100%">
+                    <h3> 3 Arbetsgivarens (eller representants) underskrift</h3>
+                    <tr>
+                        <td width="20%"> Arbetsgivarens namn</td>
+                        <td></td>
+                        <td width="20%">Organisationsnummer</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp; Arbetsgivarens adress</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp; Telefonnummer till uppgiftslämnaren</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+                <table id="secc-2" width="100%">
+                    <tr>
+                        <td>&nbsp;Ort</td>
+                        <td>&nbsp;Datum</td>
+                        <td>&nbsp;Underskrift</td>
+                        <td>&nbsp;Namnfortydligande</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+
+
+
+
+
+
+
+            </div>
+        </page>
+        <!-- third page end -->
+    </th:block>
+</body>
+
+</html>

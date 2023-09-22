@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweden: Employer certificate</title>
+</head>
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+        font-family: Verdana, Arial, sans-serif;
+        color: black;
+    }
+
+    /* Page */
+    page {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 0.5cm;
+        background: white;
+        /*box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);*/
+    }
+
+    page[size="A4"] {
+        width: 21cm;
+        height: 29.7cm;
+    }
+
+    page[size="A4"][layout="landscape"] {
+        width: 29.7cm;
+        height: 21cm;
+    }
+
+    page[size="A3"] {
+        width: 29.7cm;
+        height: 42cm;
+    }
+
+    page[size="A3"][layout="landscape"] {
+        width: 42cm;
+        height: 29.7cm;
+    }
+
+    page[size="A5"] {
+        width: 14.8cm;
+        height: 21cm;
+    }
+
+    page[size="A5"][layout="landscape"] {
+        width: 21cm;
+        height: 14.8cm;
+    }
+
+    #all-page {
+        margin: 5px;
+        padding: 5px;
+        font-size: 11px;
+        /* height: 950px; */
+    }
+
+    #Sec-1 {
+        padding: 5px;
+        border-collapse: collapse !important;
+    }
+
+    h3 {
+        margin: 10px;
+    }
+
+    #tb-1 #p3-empty {
+        width: 15px;
+        border: 1px solid black;
+
+    }
+
+    .diff table {
+        margin-left: 5px;
+        height: 24px;
+        width: 150px;
+    }
+
+    #Sec-1 .tddd-s .cc-td-chb {
+        width: 10px;
+        height: 1px;
+        border: 1px solid black;
+        margin-left: 10px;
+    }
+
+    #he-2 {
+        height: 5px;
+    }
+
+    .cell-sp {
+        padding-left: 10px;
+    }
+
+    #tb-1 .pp-f {
+        padding-left: 5px;
+    }
+
+    #Sec-1 .tddd-s td {
+        padding-left: 5px;
+    }
+
+    #tb-1 #p3-empty p {
+        text-align: center;
+    }
+
+
+
+
+    #tb-2 {
+        margin: 15px;
+
+    }
+
+    #tb-2 #p4-empty {
+        border: 1px solid black;
+        height: 5px;
+
+    }
+
+    #pempty {
+        height: 5px;
+        border-collapse: collapse;
+    }
+
+    #empty {
+        height: 5px;
+        width: 150px;
+        border: 1px solid black;
+
+    }
+
+    #p88-empty {
+        width: 20%;
+        border: 1px solid black;
+        height: 25px;
+    }
+
+
+
+    /* page2*/
+    #Sec {
+        margin-left: 60px;
+        text-align: center;
+    }
+
+    #tb-1 #tb {
+        margin-left: 60px;
+
+    }
+
+    #Sec h2 {
+
+        margin-left: 100px;
+
+
+    }
+
+    #secc-2 {
+        border-collapse: collapse;
+        text-align: center;
+    }
+
+    #secc-2 tr td {
+        border: 1px solid black;
+        margin: 1px;
+        padding: 2px;
+
+    }
+
+    #secc-22 {
+        border-collapse: collapse;
+    }
+
+    #secc-22 tr td {
+        border: 1px solid black;
+        padding: 10px;
+    }
+
+    .ss-22 tr td {
+        margin: 2px;
+    }
+
+    /* my css */
+    .row1 {
+        display: flex;
+    }
+
+    #Sec-2 .row-1 {
+        display: flex;
+
+    }
+
+    #Sec-2 .col-2 {
+        display: flex;
+        width: 60%;
+    }
+
+    #Sec-2 {
+        /* border: 1px solid black; */
+        padding: 4px;
+        width: 100%;
+
+    }
+
+    .row-1 {
+        display: flex;
+        background: #9bbbda
+    }
+
+    #Sec-3 {
+        /* width:"100%"; */
+    }
+
+    .Sec-3-row-1 {
+        background: #9bbbda
+    }
+
+    .Sec-3-tblrow {
+        display: flex;
+        background: #9bbbda
+    }
+
+    .tbl-content {
+        background-color: white;
+        margin: 8px 8px 8px;
+    }
+
+    .tbl-content-sec3 {
+        background-color: white;
+        margin: 8px 8px 8px;
+    }
+
+    .block-content {
+        background-color: white;
+        margin: 8px 8px 8px;
+        display: flex;
+        width: 100%;
+    }
+
+    .vertical-heading {
+        writing-mode: vertical-rl;
+        /* Set the text direction to vertical right-to-left */
+        text-orientation: mixed;
+        /* Specify the orientation of the text */
+        white-space: nowrap;
+        /* Prevent text from wrapping */
+        transform: rotate(-180deg);
+        /* Rotate the text to make it readable */
+        /* transform-origin: top left; Set the rotation origin */
+        width: 1em;
+        /* Set the width to control the spacing */
+        position: relative;
+        /* Position it as needed */
+        top: -8 px;
+        /* Adjust the vertical position if necessary */
+        left: 0;
+        /* Adjust the horizontal position if necessary */
+        font-weight: bold;
+    }
+
+    .vertical-heading2 {
+        writing-mode: vertical-rl;
+        /* Set the text direction to vertical right-to-left */
+        text-orientation: mixed;
+        /* Specify the orientation of the text */
+        white-space: nowrap;
+        /* Prevent text from wrapping */
+        transform: rotate(-180deg);
+        /* Rotate the text to make it readable */
+        /* transform-origin: top left; Set the rotation origin */
+        width: 1em;
+        /* Set the width to control the spacing */
+        position: relative;
+        /* Position it as needed */
+        top: -8 px;
+        /* Adjust the vertical position if necessary */
+        left: -6px;
+        /* Adjust the horizontal position if necessary */
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <br>
+    <!-- First page start -->
+    <th:block th:each="row : ${report.rows}">
+        <page size="A4">
+            <div id="all-page">
+                <!-- sec-1 -->
+                <table id="Sec-1">
+                    <div class="row1">
+                        <div class="col-1">
+                            <img style="height:100px;" src="./logo.png" alt="">
+                        </div>
+                        <div class="col-2">
+                            <!-- <img style="width: 168px;height: 100px;" src="./css/logo2.png" alt=""> -->
+                        </div>
+                        <div class="col-3" style="background-color: cornflowerblue;width: 359px;text-align: center;">
+                            <b style="font-size: 15px;color: white">Retenciones e ingresos a cuenta del IRPF</b>
+                            <p style="font-size: 10px;color: white">Rendimientos del trabajo y de actividades
+                                económicas, premios y determinadas ganancias patrimoniales e imputaciones de renta
+                                Autoliquidación
+                            </p>
+                        </div>
+                        <div class="col-4" style="background-color: rgb(201, 223, 241);">
+                            <h3>modelo</h3>
+                            <h1><b>111</b></h1>
+                        </div>
+
+                    </div>
+                </table>
+                <!-- sec-2 -->
+                <table id="Sec-2">
+                    <div class="row-1" style="background-color: #9bbbda;">
+                        <label class="vertical-heading">Declarante (1)</label>
+                        <div class="col-1" style="background-color: white;margin: 8px 8px 8px;display: block;">
+                            <div class="col-1"
+                                style="background-color: white;;margin: 8px 8px 8px; border: 3px dotted black;">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum repudiandae molestiae qui
+                                doloremque quidem repellat deserunt, ex culpa quam magni numquam asperiores excepturi
+                                eligendi facilis reprehenderit modi omnis veritatis temporibus.
+                            </div>
+                        </div>
+
+                        <div class="col-2">
+                            <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, cumque soluta id
+                                magni aut quae maiores? Hic nemo ducimus numquam dolorum quam! Vel enim alias saepe
+                                porro, numquam recusandae animi!</div>
+                            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nostrum non saepe
+                                dolore iure ab nihil praesentium cupiditate ducimus nisi! Ipsam omnis adipisci cumque
+                                beatae reiciendis ipsa atque animi voluptas.</div>
+                        </div>
+                    </div>
+                </table>
+                <div id="Sec-3">
+                    <div class="Sec-3-row-1">
+                        <div class="Sec-3-tblrow">
+                            <label class="vertical-heading">Liquidación (3)</label>
+                            <div class="tbl-content">
+                                <h4>I. Rendimientos del trabajo</h4>
+                                <table id="Sec-2" width="100%">
+                                    <tr id="tb-1" >
+                                        <td width="25%">Change as per your request</td>
+                                        <td width="25%" id="p3-empty">
+                                            <div style="float: left;border-right: 1px solid black;">01</div>
+                                        </td>
+                                        <td width="25%" id="p3-empty">
+                                            <div style="float: left;border-right: 1px solid black;">02</div>
+                                        </td>
+                                        <td width="25%" id="p3-empty">
+                                            <div style="float: left;border-right: 1px solid black;">03</div>
+                                        </td>
+                                    </tr>
+                                </table>
+
+
+                                <table>
+                                    <tr>
+                                        <td>Rendimientos dinerarios ...... </td>
+
+                                        <td>
+                                            <label style="font-size: 6px;color: #7b6868;">N.º de perceptores</label>
+                                            <br><input type="text" style="border: 1px solid black;">
+
+                                        </td>
+
+                                        <td><label style="font-size: 6px;color: #7b6868;">Importe de las
+                                                percepciones</label> <br><input type="text"
+                                                style="border: 1px solid black;"></td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">mporte de las
+                                                retenciones</label> <br><input type="text"
+                                                style="border: 1px solid black;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rendimientos en especie ...... </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">N.º de perceptores</label>
+                                            <br><input type="text" style="border: 1px solid black;">
+                                        </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">Valor percepciones en
+                                                especie</label> <br><input type="text" style="border: 1px solid black;">
+                                        </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">Importe de los ingresos a
+                                                cuenta </label> <br><input type="text" style="border: 1px solid black;">
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <br>
+                                <h4>II. Rendimientos de actividades económicas</h4>
+                                <table>
+                                    <tr>
+                                        <td>Rendimientos dinerarios ...... </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">N.º de perceptores</label>
+                                            <br><input type="text" style="border: 1px solid black;">
+                                        </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">Importe de las
+                                                percepciones</label> <br><input type="text"
+                                                style="border: 1px solid black;"></td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">mporte de las
+                                                retenciones</label> <br><input type="text"
+                                                style="border: 1px solid black;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rendimientos en especie ...... </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">N.º de perceptores</label>
+                                            <br><input type="text" style="border: 1px solid black;">
+                                        </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">Valor percepciones en
+                                                especie</label> <br><input type="text" style="border: 1px solid black;">
+                                        </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">Importe de los ingresos a
+                                                cuenta </label> <br><input type="text" style="border: 1px solid black;">
+                                        </td>
+                                    </tr>
+                                </table><br>
+                                <h4>III. Premios por la participación en juegos, concursos, rifas o combinaciones
+                                    aleatorias
+                                </h4>
+                                <table>
+                                    <tr>
+                                        <td>Premios en metálico...... </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">N.º de perceptores</label>
+                                            <br><input type="text" style="border: 1px solid black;">
+                                        </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">Importe de las
+                                                percepciones</label> <br><input type="text"
+                                                style="border: 1px solid black;"></td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">mporte de las
+                                                retenciones</label> <br><input type="text"
+                                                style="border: 1px solid black;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Premios en especie ...... </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">N.º de perceptores</label>
+                                            <br><input type="text" style="border: 1px solid black;">
+                                        </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">Valor percepciones en
+                                                especie</label> <br><input type="text" style="border: 1px solid black;">
+                                        </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">Importe de los ingresos a
+                                                cuenta </label> <br><input type="text" style="border: 1px solid black;">
+                                        </td>
+                                    </tr>
+                                </table><br>
+                                <h4>IV. Ganancias patrimoniales derivadas de los aprovechamientos forestales de los
+                                    vecinos en montes públicos </h4>
+                                <table>
+                                    <tr>
+                                        <td>Percepciones dinerarias...... </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">N.º de perceptores</label>
+                                            <br><input type="text" style="border: 1px solid black;">
+                                        </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">Importe de las
+                                                percepciones</label> <br><input type="text"
+                                                style="border: 1px solid black;"></td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">mporte de las
+                                                retenciones</label> <br><input type="text"
+                                                style="border: 1px solid black;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Percepciones en especie ...... </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">N.º de perceptores</label>
+                                            <br><input type="text" style="border: 1px solid black;">
+                                        </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">Valor percepciones en
+                                                especie</label> <br><input type="text" style="border: 1px solid black;">
+                                        </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">Importe de los ingresos a
+                                                cuenta </label> <br><input type="text" style="border: 1px solid black;">
+                                        </td>
+                                    </tr>
+                                </table><br>
+                                <h4>V. Contraprestaciones por la cesión de derechos de imagen: ingresos a cuenta
+                                    previstos en el artículo 92.8 de la Ley del Impuesto</h4>
+                                <table>
+                                    <tr>
+                                        <td>Percepciones dinerarias...... </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">N.º de perceptores</label>
+                                            <br><input type="text" style="border: 1px solid black;">
+                                        </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">Importe de las
+                                                percepciones</label> <br><input type="text"
+                                                style="border: 1px solid black;"></td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">mporte de las
+                                                retenciones</label> <br><input type="text"
+                                                style="border: 1px solid black;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Percepciones en especie ...... </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">N.º de perceptores</label>
+                                            <br><input type="text" style="border: 1px solid black;">
+                                        </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">Valor percepciones en
+                                                especie</label> <br><input type="text" style="border: 1px solid black;">
+                                        </td>
+                                        <td><label style="font-size: 6px;color: #7b6868;">Importe de los ingresos a
+                                                cuenta </label> <br><input type="text" style="border: 1px solid black;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Sec-3-row-1">
+                        <div class="Sec-3-tblrow">
+                            <div class="block-content">
+                                <div class="tbl-content" style="width: 100%;display: flex;">
+                                    <h4 style="width: 35%;">Total liquidación:</h4>
+                                    <table>
+                                        <tr>
+                                            <td>Suma de retenciones e ingresos a cuenta (03+ 06+ 09+ 12+ 15+
+                                                18+ 21+ 24+ 27) ..</td>
+                                            <td><br><input type="text" value="64.943,41"
+                                                    style="border: 1px solid black;"></td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>A deducir (exclusivamente en caso de autoliquidación
+                                                complementaria):
+                                                Resultados a ingresar de anteriores autoliquidaciones por el mismo
+                                                concepto, ejercicio y período .....................</td>
+                                            <td><br><input type="text" style="border: 1px solid black;"></td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Resultado a ingresar ( 28 – 29 )..................</b></td>
+                                            <td><br><input type="text" value="64.943,41"
+                                                    style="border: 1px solid black;"></td>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- sec3 -->
+                <div style="padding: 5px;border-collapse: collapse !important;display:flex">
+                    <div class="last-row" style="padding: 5px;border-collapse: collapse !important;">
+                        <div style="background-color: #9bbbda; padding: 8px 8px 8px 8px;display: flex;">
+                            <label class="vertical-heading2">Declaranteww (1)</label>
+                            <div style="background-color: white;">
+                                <div>
+                                    <b>Ingreso efectuado a favor del Tesoro público.</b> Cuenta restringida de
+                                    colaboración en
+                                    la recaudación de la AEAT de declaraciones-liquidaciones o autoliquidaciones.
+                                </div>
+                                <br>
+                                <div style="display: flex;">
+                                    Importe del ingreso: <input type="text" value="64.943,41"
+                                        style="border: 1px solid black;">
+                                </div>
+                                <br>
+                                <div style="display: flex;">
+                                    Forma de pago:<input type="text" value="DOMICILIACIÓN"
+                                        style="border: 1px solid black;">
+                                </div><br><br>
+                                <textarea name="" id="" placeholder="ES9001510001610079100073" cols="30" rows="4"
+                                    style="border: 1px solid black;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="last-row" style="padding: 5px;border-collapse: collapse !important;">
+
+                        <div style="background-color: #9bbbda; padding: 8px 8px 8px 8px;display: flex;">
+                            <label class="vertical-heading2">Negativa (5)</label>
+
+                            <div style="background-color: white;">
+                                <input type="checkbox" id="demo" name="demo" value="Boat"><label for="">Autoliquidación
+                                    negativa</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="padding: 5px;border-collapse: collapse !important;display:flex">
+                    <div class="last-row" style="padding: 5px;border-collapse: collapse !important;">
+                        <div style="background-color: #9bbbda; padding: 8px 8px 8px 8px;display: flex;">
+                            <label class="vertical-heading">Firma (7)</label>
+                            <div style="background-color: white;">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores exercitationem, totam
+                                debitis error molestias ab odit culpa consequuntur aliquam accusantium quos excepturi
+                                ipsa dicta amet et cum odio ducimus repellat.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="last-row" style="padding: 5px;border-collapse: collapse !important;">
+                        <div style="background-color: #9bbbda; padding: 8px 8px 8px 8px;display: flex;">
+                            <label class="vertical-heading2">Complementaria (6)</label>
+                            <div style="display:block;background-color: white;">
+                                <div>
+                                    Si esta autoliquidación es complementaria de otra autoliquidación anterior
+                                    correspondiente al mismo concepto, ejercicio y período, indíquelo marcando
+                                    con una "X" esta casilla
+                                </div>
+                                <div>
+                                    Autoliquidación complementariain <input type="checkbox">
+                                </div>
+                                <div>
+                                    En este caso, consigne a continuación el número de justifi cante identifi cativo
+                                    de la autoliquidación anterior. <br>
+                                    <br>
+                                    <b>Nº de justifi cante:<input type="text" value=""></b>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </page>
+
+
+    </th:block>
+</body>
+
+</html>
+
+<div>
+    <div>
+        <div></div>
+    </div>
+    <div></div>
+</div>
+apps-fileview.texmex_20230817.01_p1
+demo.html
+Displaying demo.html.

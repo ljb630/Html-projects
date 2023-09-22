@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title> Report Title</title>
+    <style type="text/css">
+        * {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 10px;
+        }
+
+        small {
+            font-size: 10px;
+        }
+
+        hr {
+            height: 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        h3 {
+            font-size: 16px;
+        }
+
+        h2 {
+            font-size: 14px;
+        }
+
+        table {
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+            page-break-after: auto;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            text-align: right;
+        }
+
+        table:last-child {
+            margin-bottom: 0;
+        }
+
+        thead {
+            display: table-header-group;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            page-break-after: auto;
+        }
+
+        table tbody tr td:before,
+        table tbody tr td:after,
+        table tfoot tr th:before,
+        table tfoot tr th:after {
+            content: "";
+            height: 1px;
+            display: block;
+        }
+
+        table>thead>tr.caption>td {
+            background: #aaa;
+            border-bottom: 1px solid #000;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 3px;
+            text-align: center;
+        }
+
+        .margin-top {
+            margin-top: -11px;
+        }
+
+        .table {
+            border: 1px solid #000;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .table>thead>tr>th,
+        .table>tbody>tr>th,
+        .table>tfoot>tr>th {
+            background: #ddd;
+            text-align: left;
+        }
+
+        .table>tbody>tr>td,
+        .table>tbody>tr>th,
+        .table>tfoot>tr>th,
+        .table>thead>tr>th {
+            border: 1px solid black;
+            vertical-align: top;
+            border-bottom: 1px solid #000;
+            padding: 4px;
+        }
+
+        .table>thead>tr>th {
+            font-weight: bold;
+        }
+
+        .table>tbody>tr.important>td {
+            background-color: #f8f8f8;
+            font-weight: bold;
+        }
+
+        .infobox {
+            border: 1px solid #ccc;
+        }
+
+        .table-2col>tbody>tr>td {
+            width: 50%;
+        }
+
+        .table-3col>tbody>tr>td {
+            width: 33%;
+        }
+
+        .table-4col>tbody>tr>td {
+            width: 25%;
+        }
+
+        .text-center {
+            text-align: center !important;
+        }
+
+        .text-right {
+            text-align: right !important;
+        }
+
+        .text-left {
+            text-align: left !important;
+        }
+
+        .text-bold {
+            font-weight: bold;
+        }
+
+        .bg-attention {
+            background-color: #f2dede;
+        }
+
+        .document-footer {
+            margin-top: 20px;
+        }
+
+        .document-footer p {
+            font-size: 9px;
+            text-align: center;
+        }
+
+        .details-table {
+            border: 1px solid #000;
+            border-spacing: 0;
+        }
+
+        .details-table>tbody>tr>td:last-child {
+            border-right: 0;
+        }
+
+        .details-table>tbody>tr>td {
+            padding: 4px;
+            vertical-align: top;
+            width: 50%;
+        }
+
+        .details-table>tbody>tr>td:first-child {
+            background: #ddd;
+            border-right: 1px solid #000;
+            font-weight: bold;
+        }
+
+        .details-table>tbody>tr>td:last-child {
+            text-align: right;
+        }
+
+        img.logo {
+            max-width: 300px;
+            max-height: 120px;
+        }
+
+        thead {
+            display: table-header-group;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            page-break-after: auto;
+        }
+
+        thead>tr>th,
+        tfoot>tr>th {
+            font-size: 10px;
+        }
+
+        .footer-total,
+        .footer-total>strong {
+            font-size: 15px;
+        }
+
+        .table-left {
+            width: 49%;
+            float: left;
+        }
+
+        .table-right {
+            width: 49%;
+            float: right;
+        }
+
+        .text-center {
+            text-align: center !important;
+        }
+
+        .text-right {
+            text-align: right !important;
+        }
+
+        .text-left {
+            text-align: left !important;
+        }
+
+        .border-none>tr>th {
+            border: none !important;
+        }
+
+        .border-none>th {
+            border: none !important;
+        }
+
+        .border-none {
+            border: none !important;
+        }
+
+        .border-right {
+            border-right: 1px solid black !important;
+        }
+
+        span {
+            font-size: 10px;
+            margin-right: 2px;
+        }
+
+        .last {
+            margin-right: 3px;
+        }
+
+        .border-none {
+
+            background: #ddd;
+        }
+    </style>
+</head>
+
+
+<body>
+    <page size="A4">
+        <div id="all-page" style="margin-bottom:20px;margin-top:30px;overflow:visible !important;">
+            <h2 class="sub-tab-clor"> December Summary Book </h2>
+            <table id="tab-1" style="width: 100%;">
+                <tr class="border-none">
+                    <th colspan="4" class="text-center">
+                        <h3 th:text="${label}"></h3>
+                    </th>
+                    <th colspan="6" class="text-right"></th>
+                </tr>
+                <tr class="border-none">
+                    <th class="text-left">HRB-PRD</th>
+                    <th class="text-center" th:text="${#dateUtil.formatDate(payroll.end_date, 'MMMM yyyy')}">
+                    </th>
+                    <th class="text-right">Country: <span th:text="${legal_entity.country}"></span></th>
+                </tr>
+                <tr class="border-none">
+                    <th class="text-left">Report date: <span
+                            th:text="${#dates.format(#dates.createNow(), 'dd/MM/yyyy HH:mm:ss')}"></span></th>
+                    <th class="text-center" th:text="${legal_entity.legal_name}"></th>
+                    <th class="text-right">Generated By: <span th:text="${actor_employee.name}"></span>
+                    </th>
+                </tr>
+                <tr class="sub-tab-clor" width="100%">
+                    <th class="text-right">Nr</th>
+                    <th style="width: 100px;">Benamning</th>
+                    <th style="width: 100px;">Konto</th>
+                    <th style="width: 100px;">Antal</th>
+                    <th style="width: 100px;">Belopp</th>
+                </tr>
+                <tbody>
+                    <tr th:each="row : ${report['row_section']['rows_by_identifier']['data'][0]}">
+                        <td colspan="1" class="text-right vertical-align-middle" th:text="${row.value['nr']}"> 62100
+                        </td>
+                        <td class="text-right vertical-align-middle" th:text="${row.value['benamning']}">Basic Salary
+                        </td>
+                        <td class="text-right vertical-align-middle" th:text="${row.value['konto']}"> 1219</td>
+                        <td class="text-right vertical-align-middle" th:text="${row.value['antal']}">8731254</td>
+                        <td class="text-right vertical-align-middle" th:text="${row.value['belopp']}">871253</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+        <div class="document-footer">
+            <p class="text-center">***&nbsp;<strong>End of Report</strong>&nbsp;***</p>
+            <p>Generated by Mercans</p>
+            <p>&copy; All rights reserved</p>
+        </div>
+    </page>
+</body>
+
+</html>
